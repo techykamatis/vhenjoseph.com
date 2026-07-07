@@ -3,12 +3,17 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Vhen Joseph Fernandez — Field Manual</title>
-<meta name="description" content="Vhen Joseph Fernandez — AI product engineering leader in Kuala Lumpur. Fourteen years shipping production systems; now building the AI-native stack and the agents that run it." />
-<meta name="author" content="Vhen Joseph Fernandez" />
-<meta property="og:title" content="Vhen Joseph Fernandez — Engineering Field Manual" />
+<title>Vhen Joseph — Field Manual</title>
+<meta name="description" content="Vhen Joseph — AI product engineering leader in Kuala Lumpur. Fourteen years shipping production systems; now building the AI-native stack and the agents that run it." />
+<meta name="author" content="Vhen Joseph" />
+<meta name="theme-color" content="#f2ede2" />
+<meta property="og:title" content="Vhen Joseph — Engineering Field Manual" />
 <meta property="og:description" content="AI product engineering leader. Building the AI-native stack and the agents that run it." />
 <meta property="og:type" content="website" />
+<meta property="og:url" content="https://vhenjoseph.com" />
+<meta name="twitter:card" content="summary" />
+<link rel="canonical" href="https://vhenjoseph.com" />
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" fill="%23191712"/><rect x="3" y="3" width="26" height="26" fill="none" stroke="%23df3c14" stroke-width="1"/><text x="16" y="23" font-family="ui-monospace,monospace" font-size="19" fill="%23df3c14" text-anchor="middle" font-weight="700">V</text></svg>' />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..700&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -18,10 +23,11 @@
     --paper2:#ebe4d6;
     --ink:#191712;
     --ink2:#3b362d;
-    --dim:#7a7264;
-    --accent:#df3c14;
+    --dim:#6f6656;
+    --accent:#d5330f;
     --line:rgba(25,23,18,.16);
     --line2:rgba(25,23,18,.08);
+    --ease:cubic-bezier(.2,.7,.2,1);
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -31,6 +37,8 @@
     font-family:'Space Grotesk',system-ui,sans-serif;
     font-size:17px;line-height:1.55;
     -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    font-variant-numeric:tabular-nums;
     overflow-x:hidden;
   }
   body::before{ /* faint paper grain */
@@ -40,19 +48,45 @@
   }
   ::selection{background:var(--accent);color:var(--paper)}
   a{color:inherit;text-decoration:none}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
   .mono{font-family:'JetBrains Mono',monospace}
   .serif{font-family:'Fraunces',Georgia,serif}
+  h1,h2,h3{text-wrap:balance}
+  p{text-wrap:pretty}
   .wrap{position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 clamp(20px,5vw,64px)}
   .rule{height:1px;background:var(--ink);opacity:.85}
   .rule.thin{background:var(--line)}
 
+  /* ---- skip link ---- */
+  .skip{position:fixed;left:-999px;top:8px;z-index:200;background:var(--ink);color:var(--paper);
+    font-family:'JetBrains Mono',monospace;font-size:12px;padding:10px 16px}
+  .skip:focus{left:8px}
+
+  /* ---- scroll progress ---- */
+  .progress{position:fixed;top:0;left:0;height:2px;width:100%;z-index:60;transform:scaleX(0);
+    transform-origin:0 50%;background:var(--accent)}
+
+  /* ---- corner registration marks (field-manual print feel) ---- */
+  .crop{position:fixed;z-index:55;width:16px;height:16px;pointer-events:none;opacity:.5;
+    border-color:var(--ink);border-style:solid;border-width:0}
+  .crop.tl{top:12px;left:12px;border-top-width:1px;border-left-width:1px}
+  .crop.tr{top:12px;right:12px;border-top-width:1px;border-right-width:1px}
+  .crop.bl{bottom:12px;left:12px;border-bottom-width:1px;border-left-width:1px}
+  .crop.br{bottom:12px;right:12px;border-bottom-width:1px;border-right-width:1px}
+  @media(max-width:760px){.crop{display:none}}
+
   /* ---- masthead ---- */
-  header.mast{position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:1px solid var(--ink)}
+  header.mast{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--paper) 90%,transparent);
+    backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--ink)}
   .mast .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
   .mast .name{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:1.5px;font-weight:700;text-transform:uppercase}
   .mast nav{display:flex;gap:26px;font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.5px;text-transform:uppercase}
-  .mast nav a{color:var(--ink2);transition:color .18s}
+  .mast nav a{color:var(--ink2);transition:color .18s;position:relative;padding:4px 0}
+  .mast nav a::after{content:'';position:absolute;left:0;right:100%;bottom:-2px;height:1.5px;
+    background:var(--accent);transition:right .28s var(--ease)}
   .mast nav a:hover{color:var(--accent)}
+  .mast nav a[aria-current="true"]{color:var(--ink)}
+  .mast nav a[aria-current="true"]::after,.mast nav a:hover::after{right:0}
   .kbd{border:1px solid var(--line);border-radius:5px;padding:3px 8px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);cursor:pointer;transition:.18s;white-space:nowrap}
   .kbd:hover{border-color:var(--accent);color:var(--accent)}
   @media(max-width:760px){.mast nav{display:none}}
@@ -73,7 +107,7 @@
   .hero h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(42px,8.2vw,104px);line-height:.98;letter-spacing:-2px}
   .hero h1 em{font-style:italic;color:var(--accent);font-weight:400}
   .hero-grid{display:grid;grid-template-columns:1.55fr .95fr;gap:clamp(30px,6vw,72px);align-items:end;margin-top:44px}
-  .hero-lead{font-size:clamp(17px,2.3vw,21px);color:var(--ink2);max-width:34ch}
+  .hero-lead{font-size:clamp(17px,2.3vw,21px);color:var(--ink2);max-width:36ch}
   .hero-lead strong{color:var(--ink);font-weight:600}
   .spec{font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.9;border-left:2px solid var(--accent);padding-left:18px;color:var(--ink2)}
   .spec .k{color:var(--dim)}
@@ -83,7 +117,7 @@
   @media(max-width:760px){.hero-grid{grid-template-columns:1fr;gap:34px}}
 
   /* ---- section scaffold ---- */
-  section{padding:clamp(60px,9vw,110px) 0;position:relative}
+  section{padding:clamp(60px,9vw,110px) 0;position:relative;scroll-margin-top:70px}
   .sechead{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:baseline;margin-bottom:48px}
   .secno{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);letter-spacing:1px;padding-top:10px}
   .sechead h2{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(28px,5vw,52px);line-height:1;letter-spacing:-1px}
@@ -94,6 +128,7 @@
   @media(max-width:760px){.cols2{grid-template-columns:1fr;gap:28px}}
   .lede{font-family:'Fraunces',serif;font-size:clamp(21px,3.2vw,30px);line-height:1.28;font-weight:400;letter-spacing:-.3px}
   .lede em{font-style:italic;color:var(--accent)}
+  .body-copy{max-width:62ch}
   .body-copy p{color:var(--ink2);margin-bottom:18px}
   .body-copy p strong{color:var(--ink);font-weight:600}
   .principle{border-top:2px solid var(--ink);margin-top:26px;padding-top:16px;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.7;color:var(--ink2)}
@@ -102,7 +137,7 @@
   /* ---- R&D cards ---- */
   .rd{display:grid;grid-template-columns:1fr 1fr;gap:26px}
   @media(max-width:760px){.rd{grid-template-columns:1fr}}
-  .card{border:1px solid var(--ink);background:var(--paper2);padding:clamp(24px,3vw,36px);position:relative;transition:transform .3s,box-shadow .3s}
+  .card{border:1px solid var(--ink);background:var(--paper2);padding:clamp(24px,3vw,36px);position:relative;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
   .card:hover{transform:translate(-4px,-4px);box-shadow:8px 8px 0 var(--ink)}
   .card .idx{position:absolute;top:16px;right:20px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim)}
   .card .tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:18px;display:block}
@@ -115,8 +150,9 @@
   .metarow span{font-family:'JetBrains Mono',monospace;font-size:11.5px;border:1px solid var(--line);padding:5px 9px;color:var(--ink2)}
 
   /* ---- field record / timeline ---- */
-  .rec{display:grid;grid-template-columns:180px 1fr;gap:0;border-top:1px solid var(--ink)}
+  .rec{display:grid;grid-template-columns:180px 1fr;gap:0;border-top:1px solid var(--ink);transition:background .3s var(--ease)}
   .rec:last-child{border-bottom:1px solid var(--ink)}
+  .rec:hover{background:var(--paper2)}
   .rec .yr{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--accent);padding:26px 0;letter-spacing:.5px}
   .rec .det{padding:26px 0}
   .rec h3{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(20px,2.5vw,26px);letter-spacing:-.3px}
@@ -125,6 +161,7 @@
   .rec li{position:relative;padding-left:20px;color:var(--ink2);font-size:15px}
   .rec li::before{content:'▪';position:absolute;left:0;color:var(--accent)}
   .rec.mini .det{color:var(--ink2);font-size:15px}
+  @media(min-width:641px){.rec:hover .yr,.rec:hover .det{padding-left:14px}.rec .yr{transition:padding .3s var(--ease)}.rec .det{transition:padding .3s var(--ease)}.rec:hover .yr{padding-left:0}}
   @media(max-width:640px){.rec{grid-template-columns:1fr;gap:0}.rec .yr{padding:22px 0 0}.rec .det{padding:10px 0 24px}}
 
   /* ---- stack ---- */
@@ -132,8 +169,8 @@
   @media(max-width:640px){.stackgrid{grid-template-columns:1fr}}
   .stackgrid h3{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--dim);margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid var(--line)}
   .stacklist{display:flex;flex-wrap:wrap;gap:9px}
-  .stacklist span{font-size:14px;border:1px solid var(--line);padding:7px 13px;transition:.18s;cursor:default}
-  .stacklist span:hover{background:var(--ink);color:var(--paper)}
+  .stacklist span{font-size:14px;border:1px solid var(--line);padding:7px 13px;transition:.18s var(--ease);cursor:default}
+  .stacklist span:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px)}
   .stackgrid .past span{color:var(--dim)}
 
   /* ---- education ---- */
@@ -147,12 +184,12 @@
   .colophon h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(34px,7vw,80px);line-height:1;letter-spacing:-1.5px;margin-bottom:34px}
   .colophon h2 em{font-style:italic;color:var(--accent)}
   .contacts{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:52px}
-  .contacts a{font-family:'JetBrains Mono',monospace;font-size:13px;border:1px solid var(--ink);padding:13px 20px;transition:.2s}
+  .contacts a{font-family:'JetBrains Mono',monospace;font-size:13px;border:1px solid var(--ink);padding:13px 20px;transition:.2s var(--ease)}
   .contacts a:hover{background:var(--accent);border-color:var(--accent);color:var(--paper);transform:translateY(-2px)}
   .colo-meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px}
 
-  /* ---- reveal ---- */
-  .rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  /* ---- reveal (staggered, motion-safe) ---- */
+  .rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
   .rv.in{opacity:1;transform:none}
 
   /* ---- command palette ---- */
@@ -168,9 +205,35 @@
   .cmd .item.sel,.cmd .item:hover{background:var(--ink);color:var(--paper)}
   .cmd .item.sel .hint,.cmd .item:hover .hint{color:var(--paper)}
   .cmd .empty{padding:22px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--dim)}
+
+  /* ---- reduced motion: honour the user ---- */
+  @media(prefers-reduced-motion:reduce){
+    *{animation-duration:.001ms!important;animation-iteration-count:1!important;
+      transition-duration:.001ms!important;scroll-behavior:auto!important}
+    .rv{opacity:1;transform:none}
+    .ticker .track{animation:none;transform:none}
+    .status-dot{animation:none}
+  }
+
+  /* ---- print: the field manual as a clean PDF ---- */
+  @media print{
+    :root{--paper:#fff;--paper2:#fff;--accent:#000;--ink:#000;--ink2:#222;--dim:#555}
+    body::before,.ticker,.mast,.kbd,.progress,.crop,.cmd-scrim{display:none!important}
+    .rv{opacity:1!important;transform:none!important}
+    .card:hover{transform:none;box-shadow:none}
+    section{padding:24px 0;break-inside:avoid}
+    a{color:#000}
+  }
 </style>
 </head>
-<body>
+<body id="top">
+
+<a class="skip" href="#operator">Skip to content</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<span class="crop tl" aria-hidden="true"></span>
+<span class="crop tr" aria-hidden="true"></span>
+<span class="crop bl" aria-hidden="true"></span>
+<span class="crop br" aria-hidden="true"></span>
 
 <div class="ticker" aria-hidden="true">
   <div class="track" id="ticker"></div>
@@ -178,19 +241,19 @@
 
 <header class="mast">
   <div class="wrap">
-    <div class="name">Vhen&nbsp;Joseph&nbsp;Fernandez</div>
-    <nav>
+    <div class="name">Vhen&nbsp;Joseph</div>
+    <nav id="nav" aria-label="Sections">
       <a href="#operator">Operator</a>
       <a href="#rnd">R&amp;D</a>
       <a href="#record">Record</a>
       <a href="#systems">Systems</a>
       <a href="#contact">Contact</a>
     </nav>
-    <div class="kbd" id="cmdOpen">⌘K&nbsp; index</div>
+    <div class="kbd" id="cmdOpen" role="button" tabindex="0" aria-label="Open command index">⌘K&nbsp; index</div>
   </div>
 </header>
 
-<div class="wrap">
+<main class="wrap">
 
   <!-- HERO -->
   <div class="hero">
@@ -209,10 +272,10 @@
   </div>
 
   <!-- 01 OPERATOR -->
-  <section id="operator">
+  <section id="operator" aria-labelledby="h-operator">
     <div class="sechead rv">
       <div class="secno">§01</div>
-      <h2>The operator</h2>
+      <h2 id="h-operator">The operator</h2>
       <div class="sub">// how I actually work</div>
     </div>
     <div class="cols2">
@@ -234,10 +297,10 @@
   <div class="rule thin"></div>
 
   <!-- 02 R&D -->
-  <section id="rnd">
+  <section id="rnd" aria-labelledby="h-rnd">
     <div class="sechead rv">
       <div class="secno">§02</div>
-      <h2>R&amp;D — off the clock</h2>
+      <h2 id="h-rnd">R&amp;D — off the clock</h2>
       <div class="sub">// personal systems, built &amp; running daily</div>
     </div>
     <div class="rd">
@@ -276,10 +339,10 @@
   <div class="rule thin"></div>
 
   <!-- 03 FIELD RECORD -->
-  <section id="record">
+  <section id="record" aria-labelledby="h-record">
     <div class="sechead rv">
       <div class="secno">§03</div>
-      <h2>Field record</h2>
+      <h2 id="h-record">Field record</h2>
       <div class="sub">// fourteen years, abridged</div>
     </div>
 
@@ -341,10 +404,10 @@
   <div class="rule thin"></div>
 
   <!-- 04 SYSTEMS -->
-  <section id="systems">
+  <section id="systems" aria-labelledby="h-systems">
     <div class="sechead rv">
       <div class="secno">§04</div>
-      <h2>Selected systems</h2>
+      <h2 id="h-systems">Selected systems</h2>
       <div class="sub">// things I designed and shipped</div>
     </div>
     <div class="rd">
@@ -368,10 +431,10 @@
   <div class="rule thin"></div>
 
   <!-- 05 STACK -->
-  <section id="stack">
+  <section id="stack" aria-labelledby="h-stack">
     <div class="sechead rv">
       <div class="secno">§05</div>
-      <h2>Stack</h2>
+      <h2 id="h-stack">Stack</h2>
       <div class="sub">// proven in production</div>
     </div>
     <div class="stackgrid">
@@ -389,10 +452,10 @@
   <div class="rule thin"></div>
 
   <!-- 06 EDUCATION -->
-  <section id="education">
+  <section id="education" aria-labelledby="h-education">
     <div class="sechead rv">
       <div class="secno">§06</div>
-      <h2>Origins</h2>
+      <h2 id="h-education">Origins</h2>
       <div class="sub">// where the wiring started</div>
     </div>
     <div class="edu rv">
@@ -402,7 +465,7 @@
     </div>
   </section>
 
-</div>
+</main>
 
 <!-- CONTACT / COLOPHON -->
 <footer class="colophon" id="contact">
@@ -417,14 +480,14 @@
     <div class="colo-meta">
       <span>Kuala Lumpur, Malaysia</span>
       <span>Open to senior AI architecture &amp; engineering roles</span>
-      <span>Set &amp; built by Vhen Joseph Fernandez · 2026</span>
+      <span>Set &amp; built by Vhen Joseph · 2026</span>
     </div>
   </div>
 </footer>
 
 <!-- COMMAND PALETTE -->
 <div class="cmd-scrim" id="scrim">
-  <div class="cmd" role="dialog" aria-label="Command palette">
+  <div class="cmd" role="dialog" aria-modal="true" aria-label="Command palette">
     <input id="cmdInput" placeholder="Type to jump — try 'work', 'r&d', 'email'…" autocomplete="off" />
     <div class="list" id="cmdList"></div>
   </div>
@@ -451,9 +514,35 @@
   const fill=(arr,id)=>document.getElementById(id).innerHTML=arr.map(s=>`<span>${s}</span>`).join('');
   fill(recent,'stack-recent');fill(past,'stack-past');
 
-  // ---- scroll reveal ----
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+  // ---- scroll reveal (staggered) ----
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){
+      const sibs=[...e.target.parentElement.querySelectorAll(':scope > .rv')];
+      const i=Math.max(0,sibs.indexOf(e.target));
+      e.target.style.transitionDelay=(i*70)+'ms';
+      e.target.classList.add('in');io.unobserve(e.target);
+    }
+  }),{threshold:.12});
   document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+
+  // ---- scroll progress bar ----
+  const bar=document.getElementById('progress');
+  const onScroll=()=>{
+    const h=document.documentElement;
+    const p=h.scrollTop/((h.scrollHeight-h.clientHeight)||1);
+    bar.style.transform='scaleX('+p+')';
+  };
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // ---- scroll-spy active nav ----
+  const navLinks=[...document.querySelectorAll('#nav a')];
+  const idFor=a=>a.getAttribute('href').slice(1);
+  const spy=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){
+      navLinks.forEach(a=>a.setAttribute('aria-current', idFor(a)===e.target.id ? 'true':'false'));
+    }
+  }),{rootMargin:'-45% 0px -50% 0px'});
+  ['operator','rnd','record','systems','contact'].forEach(id=>{const el=document.getElementById(id);if(el)spy.observe(el);});
 
   // ---- command palette ----
   const cmds=[
@@ -478,7 +567,9 @@
   function open(){scrim.classList.add('open');input.value='';filtered=cmds.slice();sel=0;render();setTimeout(()=>input.focus(),30);}
   function close(){scrim.classList.remove('open');}
   function go(c){if(!c)return;close();if(c.h){window.open(c.h,c.h.startsWith('mailto')?'_self':'_blank');}else if(c.t==='#top'){scrollTo({top:0,behavior:'smooth'});}else{document.querySelector(c.t)?.scrollIntoView({behavior:'smooth'});}}
-  document.getElementById('cmdOpen').addEventListener('click',open);
+  const cmdOpen=document.getElementById('cmdOpen');
+  cmdOpen.addEventListener('click',open);
+  cmdOpen.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
   input.addEventListener('input',()=>{const q=input.value.toLowerCase();filtered=cmds.filter(c=>c.label.toLowerCase().includes(q));sel=0;render();});
   input.addEventListener('keydown',e=>{
     if(e.key==='ArrowDown'){e.preventDefault();sel=(sel+1)%filtered.length;render();}
