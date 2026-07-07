@@ -3,495 +3,494 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Vhen Joseph Fernandez — Field Manual</title>
-<meta name="description" content="Vhen Joseph Fernandez — AI product engineering leader in Kuala Lumpur. Fourteen years shipping production systems; now building the AI-native stack and the agents that run it." />
-<meta name="author" content="Vhen Joseph Fernandez" />
-<meta property="og:title" content="Vhen Joseph Fernandez — Engineering Field Manual" />
+<title>Vhen Joseph — AI Product Engineering</title>
+<meta name="description" content="Vhen Joseph — AI product engineering leader in Kuala Lumpur. Fourteen years shipping production systems; now building the AI-native stack and the agents that run it." />
+<meta name="author" content="Vhen Joseph" />
+<meta name="theme-color" content="#0b0b0d" />
+<meta property="og:title" content="Vhen Joseph — AI Product Engineering" />
 <meta property="og:description" content="AI product engineering leader. Building the AI-native stack and the agents that run it." />
 <meta property="og:type" content="website" />
+<meta property="og:url" content="https://vhenjoseph.com" />
+<meta name="twitter:card" content="summary" />
+<link rel="canonical" href="https://vhenjoseph.com" />
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" fill="%230b0b0d"/><text x="16" y="23" font-family="Georgia,serif" font-size="21" fill="%23ff6a3d" text-anchor="middle" font-style="italic" font-weight="600">v</text></svg>' />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..700&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --paper:#f2ede2;
-    --paper2:#ebe4d6;
-    --ink:#191712;
-    --ink2:#3b362d;
-    --dim:#7a7264;
-    --accent:#df3c14;
-    --line:rgba(25,23,18,.16);
-    --line2:rgba(25,23,18,.08);
+    --bg:#0b0b0d;
+    --bg2:#101013;
+    --surface:#121216;
+    --ink:#ededed;
+    --ink2:#b9b9c0;
+    --dim:#71717a;
+    --faint:#45454d;
+    --accent:#ff6a3d;
+    --line:rgba(255,255,255,.09);
+    --line2:rgba(255,255,255,.055);
+    --ease:cubic-bezier(.22,.61,.24,1);
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
   body{
-    background:var(--paper);
+    background:var(--bg);
     color:var(--ink);
     font-family:'Space Grotesk',system-ui,sans-serif;
-    font-size:17px;line-height:1.55;
+    font-size:17px;line-height:1.6;
     -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    font-variant-numeric:tabular-nums;
     overflow-x:hidden;
+    letter-spacing:-.01em;
   }
-  body::before{ /* faint paper grain */
-    content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
-    background-image:radial-gradient(rgba(25,23,18,.035) 1px,transparent 1px);
-    background-size:4px 4px;
-  }
-  ::selection{background:var(--accent);color:var(--paper)}
+  ::selection{background:var(--accent);color:#0b0b0d}
   a{color:inherit;text-decoration:none}
+  :focus-visible{outline:1.5px solid var(--accent);outline-offset:4px;border-radius:1px}
   .mono{font-family:'JetBrains Mono',monospace}
-  .serif{font-family:'Fraunces',Georgia,serif}
-  .wrap{position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 clamp(20px,5vw,64px)}
-  .rule{height:1px;background:var(--ink);opacity:.85}
-  .rule.thin{background:var(--line)}
+  .serif{font-family:'Newsreader',Georgia,serif;letter-spacing:0}
+  h1,h2,h3{text-wrap:balance;font-weight:500}
+  p{text-wrap:pretty}
 
-  /* ---- masthead ---- */
-  header.mast{position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:1px solid var(--ink)}
-  .mast .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
-  .mast .name{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:1.5px;font-weight:700;text-transform:uppercase}
-  .mast nav{display:flex;gap:26px;font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.5px;text-transform:uppercase}
-  .mast nav a{color:var(--ink2);transition:color .18s}
-  .mast nav a:hover{color:var(--accent)}
-  .kbd{border:1px solid var(--line);border-radius:5px;padding:3px 8px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);cursor:pointer;transition:.18s;white-space:nowrap}
-  .kbd:hover{border-color:var(--accent);color:var(--accent)}
-  @media(max-width:760px){.mast nav{display:none}}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 clamp(22px,5vw,80px)}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--dim)}
+  .accent{color:var(--accent)}
+  .hr{height:1px;background:var(--line);border:0}
 
-  /* ---- ticker ---- */
-  .ticker{background:var(--ink);color:var(--paper);overflow:hidden;border-bottom:1px solid var(--ink);white-space:nowrap;position:relative;z-index:2}
-  .ticker .track{display:inline-flex;gap:0;animation:slide 42s linear infinite;will-change:transform}
-  .ticker:hover .track{animation-play-state:paused}
-  .ticker b{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:400;letter-spacing:.5px;padding:9px 26px;display:inline-flex;align-items:center;gap:10px}
-  .ticker b span{color:var(--accent);font-weight:700}
-  .ticker b::after{content:'';width:4px;height:4px;border-radius:50%;background:var(--accent);margin-left:20px}
-  @keyframes slide{to{transform:translateX(-50%)}}
+  .skip{position:fixed;left:-999px;top:8px;z-index:200;background:var(--ink);color:var(--bg);
+    font-family:'JetBrains Mono',monospace;font-size:12px;padding:10px 16px}
+  .skip:focus{left:8px}
+  .progress{position:fixed;top:0;left:0;height:1.5px;width:100%;z-index:80;transform:scaleX(0);
+    transform-origin:0 50%;background:var(--accent);opacity:.9}
 
-  /* ---- hero ---- */
-  .hero{padding:clamp(48px,9vw,104px) 0 clamp(40px,7vw,80px);display:grid;grid-template-columns:1fr;gap:40px}
-  .kicker{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:26px;display:flex;gap:14px;align-items:center}
-  .kicker::before{content:'';width:34px;height:2px;background:var(--accent)}
-  .hero h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(42px,8.2vw,104px);line-height:.98;letter-spacing:-2px}
-  .hero h1 em{font-style:italic;color:var(--accent);font-weight:400}
-  .hero-grid{display:grid;grid-template-columns:1.55fr .95fr;gap:clamp(30px,6vw,72px);align-items:end;margin-top:44px}
-  .hero-lead{font-size:clamp(17px,2.3vw,21px);color:var(--ink2);max-width:34ch}
-  .hero-lead strong{color:var(--ink);font-weight:600}
-  .spec{font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.9;border-left:2px solid var(--accent);padding-left:18px;color:var(--ink2)}
-  .spec .k{color:var(--dim)}
-  .spec .v{color:var(--ink)}
-  .status-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-right:7px;animation:blip 1.8s infinite}
-  @keyframes blip{0%,100%{opacity:1}50%{opacity:.25}}
-  @media(max-width:760px){.hero-grid{grid-template-columns:1fr;gap:34px}}
+  header.mast{position:sticky;top:0;z-index:60;
+    background:color-mix(in srgb,var(--bg) 82%,transparent);
+    backdrop-filter:saturate(1.1) blur(14px);border-bottom:1px solid var(--line2)}
+  .mast .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .mast .sig{display:flex;align-items:baseline;gap:11px}
+  .mast .sig .mark{font-family:'Newsreader',serif;font-style:italic;font-size:22px;color:var(--accent);line-height:1}
+  .mast .sig .nm{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+  .mast nav{display:flex;gap:30px;font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase}
+  .mast nav a{color:var(--dim);transition:color .2s;position:relative;padding:6px 0}
+  .mast nav a::after{content:'';position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--accent);transition:right .3s var(--ease)}
+  .mast nav a:hover{color:var(--ink)}
+  .mast nav a[aria-current="true"]{color:var(--ink)}
+  .mast nav a[aria-current="true"]::after,.mast nav a:hover::after{right:0}
+  .avail{display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim)}
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2.6s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,106,61,.5)}70%{box-shadow:0 0 0 6px rgba(255,106,61,0)}100%{box-shadow:0 0 0 0 rgba(255,106,61,0)}}
+  @media(max-width:820px){.mast nav{display:none}.avail{display:none}}
 
-  /* ---- section scaffold ---- */
-  section{padding:clamp(60px,9vw,110px) 0;position:relative}
-  .sechead{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:baseline;margin-bottom:48px}
-  .secno{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);letter-spacing:1px;padding-top:10px}
-  .sechead h2{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(28px,5vw,52px);line-height:1;letter-spacing:-1px}
-  .sechead .sub{grid-column:2;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-top:12px}
+  .hero{padding:clamp(72px,15vh,168px) 0 clamp(48px,8vw,96px)}
+  .hero .lead-row{display:flex;align-items:center;gap:16px;margin-bottom:clamp(30px,5vw,52px)}
+  .hero .lead-row .eyebrow{white-space:nowrap}
+  .hero .lead-row .ln{flex:1;height:1px;background:var(--line)}
+  h1.display{font-family:'Newsreader',serif;font-weight:400;
+    font-size:clamp(42px,8.4vw,116px);line-height:.98;letter-spacing:-.025em;color:var(--ink)}
+  h1.display em{font-style:italic;color:var(--accent)}
+  h1.display .muted{color:var(--faint)}
+  .hero-foot{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(28px,6vw,80px);
+    align-items:end;margin-top:clamp(40px,7vw,80px)}
+  .hero-foot .say{font-size:clamp(17px,2.1vw,21px);color:var(--ink2);max-width:44ch;line-height:1.5}
+  .hero-foot .say b{color:var(--ink);font-weight:500}
+  .idcard{font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:2.15;color:var(--dim)}
+  .idcard div{display:flex;justify-content:space-between;gap:24px;border-bottom:1px solid var(--line2);padding:2px 0}
+  .idcard .v{color:var(--ink)}
+  @media(max-width:760px){.hero-foot{grid-template-columns:1fr;gap:36px}}
 
-  /* ---- operator / about ---- */
-  .cols2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
-  @media(max-width:760px){.cols2{grid-template-columns:1fr;gap:28px}}
-  .lede{font-family:'Fraunces',serif;font-size:clamp(21px,3.2vw,30px);line-height:1.28;font-weight:400;letter-spacing:-.3px}
-  .lede em{font-style:italic;color:var(--accent)}
-  .body-copy p{color:var(--ink2);margin-bottom:18px}
-  .body-copy p strong{color:var(--ink);font-weight:600}
-  .principle{border-top:2px solid var(--ink);margin-top:26px;padding-top:16px;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.7;color:var(--ink2)}
-  .principle .lbl{color:var(--accent);display:block;margin-bottom:8px;letter-spacing:1px}
+  .metrics{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    display:grid;grid-template-columns:repeat(4,1fr)}
+  .metrics .m{padding:clamp(24px,3.5vw,40px) clamp(14px,2vw,28px);border-left:1px solid var(--line2)}
+  .metrics .m:first-child{border-left:0;padding-left:0}
+  .metrics .n{font-family:'Newsreader',serif;font-size:clamp(28px,4vw,46px);color:var(--ink);line-height:1;letter-spacing:-.02em}
+  .metrics .l{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);margin-top:12px;line-height:1.5;letter-spacing:.02em}
+  @media(max-width:760px){.metrics{grid-template-columns:1fr 1fr}.metrics .m:nth-child(3){padding-left:0;border-left:0}}
 
-  /* ---- R&D cards ---- */
-  .rd{display:grid;grid-template-columns:1fr 1fr;gap:26px}
-  @media(max-width:760px){.rd{grid-template-columns:1fr}}
-  .card{border:1px solid var(--ink);background:var(--paper2);padding:clamp(24px,3vw,36px);position:relative;transition:transform .3s,box-shadow .3s}
-  .card:hover{transform:translate(-4px,-4px);box-shadow:8px 8px 0 var(--ink)}
-  .card .idx{position:absolute;top:16px;right:20px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim)}
-  .card .tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:18px;display:block}
-  .card h3{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(23px,3vw,30px);line-height:1.05;letter-spacing:-.5px;margin-bottom:14px}
-  .card p{color:var(--ink2);font-size:15.5px;margin-bottom:16px}
-  .card ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:6px}
-  .card li{position:relative;padding-left:20px;font-size:14.5px;color:var(--ink2)}
-  .card li::before{content:'→';position:absolute;left:0;color:var(--accent);font-family:'JetBrains Mono',monospace}
-  .metarow{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-  .metarow span{font-family:'JetBrains Mono',monospace;font-size:11.5px;border:1px solid var(--line);padding:5px 9px;color:var(--ink2)}
+  section{padding:clamp(72px,11vw,136px) 0;scroll-margin-top:80px}
+  .sechead{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:baseline;
+    margin-bottom:clamp(44px,6vw,72px)}
+  .sechead .no{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--accent);letter-spacing:.05em}
+  .sechead h2{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(30px,5.4vw,58px);
+    line-height:1;letter-spacing:-.02em;color:var(--ink)}
+  .sechead .tag{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.14em;justify-self:end}
+  @media(max-width:640px){.sechead{grid-template-columns:auto 1fr;gap:16px}.sechead .tag{display:none}}
 
-  /* ---- field record / timeline ---- */
-  .rec{display:grid;grid-template-columns:180px 1fr;gap:0;border-top:1px solid var(--ink)}
-  .rec:last-child{border-bottom:1px solid var(--ink)}
-  .rec .yr{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--accent);padding:26px 0;letter-spacing:.5px}
-  .rec .det{padding:26px 0}
-  .rec h3{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(20px,2.5vw,26px);letter-spacing:-.3px}
-  .rec .co{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px;margin:6px 0 14px}
-  .rec ul{list-style:none;display:flex;flex-direction:column;gap:8px}
-  .rec li{position:relative;padding-left:20px;color:var(--ink2);font-size:15px}
-  .rec li::before{content:'▪';position:absolute;left:0;color:var(--accent)}
-  .rec.mini .det{color:var(--ink2);font-size:15px}
-  @media(max-width:640px){.rec{grid-template-columns:1fr;gap:0}.rec .yr{padding:22px 0 0}.rec .det{padding:10px 0 24px}}
+  .approach{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,88px)}
+  .approach .big{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(23px,3.4vw,34px);
+    line-height:1.28;letter-spacing:-.01em;color:var(--ink)}
+  .approach .big em{font-style:italic;color:var(--accent)}
+  .approach .body p{color:var(--ink2);margin-bottom:18px;max-width:60ch}
+  .approach .body p strong{color:var(--ink);font-weight:500}
+  .rulebox{margin-top:30px;border-left:2px solid var(--accent);padding:4px 0 4px 20px;
+    font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.75;color:var(--ink2)}
+  .rulebox b{display:block;color:var(--accent);font-weight:500;letter-spacing:.08em;
+    text-transform:uppercase;font-size:11px;margin-bottom:9px}
+  @media(max-width:760px){.approach{grid-template-columns:1fr;gap:28px}}
 
-  /* ---- stack ---- */
-  .stackgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px)}
-  @media(max-width:640px){.stackgrid{grid-template-columns:1fr}}
-  .stackgrid h3{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--dim);margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid var(--line)}
-  .stacklist{display:flex;flex-wrap:wrap;gap:9px}
-  .stacklist span{font-size:14px;border:1px solid var(--line);padding:7px 13px;transition:.18s;cursor:default}
-  .stacklist span:hover{background:var(--ink);color:var(--paper)}
-  .stackgrid .past span{color:var(--dim)}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);
+    border:1px solid var(--line)}
+  .card{background:var(--bg);padding:clamp(28px,3.4vw,44px);position:relative;
+    transition:background .35s var(--ease)}
+  .card:hover{background:var(--bg2)}
+  .card .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:26px}
+  .card .kind{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--accent)}
+  .card .idx{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--faint)}
+  .card h3{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(24px,3.2vw,33px);
+    line-height:1.06;letter-spacing:-.015em;margin-bottom:15px}
+  .card>p{color:var(--ink2);font-size:15.5px;margin-bottom:20px;max-width:48ch}
+  .card>p strong{color:var(--ink);font-weight:500}
+  .card ul{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:24px}
+  .card li{position:relative;padding-left:22px;font-size:14.5px;color:var(--ink2);line-height:1.5}
+  .card li::before{content:'';position:absolute;left:0;top:9px;width:9px;height:1px;background:var(--accent)}
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chips span{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);
+    border:1px solid var(--line);padding:5px 10px;border-radius:2px}
+  @media(max-width:760px){.cards{grid-template-columns:1fr}}
 
-  /* ---- education ---- */
-  .edu{border-left:2px solid var(--accent);padding-left:24px;max-width:720px}
-  .edu h3{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(21px,2.6vw,27px);letter-spacing:-.3px;margin-bottom:6px}
-  .edu .co{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
-  .edu p{color:var(--ink2)}
+  .rec{display:grid;grid-template-columns:150px 1fr;gap:clamp(16px,3vw,44px);
+    border-top:1px solid var(--line);padding:clamp(26px,3vw,38px) 0;transition:.3s var(--ease)}
+  .rec:last-of-type{border-bottom:1px solid var(--line)}
+  .rec:hover{background:linear-gradient(90deg,var(--bg2),transparent 60%)}
+  .rec .yr{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--accent);
+    padding-top:7px;letter-spacing:.03em;white-space:nowrap}
+  .rec h3{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(21px,2.7vw,29px);
+    letter-spacing:-.01em;line-height:1.1}
+  .rec .co{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);
+    text-transform:uppercase;letter-spacing:.08em;margin:9px 0 18px}
+  .rec ul{list-style:none;display:flex;flex-direction:column;gap:10px;max-width:74ch}
+  .rec li{position:relative;padding-left:22px;color:var(--ink2);font-size:15px;line-height:1.5}
+  .rec li::before{content:'';position:absolute;left:0;top:10px;width:9px;height:1px;background:var(--faint)}
+  .rec.mini .det{color:var(--ink2);font-size:15px;max-width:74ch}
+  .rec.mini .det .co{margin-bottom:8px}
+  @media(max-width:640px){.rec{grid-template-columns:1fr;gap:6px}.rec .yr{padding-top:0}.rec .co{margin-top:6px}}
 
-  /* ---- contact / colophon ---- */
-  footer.colophon{border-top:2px solid var(--ink);padding:clamp(56px,8vw,96px) 0 48px}
-  .colophon h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(34px,7vw,80px);line-height:1;letter-spacing:-1.5px;margin-bottom:34px}
-  .colophon h2 em{font-style:italic;color:var(--accent)}
-  .contacts{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:52px}
-  .contacts a{font-family:'JetBrains Mono',monospace;font-size:13px;border:1px solid var(--ink);padding:13px 20px;transition:.2s}
-  .contacts a:hover{background:var(--accent);border-color:var(--accent);color:var(--paper);transform:translateY(-2px)}
-  .colo-meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px}
+  .stack{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px)}
+  .stack h3{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--dim);margin-bottom:22px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+  .taglist{display:flex;flex-wrap:wrap;gap:8px}
+  .taglist span{font-size:14px;color:var(--ink2);border:1px solid var(--line);padding:8px 14px;
+    border-radius:2px;transition:.2s var(--ease);cursor:default}
+  .taglist span:hover{color:var(--ink);border-color:var(--accent);transform:translateY(-2px)}
+  .stack .past span{color:var(--dim)}
+  @media(max-width:640px){.stack{grid-template-columns:1fr;gap:36px}}
 
-  /* ---- reveal ---- */
-  .rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .origins{border-left:2px solid var(--accent);padding-left:26px;max-width:760px}
+  .origins h3{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(22px,2.8vw,30px);
+    letter-spacing:-.01em;margin-bottom:8px}
+  .origins .co{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);
+    text-transform:uppercase;letter-spacing:.08em;margin-bottom:18px}
+  .origins p{color:var(--ink2);margin-bottom:14px;max-width:64ch}
+  .origins p em{color:var(--accent);font-style:normal}
+
+  footer.contact{border-top:1px solid var(--line);padding:clamp(72px,11vw,140px) 0 clamp(36px,5vw,56px)}
+  footer .no{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--accent);letter-spacing:.05em;margin-bottom:26px}
+  footer h2{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(38px,8.5vw,104px);
+    line-height:.96;letter-spacing:-.03em;margin-bottom:clamp(36px,5vw,56px);color:var(--ink)}
+  footer h2 em{font-style:italic;color:var(--accent)}
+  .links{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:clamp(48px,7vw,80px)}
+  .links a{font-family:'JetBrains Mono',monospace;font-size:13px;border:1px solid var(--line);
+    padding:14px 22px;border-radius:2px;transition:.22s var(--ease);display:flex;align-items:center;gap:10px}
+  .links a .ar{color:var(--accent);transition:transform .22s var(--ease)}
+  .links a:hover{border-color:var(--accent);color:var(--ink);background:var(--bg2)}
+  .links a:hover .ar{transform:translate(3px,-3px)}
+  .colo{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
+    font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--faint);
+    text-transform:uppercase;letter-spacing:.08em}
+
+  .rv{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
   .rv.in{opacity:1;transform:none}
 
-  /* ---- command palette ---- */
-  .cmd-scrim{position:fixed;inset:0;z-index:100;background:rgba(25,23,18,.4);backdrop-filter:blur(3px);display:none;align-items:flex-start;justify-content:center;padding-top:14vh}
-  .cmd-scrim.open{display:flex}
-  .cmd{width:min(560px,92vw);background:var(--paper);border:1px solid var(--ink);box-shadow:12px 12px 0 rgba(25,23,18,.25)}
-  .cmd input{width:100%;border:none;background:transparent;padding:20px 22px;font-family:'JetBrains Mono',monospace;font-size:15px;color:var(--ink);outline:none;border-bottom:1px solid var(--line)}
-  .cmd input::placeholder{color:var(--dim)}
-  .cmd .list{max-height:340px;overflow-y:auto}
-  .cmd .item{display:flex;align-items:center;gap:14px;padding:14px 22px;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:13.5px;border-bottom:1px solid var(--line2)}
-  .cmd .item .ico{color:var(--accent);width:18px}
-  .cmd .item .hint{margin-left:auto;color:var(--dim);font-size:11px}
-  .cmd .item.sel,.cmd .item:hover{background:var(--ink);color:var(--paper)}
-  .cmd .item.sel .hint,.cmd .item:hover .hint{color:var(--paper)}
-  .cmd .empty{padding:22px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--dim)}
+  @media(prefers-reduced-motion:reduce){
+    *{animation-duration:.001ms!important;animation-iteration-count:1!important;
+      transition-duration:.001ms!important;scroll-behavior:auto!important}
+    .rv{opacity:1;transform:none}
+    .dot{animation:none}
+  }
+  @media print{
+    :root{--bg:#fff;--bg2:#fff;--surface:#fff;--ink:#000;--ink2:#222;--dim:#555;--faint:#777;--accent:#000;--line:#ccc;--line2:#e3e3e3}
+    .mast,.progress{display:none!important}
+    .rv{opacity:1!important;transform:none!important}
+    section{padding:22px 0;break-inside:avoid}
+  }
 </style>
 </head>
-<body>
+<body id="top">
 
-<div class="ticker" aria-hidden="true">
-  <div class="track" id="ticker"></div>
-</div>
+<a class="skip" href="#approach">Skip to content</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
 
 <header class="mast">
   <div class="wrap">
-    <div class="name">Vhen&nbsp;Joseph&nbsp;Fernandez</div>
-    <nav>
-      <a href="#operator">Operator</a>
-      <a href="#rnd">R&amp;D</a>
-      <a href="#record">Record</a>
-      <a href="#systems">Systems</a>
+    <div class="sig">
+      <span class="mark" aria-hidden="true">v</span>
+      <span class="nm">Vhen&nbsp;Joseph</span>
+    </div>
+    <nav id="nav" aria-label="Sections">
+      <a href="#approach">Approach</a>
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#stack">Stack</a>
       <a href="#contact">Contact</a>
     </nav>
-    <div class="kbd" id="cmdOpen">⌘K&nbsp; index</div>
+    <div class="avail"><span class="dot" aria-hidden="true"></span>Open to senior roles</div>
   </div>
 </header>
 
-<div class="wrap">
+<main>
 
   <!-- HERO -->
-  <div class="hero">
-    <div class="kicker rv">Personal Field Manual — Rev. 2026.07 · Kuala Lumpur</div>
-    <h1 class="rv">Building the AI-native<br>stack — <em>and the agents<br>that run it.</em></h1>
-    <div class="hero-grid">
-      <p class="hero-lead rv">Fourteen years shipping production systems. Today I run a personal R&amp;D loop where agents handle most of the routine engineering and I stay in the steering seat.</p>
-      <div class="spec rv">
-        <div><span class="k">ROLE&nbsp;&nbsp;&nbsp;&nbsp;</span> <span class="v">AI Product Engineer Lead</span></div>
-        <div><span class="k">ORG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span class="v">YTL AI Labs</span></div>
-        <div><span class="k">BASED&nbsp;&nbsp;&nbsp;</span> <span class="v">Kuala Lumpur, MY</span></div>
-        <div><span class="k">FOCUS&nbsp;&nbsp;&nbsp;</span> <span class="v">Agentic systems · AI-native SDLC</span></div>
+  <div class="wrap">
+    <div class="hero">
+      <div class="lead-row rv">
+        <span class="eyebrow">AI Product Engineering · Kuala Lumpur</span>
+        <span class="ln" aria-hidden="true"></span>
+        <span class="eyebrow">Rev. 2026.07</span>
+      </div>
+      <h1 class="display rv">Building the AI-native<br>stack — <em>and the agents</em><br><span class="muted">that run it.</span></h1>
+      <div class="hero-foot">
+        <p class="say rv">Fourteen years shipping production systems. Today I run a personal R&amp;D loop where <b>agents handle most of the routine engineering</b> and I stay in the steering seat — architect, reviewer, and the hand on the wheel.</p>
+        <div class="idcard rv">
+          <div><span>ROLE</span><span class="v">AI Product Engineer Lead</span></div>
+          <div><span>ORG</span><span class="v">YTL AI Labs</span></div>
+          <div><span>BASED</span><span class="v">Kuala Lumpur, MY</span></div>
+          <div><span>FOCUS</span><span class="v">Agentic systems</span></div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- 01 OPERATOR -->
-  <section id="operator">
-    <div class="sechead rv">
-      <div class="secno">1</div>
-      <h2>The operator</h2>
-      <div class="sub">// how I actually work on the daily</div>
+  <!-- METRICS -->
+  <div class="wrap">
+    <div class="metrics rv">
+      <div class="m"><div class="n">14<span class="accent">yrs</span></div><div class="l">shipping production<br>systems</div></div>
+      <div class="m"><div class="n">1,411</div><div class="l">recorded CLI<br>engineering sessions</div></div>
+      <div class="m"><div class="n">100<span class="accent">%</span></div><div class="l">on-device inference —<br>nothing to the cloud</div></div>
+      <div class="m"><div class="n">~30</div><div class="l">custom agents<br>authored &amp; running</div></div>
     </div>
-    <div class="cols2">
-      <div class="rv">
-        <p class="lede">Agentic engineering isn't a side tool for me, it's the <em>primary workflow</em>. Most routine engineering is delegated to workflows and loops I built and tuned; I work as the architect and the steering hand.</p>
-        <div class="principle">
-          <span class="lbl">// DESIGN RULE</span>
-          Every mechanism must be project-agnostic. Build it once; express per-repo specifics as declarative config a repo adopts by adding a file.
+  </div>
+
+  <div class="wrap">
+
+    <!-- 01 APPROACH -->
+    <section id="approach" aria-labelledby="h-approach">
+      <div class="sechead rv">
+        <span class="no">01</span>
+        <h2 id="h-approach">The approach</h2>
+        <span class="tag">How I work</span>
+      </div>
+      <div class="approach">
+        <p class="big rv">Agentic engineering isn't a side tool for me — it's the <em>primary workflow</em>. Most routine engineering is delegated to loops I built and tuned; I work as the architect and the steering hand.</p>
+        <div class="body rv">
+          <p>I lead AI product engineering at <strong>YTL AI Labs</strong>, where I've worked on ILMUchat — Malaysia's public conversational-AI product. I now focus on experimental, highly sensitive work, and I set the engineering practices that let a small team ship fast without chaos.</p>
+          <p>Underneath that is a habit: <strong>research-first, TDD-guided, review-immediately.</strong> New code gets a review agent the moment it's written. Long jobs run detached and notify on state change. Reasoning runs on the strong model; high-volume review and extraction fan out to a cheaper one — <strong>cost-aware by default.</strong></p>
+          <div class="rulebox">
+            <b>Design rule</b>
+            Every mechanism must be project-agnostic. Build it once; express per-repo specifics as declarative config a repo adopts by adding a file.
+          </div>
         </div>
       </div>
-      <div class="body-copy rv">
-        <p>I have lead AI product engineering at <strong>YTL AI Labs</strong> where I've worked on ILMUchat, Malaysia's public conversational-AI product. Now I focus my attention on an experimental and highly sensitive projects, I set the engineering practices that let a small team ship fast without chaos.</p>
-        <p>Underneath that is a habit: <strong>research-first, TDD-guided, review-immediately.</strong> New code gets a review agent the moment it's written. Long jobs run detached and notify on state change. Reasoning runs on the strong model; the high-volume review and extraction fan-out routes to a cheaper one; it is <strong>cost-aware by default.</strong></p>
-        <p>Then I generalize the whole thing. What starts as personal tooling becomes an available resource for the engineering team to use in their agentic engineering: coding standards, testing, review, security scanning and deployment.</p>
+    </section>
+
+    <!-- 02 WORK -->
+    <section id="work" aria-labelledby="h-work">
+      <div class="sechead rv">
+        <span class="no">02</span>
+        <h2 id="h-work">Selected work</h2>
+        <span class="tag">Built &amp; running daily</span>
       </div>
-    </div>
-  </section>
+      <div class="cards">
+        <div class="card rv">
+          <div class="top"><span class="kind">Self-sustaining agent harness</span><span class="idx">01</span></div>
+          <h3>A system that maintains itself</h3>
+          <p>A personal agent-operating layer: purpose-built sub-agents — reviewers, build-error resolvers, architect, planner, security reviewer — plus custom commands and skills, engineered to be self-healing and self-learning.</p>
+          <ul>
+            <li>Dedup-cached security review that escalates to a stronger model only on flagged findings</li>
+            <li>Config-driven release engine — one engine, per-repo spec files</li>
+            <li>Rate-limit auto-resume: queue pending work, drain it headlessly when the window resets</li>
+            <li>A recurring self-audit that re-mines its own history for improvements</li>
+          </ul>
+          <div class="chips"><span>~30 agents</span><span>~20 commands</span><span>10 objectives shipped</span></div>
+        </div>
+        <div class="card rv">
+          <div class="top"><span class="kind">Privacy-first knowledge loop</span><span class="idx">02</span></div>
+          <h3>A second brain that never phones home</h3>
+          <p>A fully-local pipeline that turns daily work into a curated, self-maintaining knowledge vault. <strong>100% on-device inference — nothing sent to the cloud.</strong> The strongest self-directed systems artifact I've built.</p>
+          <ul>
+            <li>Scheduled ingest → summarize → promote stages, drafting durable notes automatically</li>
+            <li>Local LLM served on-device behind a thermal / load / RAM guard</li>
+            <li>An LLM-maintained wiki (Karpathy pattern) over a three-layer PARA vault</li>
+            <li>Security-by-design: a secret scrubber redacts keys and tokens before anything hits disk</li>
+          </ul>
+          <div class="chips"><span>BM25 + vector + rerank</span><span>~1,674 docs</span><span>local-only</span></div>
+        </div>
+        <div class="card rv">
+          <div class="top"><span class="kind">Personal · running daily</span><span class="idx">03</span></div>
+          <h3>Candice</h3>
+          <p>A production multi-agent AI assistant on a custom orchestration layer — the full agentic stack: tool use, long-term memory, multi-step reasoning, human-in-the-loop confirmation, and a self-auditing eval/regression harness for local-model selection.</p>
+          <div class="chips"><span>Multi-agent</span><span>RAG</span><span>Local + cloud LLMs</span><span>Self-hosted</span></div>
+        </div>
+        <div class="card rv">
+          <div class="top"><span class="kind">Org platform · adopted team-wide</span><span class="idx">04</span></div>
+          <h3>Agentic engineering toolkit</h3>
+          <p>A shared coding-agent skills/agents/rules plugin adopted across YTL AI Labs — bundling coding standards, TDD, review, security scanning, deploy and incident skills so every engineer's agent inherits the same bar. Personal practice, turned reusable org tooling.</p>
+          <div class="chips"><span>Skill / agent authoring</span><span>Hooks · MCP</span><span>Org-wide</span></div>
+        </div>
+      </div>
+    </section>
 
-  <div class="rule thin"></div>
-
-  <!-- 02 R&D -->
-  <section id="rnd">
-    <div class="sechead rv">
-      <div class="secno">2</div>
-      <h2>R&amp;D — off the clock</h2>
-      <div class="sub">// personal systems, built &amp; running daily</div>
-    </div>
-    <div class="rd">
-
-      <div class="card rv">
-        <span class="idx">R&amp;D/01</span>
-        <span class="tag">● Self-sustaining agent harness</span>
-        <h3>A system that maintains itself</h3>
-        <p>A personal agent-operating layer: purpose-built sub-agents (reviewers, build-error resolvers, architect, planner, security reviewer), custom commands and skills — engineered to be self-healing and self-learning.</p>
-        <ul>
-          <li>Dedup-cached security review that escalates to a stronger model only on flagged findings</li>
-          <li>Config-driven release engine — one engine, per-repo spec files</li>
-          <li>Rate-limit auto-resume: queue pending work, drain it headlessly when the window resets</li>
-          <li>A recurring self-audit that re-mines its own history for improvements</li>
-        </ul>
-        <div class="metarow"><span>~30 agents</span><span>~20 commands</span><span>10 objectives shipped</span></div>
+    <!-- 03 EXPERIENCE -->
+    <section id="experience" aria-labelledby="h-experience">
+      <div class="sechead rv">
+        <span class="no">03</span>
+        <h2 id="h-experience">Experience</h2>
+        <span class="tag">Fourteen years, abridged</span>
       </div>
 
-      <div class="card rv">
-        <span class="idx">R&amp;D/02</span>
-        <span class="tag">● Privacy-first knowledge loop</span>
-        <h3>A second brain that never phones home</h3>
-        <p>A fully-local pipeline that turns daily work into a curated, self-maintaining knowledge vault. A <strong>100% on-device inference, nothing sent to the cloud.</strong> The strongest self-directed systems artifact I've built.</p>
-        <ul>
-          <li>Scheduled ingest → summarize → promote stages, drafting durable notes automatically</li>
-          <li>Local LLM served on-device behind a thermal / load / RAM guard</li>
-          <li>An LLM-maintained wiki (Karpathy pattern) over a three-layer PARA vault</li>
-          <li>Security-by-design: a secret scrubber redacts keys and tokens before anything touches disk</li>
-        </ul>
-        <div class="metarow"><span>hybrid BM25+vector+rerank</span><span>~1,674 docs</span><span>local-only</span></div>
+      <div class="rec rv">
+        <div class="yr">2025 — NOW</div>
+        <div class="det">
+          <h3>AI Product Engineer Lead</h3>
+          <div class="co">YTL AI Labs · Bukit Bintang, KL</div>
+          <ul>
+            <li>Integrated YTL's in-house LLM (ILMU) into ILMUchat, a public consumer product serving real users at scale — owning prompt design, context management and cost/latency trade-offs</li>
+            <li>Now on a confidential internal project; contributed across ILMU's AI service ecosystem — model gateway, orchestration, voice and tool-calling services</li>
+            <li>Architected and ran Kubernetes infra on AWS EKS across dev, staging and production with full CI/CD</li>
+            <li>Turned my own agentic practice into the org's shared engineering toolkit — standards, testing, review, security and deploy skills every engineer's agent inherits</li>
+          </ul>
+        </div>
       </div>
 
-    </div>
-  </section>
-
-  <div class="rule thin"></div>
-
-  <!-- 03 FIELD RECORD -->
-  <section id="record">
-    <div class="sechead rv">
-      <div class="secno">§03</div>
-      <h2>Field record</h2>
-      <div class="sub">// fourteen years, abridged</div>
-    </div>
-
-    <div class="rec rv">
-      <div class="yr">2025 — NOW</div>
-      <div class="det">
-        <h3>AI Product Engineer Lead</h3>
-        <div class="co">YTL AI Labs · Bukit Bintang, KL</div>
-        <ul>
-          <li>Integrated YTL's in-house LLM (ILMU) into ILMUchat, a public consumer product serving real users at scale — owning prompt design, context management and cost/latency trade-offs</li>
-          <li>Now on a confidential internal project; contributed across ILMU's AI service ecosystem — model gateway, orchestration, voice and tool-calling services</li>
-          <li>Architected and ran Kubernetes infra on AWS EKS across dev, staging and production with full CI/CD</li>
-          <li>Turned my own agentic practice into the org's shared engineering toolkit — standards, testing, review, security and deploy skills every engineer's agent inherits</li>
-        </ul>
+      <div class="rec rv">
+        <div class="yr">2023 — 2025</div>
+        <div class="det">
+          <h3>Head of Delivery</h3>
+          <div class="co">FrogAsia Sdn Bhd · Sentul, KL</div>
+          <ul>
+            <li>Led GenAI modernization of a legacy EduTech platform — RAG over internal docs and self-hosted AI workflows, moving a messy LMS toward an AI-native product</li>
+            <li>Single point of accountability for delivery across Product, Data, Customer Success, Content, Business Ops and Tech</li>
+            <li>Managed and mentored in-house and offshore senior engineers across Malaysia and Vietnam</li>
+          </ul>
+        </div>
       </div>
-    </div>
 
-    <div class="rec rv">
-      <div class="yr">2023 — 2025</div>
-      <div class="det">
-        <h3>Head of Delivery</h3>
-        <div class="co">FrogAsia Sdn Bhd · Sentul, KL</div>
-        <ul>
-          <li>Led GenAI modernization of a legacy EduTech platform — RAG over internal docs and self-hosted AI workflows, moving a messy LMS toward an AI-native product</li>
-          <li>Single point of accountability for delivery across Product, Data, Customer Success, Content, Business Ops and Tech</li>
-          <li>Managed and mentored in-house and offshore senior engineers across Malaysia and Vietnam</li>
-        </ul>
+      <div class="rec rv">
+        <div class="yr">2021 — 2023</div>
+        <div class="det">
+          <h3>Development Manager</h3>
+          <div class="co">FrogAsia Sdn Bhd · Sentul, KL</div>
+          <ul>
+            <li>Drove the delivery roadmap while shipping Laravel &amp; ReactJS features hands-on — lead, not manager-at-a-distance</li>
+            <li>Introduced AI orchestration and RAG into internal applications; co-owned CI/CD and Docker</li>
+          </ul>
+        </div>
       </div>
-    </div>
 
-    <div class="rec rv">
-      <div class="yr">2021 — 2023</div>
-      <div class="det">
-        <h3>Development Manager</h3>
-        <div class="co">FrogAsia Sdn Bhd · Sentul, KL</div>
-        <ul>
-          <li>Drove the delivery roadmap while shipping Laravel &amp; ReactJS features hands-on — lead, not manager-at-a-distance</li>
-          <li>Introduced AI orchestration and RAG into internal applications; co-owned CI/CD and Docker</li>
-        </ul>
+      <div class="rec mini rv">
+        <div class="yr">2019 — 2021</div>
+        <div class="det"><h3>Class Lead — Line Manager</h3><div class="co">FrogAsia · KL</div>Line-managed senior engineers while staying hands-on in Laravel, ReactJS and in-house MVC frameworks.</div>
       </div>
-    </div>
 
-    <div class="rec mini rv">
-      <div class="yr">2019 — 2021</div>
-      <div class="det"><h3>Class Lead — Line Manager</h3><div class="co">FrogAsia · KL</div>Line-managed senior engineers while staying hands-on in Laravel, ReactJS and in-house MVC frameworks.</div>
-    </div>
-
-    <div class="rec mini rv">
-      <div class="yr">2016 — 2019</div>
-      <div class="det"><h3>Senior Application Engineer</h3><div class="co">FrogAsia · KL</div>Built Laravel, ReactJS and MinIO-backed applications from the ground up; code reviews and peer programming.</div>
-    </div>
-
-    <div class="rec mini rv">
-      <div class="yr">2011 — 2016</div>
-      <div class="det"><h3>Technical Specialist / Project Lead</h3><div class="co">Alliance Software · Cebu, PH</div>Project lead on a J2EE financial web app for a Japanese client; full-stack on SugarCRM and Codeigniter.</div>
-    </div>
-  </section>
-
-  <div class="rule thin"></div>
-
-  <!-- 04 SYSTEMS -->
-  <section id="systems">
-    <div class="sechead rv">
-      <div class="secno">§04</div>
-      <h2>Selected systems</h2>
-      <div class="sub">// things I designed and shipped</div>
-    </div>
-    <div class="rd">
-      <div class="card rv">
-        <span class="idx">SYS/01</span>
-        <span class="tag">● Personal · running daily</span>
-        <h3>Candice</h3>
-        <p>A production multi-agent AI assistant on a custom orchestration layer — the full agentic stack: tool use, long-term memory, multi-step reasoning, human-in-the-loop confirmation, and a self-auditing eval/regression harness for local-model selection.</p>
-        <div class="metarow"><span>Multi-agent</span><span>RAG</span><span>Local + cloud LLMs</span><span>Self-hosted</span></div>
+      <div class="rec mini rv">
+        <div class="yr">2016 — 2019</div>
+        <div class="det"><h3>Senior Application Engineer</h3><div class="co">FrogAsia · KL</div>Built Laravel, ReactJS and MinIO-backed applications from the ground up; code reviews and peer programming.</div>
       </div>
-      <div class="card rv">
-        <span class="idx">SYS/02</span>
-        <span class="tag">● Org platform · adopted team-wide</span>
-        <h3>Agentic engineering toolkit</h3>
-        <p>A shared Claude Code skills/agents/rules plugin adopted across YTL AI Labs — bundling coding standards, TDD, review, security scanning, deploy and incident skills so every engineer's agent inherits the same bar. Platform/DX engineering: personal practice turned reusable org tooling.</p>
-        <div class="metarow"><span>Skill/agent authoring</span><span>Hooks · MCP</span><span>Org-wide</span></div>
+
+      <div class="rec mini rv">
+        <div class="yr">2011 — 2016</div>
+        <div class="det"><h3>Technical Specialist / Project Lead</h3><div class="co">Alliance Software · Cebu, PH</div>Project lead on a J2EE financial web app for a Japanese client; full-stack on SugarCRM and Codeigniter.</div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <div class="rule thin"></div>
-
-  <!-- 05 STACK -->
-  <section id="stack">
-    <div class="sechead rv">
-      <div class="secno">§05</div>
-      <h2>Stack</h2>
-      <div class="sub">// proven in production</div>
-    </div>
-    <div class="stackgrid">
-      <div class="rv">
-        <h3>Current focus</h3>
-        <div class="stacklist" id="stack-recent"></div>
+    <!-- 04 STACK -->
+    <section id="stack" aria-labelledby="h-stack">
+      <div class="sechead rv">
+        <span class="no">04</span>
+        <h2 id="h-stack">Stack</h2>
+        <span class="tag">Proven in production</span>
       </div>
-      <div class="rv past">
-        <h3>Foundations</h3>
-        <div class="stacklist" id="stack-past"></div>
+      <div class="stack">
+        <div class="rv">
+          <h3>Current focus</h3>
+          <div class="taglist" id="stack-recent"></div>
+        </div>
+        <div class="rv past">
+          <h3>Foundations</h3>
+          <div class="taglist" id="stack-past"></div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <div class="rule thin"></div>
+    <!-- 05 ORIGINS -->
+    <section id="origins" aria-labelledby="h-origins">
+      <div class="sechead rv">
+        <span class="no">05</span>
+        <h2 id="h-origins">Origins</h2>
+        <span class="tag">Where the wiring started</span>
+      </div>
+      <div class="origins rv">
+        <h3>B.S. Computer Engineering — Software Engineering major</h3>
+        <div class="co">University of San Carlos · Cebu, PH · 2006–2011</div>
+        <p>Thesis (Development Head): a cryptographic library for general-purpose GPU computing on the Nvidia CUDA architecture — benchmarking GPU vs CPU performance for encryption workloads. Written in C#.</p>
+        <p><em>Fifteen years before "GPU compute" was a résumé line.</em></p>
+      </div>
+    </section>
 
-  <!-- 06 EDUCATION -->
-  <section id="education">
-    <div class="sechead rv">
-      <div class="secno">§06</div>
-      <h2>Origins</h2>
-      <div class="sub">// where the wiring started</div>
-    </div>
-    <div class="edu rv">
-      <h3>B.S. Computer Engineering — Software Engineering major</h3>
-      <div class="co">University of San Carlos · Cebu, PH · 2006–2011</div>
-      <p>Thesis (Development Head): a cryptographic library for general-purpose GPU computing on the Nvidia CUDA architecture — benchmarking GPU vs CPU performance for encryption workloads. Written in C#. </p>
-      <p>Fifteen years before "GPU compute" was a resume line.</p>
-    </div>
-  </section>
+  </div>
+</main>
 
-</div>
-
-<!-- CONTACT / COLOPHON -->
-<footer class="colophon" id="contact">
+<!-- CONTACT -->
+<footer class="contact" id="contact">
   <div class="wrap">
-    <div class="secno rv" style="font-family:'JetBrains Mono',monospace;color:var(--accent);margin-bottom:20px">§07 — SIGNAL</div>
+    <div class="no rv">06 — Signal</div>
     <h2 class="rv">Let's build<br>something <em>real.</em></h2>
-    <div class="contacts rv">
-      <a href="mailto:vhenjoseph@gmail.com">→ Email</a>
-      <a href="https://linkedin.com/in/vhenjoseph" target="_blank" rel="noopener">→ LinkedIn</a>
-      <a href="https://github.com/techykamatis" target="_blank" rel="noopener">→ GitHub</a>
+    <div class="links rv">
+      <a href="mailto:vhenjoseph@gmail.com"><span class="ar">↗</span> Email</a>
+      <a href="https://linkedin.com/in/vhenjoseph" target="_blank" rel="noopener"><span class="ar">↗</span> LinkedIn</a>
+      <a href="https://github.com/techykamatis" target="_blank" rel="noopener"><span class="ar">↗</span> GitHub</a>
     </div>
-    <div class="colo-meta">
+    <div class="colo">
       <span>Kuala Lumpur, Malaysia</span>
       <span>Open to senior AI architecture &amp; engineering roles</span>
-      <span>Set &amp; built by Vhen Joseph Fernandez · 2026</span>
+      <span>Built by Vhen Joseph · 2026</span>
     </div>
   </div>
 </footer>
 
-<!-- COMMAND PALETTE -->
-<div class="cmd-scrim" id="scrim">
-  <div class="cmd" role="dialog" aria-label="Command palette">
-    <input id="cmdInput" placeholder="Type to jump — try 'work', 'r&d', 'email'…" autocomplete="off" />
-    <div class="list" id="cmdList"></div>
-  </div>
-</div>
-
 <script>
-  // ---- ticker (safe, self-generated metrics only) ----
-  const stats=[
-    ['1,411','recorded CLI engineering sessions'],
-    ['~1,674','docs in a local knowledge vault'],
-    ['100%','on-device inference — nothing to the cloud'],
-    ['~30','custom agents authored'],
-    ['~20','custom commands'],
-    ['286 → 36','tooling pruned to what earns its keep'],
-    ['10 / 10','self-sustaining harness objectives shipped'],
-    ['14 yrs','shipping production systems'],
-  ];
-  const tick=stats.map(([n,l])=>`<b><span>${n}</span> ${l}</b>`).join('');
-  document.getElementById('ticker').innerHTML=tick+tick;
-
-  // ---- stack chips ----
+  // ---- stack ----
   const recent=['Agentic Systems','Multi-Agent Orchestration','LLM Integration','Prompt Engineering','Context Management','Model Selection & Eval','Cost / Latency Optimization','RAG','AI-Augmented SDLC','Kubernetes','AWS · EKS · EC2 · S3 · IAM','Docker','API Design','Observability','Technical Leadership'];
   const past=['PHP','Laravel','ReactJS','MySQL','J2EE','KnockoutJS','SugarCRM','Codeigniter','C#','Nvidia CUDA'];
   const fill=(arr,id)=>document.getElementById(id).innerHTML=arr.map(s=>`<span>${s}</span>`).join('');
   fill(recent,'stack-recent');fill(past,'stack-past');
 
-  // ---- scroll reveal ----
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+  // ---- reveal (staggered) ----
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){
+      const sibs=[...e.target.parentElement.querySelectorAll(':scope > .rv')];
+      const i=Math.max(0,sibs.indexOf(e.target));
+      e.target.style.transitionDelay=(i*80)+'ms';
+      e.target.classList.add('in');io.unobserve(e.target);
+    }
+  }),{threshold:.14});
   document.querySelectorAll('.rv').forEach(e=>io.observe(e));
 
-  // ---- command palette ----
-  const cmds=[
-    {ico:'§',label:'The operator — how I work',hint:'01',t:'#operator'},
-    {ico:'§',label:'R&D — personal systems',hint:'02',t:'#rnd'},
-    {ico:'§',label:'Field record — experience',hint:'03',t:'#record'},
-    {ico:'§',label:'Selected systems — projects',hint:'04',t:'#systems'},
-    {ico:'§',label:'Stack — tools & practices',hint:'05',t:'#stack'},
-    {ico:'§',label:'Origins — education',hint:'06',t:'#education'},
-    {ico:'@',label:'Email — vhenjoseph@gmail.com',hint:'↗',h:'mailto:vhenjoseph@gmail.com'},
-    {ico:'in',label:'LinkedIn — /in/vhenjoseph',hint:'↗',h:'https://linkedin.com/in/vhenjoseph'},
-    {ico:'{}',label:'GitHub — techykamatis',hint:'↗',h:'https://github.com/techykamatis'},
-    {ico:'⇧',label:'Back to top',hint:'⌂',t:'#top'},
-  ];
-  const scrim=document.getElementById('scrim'),input=document.getElementById('cmdInput'),list=document.getElementById('cmdList');
-  let sel=0,filtered=cmds.slice();
-  function render(){
-    list.innerHTML=filtered.length?filtered.map((c,i)=>
-      `<div class="item ${i===sel?'sel':''}" data-i="${i}"><span class="ico">${c.ico}</span><span>${c.label}</span><span class="hint">${c.hint}</span></div>`
-    ).join(''):'<div class="empty">no match — try again</div>';
-  }
-  function open(){scrim.classList.add('open');input.value='';filtered=cmds.slice();sel=0;render();setTimeout(()=>input.focus(),30);}
-  function close(){scrim.classList.remove('open');}
-  function go(c){if(!c)return;close();if(c.h){window.open(c.h,c.h.startsWith('mailto')?'_self':'_blank');}else if(c.t==='#top'){scrollTo({top:0,behavior:'smooth'});}else{document.querySelector(c.t)?.scrollIntoView({behavior:'smooth'});}}
-  document.getElementById('cmdOpen').addEventListener('click',open);
-  input.addEventListener('input',()=>{const q=input.value.toLowerCase();filtered=cmds.filter(c=>c.label.toLowerCase().includes(q));sel=0;render();});
-  input.addEventListener('keydown',e=>{
-    if(e.key==='ArrowDown'){e.preventDefault();sel=(sel+1)%filtered.length;render();}
-    else if(e.key==='ArrowUp'){e.preventDefault();sel=(sel-1+filtered.length)%filtered.length;render();}
-    else if(e.key==='Enter'){e.preventDefault();go(filtered[sel]);}
-  });
-  list.addEventListener('click',e=>{const it=e.target.closest('.item');if(it)go(filtered[+it.dataset.i]);});
-  scrim.addEventListener('click',e=>{if(e.target===scrim)close();});
-  addEventListener('keydown',e=>{
-    if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();scrim.classList.contains('open')?close():open();}
-    else if(e.key==='/'&&!scrim.classList.contains('open')&&document.activeElement.tagName!=='INPUT'){e.preventDefault();open();}
-    else if(e.key==='Escape')close();
-  });
+  // ---- progress bar ----
+  const bar=document.getElementById('progress');
+  const onScroll=()=>{
+    const h=document.documentElement;
+    bar.style.transform='scaleX('+(h.scrollTop/((h.scrollHeight-h.clientHeight)||1))+')';
+  };
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // ---- scroll-spy ----
+  const navLinks=[...document.querySelectorAll('#nav a')];
+  const idFor=a=>a.getAttribute('href').slice(1);
+  const spy=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting) navLinks.forEach(a=>a.setAttribute('aria-current', idFor(a)===e.target.id?'true':'false'));
+  }),{rootMargin:'-45% 0px -50% 0px'});
+  ['approach','work','experience','stack','contact'].forEach(id=>{const el=document.getElementById(id);if(el)spy.observe(el);});
 </script>
 </body>
 </html>
