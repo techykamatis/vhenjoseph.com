@@ -162,6 +162,28 @@
   .build.wide{grid-column:1 / -1}
   @media(max-width:720px){.builds{grid-template-columns:1fr}.build.wide{grid-column:auto}}
 
+  /* ---- Candice live CTA ---- */
+  .candice-cta{position:relative;display:inline-flex;align-items:center;gap:11px;
+    margin-top:24px;padding:12px 20px 12px 17px;border-radius:100px;
+    border:1px solid var(--line);background:var(--wash);color:var(--ink);
+    font-weight:500;font-size:15px;line-height:1;white-space:nowrap;
+    transition:transform .4s var(--ease),background .4s var(--ease),color .4s var(--ease),
+      border-color .4s var(--ease),box-shadow .4s var(--ease)}
+  .candice-cta .live{position:relative;flex:none;width:8px;height:8px;border-radius:50%;
+    background:var(--ink);transition:background .4s var(--ease)}
+  .candice-cta .live::after{content:'';position:absolute;inset:0;border-radius:50%;
+    background:var(--ink);animation:cta-pulse 2.4s var(--ease) infinite}
+  @keyframes cta-pulse{0%{transform:scale(1);opacity:.5}70%,100%{transform:scale(2.7);opacity:0}}
+  .candice-cta .arrow{display:inline-flex;transition:transform .4s var(--ease);
+    animation:cta-float 3s ease-in-out infinite}
+  .candice-cta .arrow svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;
+    stroke-linecap:round;stroke-linejoin:round}
+  @keyframes cta-float{0%,100%{transform:translate(0,0)}50%{transform:translate(2px,-2px)}}
+  .candice-cta:hover{background:var(--ink);color:var(--bg);border-color:var(--ink);
+    transform:translateY(-2px);box-shadow:0 16px 34px -18px color-mix(in srgb,var(--ink) 65%,transparent)}
+  .candice-cta:hover .live,.candice-cta:hover .live::after{background:var(--bg)}
+  .candice-cta:hover .arrow{transform:translate(3px,-3px);animation-play-state:paused}
+
   /* ---- animated timeline ---- */
   .timeline{position:relative;padding-left:42px}
   .tl-line{position:absolute;left:6px;top:0;width:2px;height:0;background:var(--line2);border-radius:2px}
@@ -213,6 +235,18 @@
     text-transform:uppercase;color:var(--footer-muted);margin-bottom:22px}
   footer.contact h2{color:var(--footer-ink);font-size:clamp(30px,5.6vw,60px);line-height:1.04;
     letter-spacing:-.035em;max-width:18ch;margin-bottom:18px}
+  .say-head{display:flex;align-items:center;gap:clamp(18px,3vw,30px);margin-bottom:26px}
+  .say-head .kicker{margin-bottom:11px}
+  .say-head h2{margin-bottom:0}
+  .avatar{flex:none;width:clamp(84px,10vw,116px);height:clamp(84px,10vw,116px);border-radius:50%;
+    object-fit:cover;object-position:center 32%;background:var(--footer-bg);
+    box-shadow:0 0 0 1.5px var(--footer-line),0 0 0 6px color-mix(in srgb,var(--footer-ink) 5%,transparent),
+      0 16px 32px -14px rgba(0,0,0,.55);
+    transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+  .avatar:hover{transform:scale(1.035);
+    box-shadow:0 0 0 1.5px color-mix(in srgb,var(--footer-ink) 45%,transparent),
+      0 0 0 6px color-mix(in srgb,var(--footer-ink) 8%,transparent),0 20px 38px -14px rgba(0,0,0,.6)}
+  @media(max-width:460px){.say-head{gap:16px}}
   footer.contact .say{font-size:clamp(17px,1.6vw,20px);color:var(--footer-body);max-width:52ch;margin-bottom:42px}
   .links{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:54px}
   .links a{display:inline-flex;align-items:center;gap:9px;font-size:16px;color:var(--footer-ink);
@@ -315,6 +349,11 @@
             <li>Long-term memory and retrieval across local and cloud models</li>
             <li>Self-auditing eval harness that chooses the best local model for each job</li>
           </ul>
+          <a class="candice-cta" href="https://candiceai.vhenjoseph.com/" target="_blank" rel="noopener">
+            <span class="live" aria-hidden="true"></span>
+            <span class="label">Meet Candice</span>
+            <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span>
+          </a>
         </div>
 
         <div class="build rv">
@@ -459,8 +498,13 @@
 <!-- CONTACT -->
 <footer class="contact" id="contact">
   <div class="wrap">
-    <div class="kicker rv">Say hi</div>
-    <h2 class="rv">If any of this sounds like your kind of thing.</h2>
+    <div class="say-head rv">
+      <img class="avatar" src="vhen.jpg" alt="Vhen Joseph" width="116" height="116" loading="lazy" />
+      <div class="say-head-text">
+        <div class="kicker">Say hi</div>
+        <h2>If any of this sounds like your kind of thing.</h2>
+      </div>
+    </div>
     <p class="say rv">The craft, the local-first stuff, or just building things that are actually good. If that's you, I'd like to hear from you. My inbox is open.</p>
     <div class="links rv">
       <a href="mailto:vhenjoseph@gmail.com"><span class="ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span> Email</a>
