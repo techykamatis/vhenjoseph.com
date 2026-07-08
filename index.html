@@ -3,437 +3,453 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Vhen Joseph — AI Product Engineering</title>
-<meta name="description" content="Vhen Joseph — AI product engineering leader in Kuala Lumpur. Fourteen years shipping production systems; now building the AI-native stack and the agents that run it." />
+<title>Vhen Joseph | AI engineer, Kuala Lumpur</title>
+<meta name="description" content="I'm Vhen Joseph, an AI engineer in Kuala Lumpur. The agent can write the code now, so the work I care about is figuring out what a human should keep, and getting very good at that part. Here's what I believe and what I've built because of it." />
 <meta name="author" content="Vhen Joseph" />
-<meta name="theme-color" content="#0b0b0d" />
-<meta property="og:title" content="Vhen Joseph — AI Product Engineering" />
-<meta property="og:description" content="AI product engineering leader. Building the AI-native stack and the agents that run it." />
+<meta name="theme-color" content="#F5F3EF" />
+<meta property="og:title" content="Vhen Joseph | AI engineer, Kuala Lumpur" />
+<meta property="og:description" content="What I believe about AI-native engineering, and the things I've built because I believe them." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://vhenjoseph.com" />
 <meta name="twitter:card" content="summary" />
 <link rel="canonical" href="https://vhenjoseph.com" />
-<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" fill="%230b0b0d"/><text x="16" y="23" font-family="Georgia,serif" font-size="21" fill="%23ff6a3d" text-anchor="middle" font-style="italic" font-weight="600">v</text></svg>' />
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="%231A1A1A"/><text x="16" y="23" font-family="Geist,Arial,sans-serif" font-size="19" fill="%23F5F3EF" text-anchor="middle" font-weight="600">v</text></svg>' />
+<script>
+  /* set theme before paint to avoid a flash */
+  (function(){
+    var mode='system',dark=false;
+    try{ mode=localStorage.getItem('theme')||'system'; }catch(e){}
+    try{ dark = mode==='dark' || (mode==='system' && matchMedia('(prefers-color-scheme:dark)').matches); }catch(e){}
+    var r=document.documentElement;
+    r.setAttribute('data-theme', dark?'dark':'light');
+    r.setAttribute('data-mode', mode);
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --bg:#0b0b0d;
-    --bg2:#101013;
-    --surface:#121216;
-    --ink:#ededed;
-    --ink2:#b9b9c0;
-    --dim:#71717a;
-    --faint:#45454d;
-    --accent:#ff6a3d;
-    --line:rgba(255,255,255,.09);
-    --line2:rgba(255,255,255,.055);
+    --bg:#F5F3EF;
+    --surface:#FFFFFF;
+    --wash:#EFEBE4;
+    --ink:#1A1A1A;
+    --body:#3a3630;
+    --muted:#8B8378;
+    --line:rgba(26,26,26,.14);
+    --line2:rgba(26,26,26,.07);
+    --footer-bg:#1A1A1A;
+    --footer-ink:#F5F3EF;
+    --footer-body:#cfc7ba;
+    --footer-muted:#8b8378;
+    --footer-line:rgba(245,243,239,.16);
     --ease:cubic-bezier(.22,.61,.24,1);
+  }
+  [data-theme="dark"]{
+    --bg:#1a1714;
+    --surface:#242019;
+    --wash:#2c2820;
+    --ink:#f2eee7;
+    --body:#c9c1b4;
+    --muted:#948b7d;
+    --line:rgba(242,238,231,.15);
+    --line2:rgba(242,238,231,.07);
+    --footer-bg:#100e0b;
+    --footer-ink:#f2eee7;
+    --footer-body:#c9c1b4;
+    --footer-muted:#948b7d;
+    --footer-line:rgba(242,238,231,.14);
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
   body{
     background:var(--bg);
-    color:var(--ink);
-    font-family:'Space Grotesk',system-ui,sans-serif;
-    font-size:17px;line-height:1.6;
+    color:var(--body);
+    font-family:'Geist',system-ui,-apple-system,Arial,sans-serif;
+    font-size:18px;line-height:1.65;
     -webkit-font-smoothing:antialiased;
     text-rendering:optimizeLegibility;
-    font-variant-numeric:tabular-nums;
     overflow-x:hidden;
-    letter-spacing:-.01em;
+    transition:background .4s var(--ease),color .4s var(--ease);
   }
-  ::selection{background:var(--accent);color:#0b0b0d}
+  ::selection{background:var(--ink);color:var(--bg)}
   a{color:inherit;text-decoration:none}
-  :focus-visible{outline:1.5px solid var(--accent);outline-offset:4px;border-radius:1px}
-  .mono{font-family:'JetBrains Mono',monospace}
-  .serif{font-family:'Newsreader',Georgia,serif;letter-spacing:0}
-  h1,h2,h3{text-wrap:balance;font-weight:500}
+  :focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:2px}
+  .mono{font-family:'Geist Mono',ui-monospace,monospace}
+  h1,h2,h3{font-family:'Geist',system-ui,sans-serif;font-weight:600;color:var(--ink);
+    text-wrap:balance;letter-spacing:-.03em}
   p{text-wrap:pretty}
+  strong{color:var(--ink);font-weight:600}
+  em{font-style:italic}
 
-  .wrap{max-width:1240px;margin:0 auto;padding:0 clamp(22px,5vw,80px)}
-  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.22em;
-    text-transform:uppercase;color:var(--dim)}
-  .accent{color:var(--accent)}
-  .hr{height:1px;background:var(--line);border:0}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 clamp(22px,5vw,64px)}
+  .eyebrow{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--muted)}
 
   .skip{position:fixed;left:-999px;top:8px;z-index:200;background:var(--ink);color:var(--bg);
-    font-family:'JetBrains Mono',monospace;font-size:12px;padding:10px 16px}
+    font-family:'Geist Mono',monospace;font-size:12px;padding:10px 16px;border-radius:3px}
   .skip:focus{left:8px}
-  .progress{position:fixed;top:0;left:0;height:1.5px;width:100%;z-index:80;transform:scaleX(0);
-    transform-origin:0 50%;background:var(--accent);opacity:.9}
+  .progress{position:fixed;top:0;left:0;height:2px;width:100%;z-index:80;transform:scaleX(0);
+    transform-origin:0 50%;background:var(--ink);opacity:.26}
 
+  /* ---- masthead ---- */
   header.mast{position:sticky;top:0;z-index:60;
-    background:color-mix(in srgb,var(--bg) 82%,transparent);
-    backdrop-filter:saturate(1.1) blur(14px);border-bottom:1px solid var(--line2)}
-  .mast .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .mast .sig{display:flex;align-items:baseline;gap:11px}
-  .mast .sig .mark{font-family:'Newsreader',serif;font-style:italic;font-size:22px;color:var(--accent);line-height:1}
-  .mast .sig .nm{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
-  .mast nav{display:flex;gap:30px;font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase}
-  .mast nav a{color:var(--dim);transition:color .2s;position:relative;padding:6px 0}
-  .mast nav a::after{content:'';position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--accent);transition:right .3s var(--ease)}
+    background:color-mix(in srgb,var(--bg) 84%,transparent);
+    backdrop-filter:saturate(1.05) blur(12px);border-bottom:1px solid var(--line2)}
+  .mast .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:20px}
+  .mast .nm{font-size:15px;letter-spacing:-.01em;color:var(--ink);font-weight:600}
+  .mast .right{display:flex;align-items:center;gap:clamp(14px,2.4vw,26px)}
+  .mast nav{display:flex;gap:24px;font-size:14px}
+  .mast nav a{color:var(--muted);transition:color .2s;position:relative;padding:6px 0}
+  .mast nav a::after{content:'';position:absolute;left:0;right:100%;bottom:2px;height:1.5px;background:var(--ink);transition:right .3s var(--ease)}
   .mast nav a:hover{color:var(--ink)}
-  .mast nav a[aria-current="true"]{color:var(--ink)}
-  .mast nav a[aria-current="true"]::after,.mast nav a:hover::after{right:0}
-  .avail{display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim)}
-  .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2.6s infinite}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,106,61,.5)}70%{box-shadow:0 0 0 6px rgba(255,106,61,0)}100%{box-shadow:0 0 0 0 rgba(255,106,61,0)}}
-  @media(max-width:820px){.mast nav{display:none}.avail{display:none}}
+  .mast nav a:hover::after{right:0}
+  @media(max-width:720px){.mast nav{display:none}}
 
-  .hero{padding:clamp(72px,15vh,168px) 0 clamp(48px,8vw,96px)}
-  .hero .lead-row{display:flex;align-items:center;gap:16px;margin-bottom:clamp(30px,5vw,52px)}
-  .hero .lead-row .eyebrow{white-space:nowrap}
-  .hero .lead-row .ln{flex:1;height:1px;background:var(--line)}
-  h1.display{font-family:'Newsreader',serif;font-weight:400;
-    font-size:clamp(42px,8.4vw,116px);line-height:.98;letter-spacing:-.025em;color:var(--ink)}
-  h1.display em{font-style:italic;color:var(--accent)}
-  h1.display .muted{color:var(--faint)}
-  .hero-foot{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(28px,6vw,80px);
-    align-items:end;margin-top:clamp(40px,7vw,80px)}
-  .hero-foot .say{font-size:clamp(17px,2.1vw,21px);color:var(--ink2);max-width:44ch;line-height:1.5}
-  .hero-foot .say b{color:var(--ink);font-weight:500}
-  .idcard{font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:2.15;color:var(--dim)}
-  .idcard div{display:flex;justify-content:space-between;gap:24px;border-bottom:1px solid var(--line2);padding:2px 0}
-  .idcard .v{color:var(--ink)}
-  @media(max-width:760px){.hero-foot{grid-template-columns:1fr;gap:36px}}
+  /* ---- theme control ---- */
+  .theme{display:inline-flex;align-items:center;gap:2px;padding:3px;border:1px solid var(--line2);
+    border-radius:100px;background:var(--surface)}
+  .theme-btn{display:grid;place-items:center;width:30px;height:30px;border:0;border-radius:100px;
+    color:var(--muted);background:transparent;cursor:pointer;transition:color .2s,background .2s}
+  .theme-btn:hover{color:var(--ink)}
+  .theme-btn[aria-pressed="true"]{color:var(--ink);background:var(--wash)}
+  .theme-btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.7;
+    stroke-linecap:round;stroke-linejoin:round}
 
-  .metrics{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-    display:grid;grid-template-columns:repeat(4,1fr)}
-  .metrics .m{padding:clamp(24px,3.5vw,40px) clamp(14px,2vw,28px);border-left:1px solid var(--line2)}
-  .metrics .m:first-child{border-left:0;padding-left:0}
-  .metrics .n{font-family:'Newsreader',serif;font-size:clamp(28px,4vw,46px);color:var(--ink);line-height:1;letter-spacing:-.02em}
-  .metrics .l{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);margin-top:12px;line-height:1.5;letter-spacing:.02em}
-  @media(max-width:760px){.metrics{grid-template-columns:1fr 1fr}.metrics .m:nth-child(3){padding-left:0;border-left:0}}
+  /* ---- hero / the essay ---- */
+  .hero{padding:clamp(52px,10vh,112px) 0 clamp(30px,6vw,56px)}
+  .hero .hi{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+  .hero .hi .eyebrow{white-space:nowrap}
+  .hero .hi .ln{flex:1;height:1px;background:var(--line)}
+  h1.display{font-size:clamp(40px,7.4vw,88px);line-height:1.0;letter-spacing:-.04em;
+    color:var(--ink);font-weight:600}
+  h1.display .wave{font-weight:400}
+  .essay{margin-top:clamp(30px,5vw,50px);max-width:60ch}
+  .essay p{font-size:clamp(18px,1.55vw,21px);line-height:1.62;color:var(--body);margin-bottom:1.1em}
+  .essay p.step{color:var(--ink);font-size:clamp(21px,2.2vw,27px);line-height:1.32;
+    font-weight:600;letter-spacing:-.025em;margin:.5em 0 .75em}
+  .essay .u{position:relative;white-space:nowrap;color:var(--ink);font-weight:600}
+  .essay .u .ink-underline{position:absolute;left:-2%;bottom:-.34em;width:104%;height:.5em;overflow:visible}
+  .essay .u .ink-underline path{stroke:var(--ink);stroke-width:2.4;fill:none;stroke-linecap:round}
+  .essay .close{margin-top:1.3em;color:var(--ink);font-size:clamp(19px,1.9vw,23px);
+    line-height:1.4;font-weight:500;letter-spacing:-.02em}
+  .essay .close em{color:var(--muted)}
 
-  section{padding:clamp(72px,11vw,136px) 0;scroll-margin-top:80px}
-  .sechead{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:baseline;
-    margin-bottom:clamp(44px,6vw,72px)}
-  .sechead .no{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--accent);letter-spacing:.05em}
-  .sechead h2{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(30px,5.4vw,58px);
-    line-height:1;letter-spacing:-.02em;color:var(--ink)}
-  .sechead .tag{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.14em;justify-self:end}
-  @media(max-width:640px){.sechead{grid-template-columns:auto 1fr;gap:16px}.sechead .tag{display:none}}
+  /* ---- section frame ---- */
+  section{padding:clamp(58px,9vw,108px) 0;scroll-margin-top:78px}
+  .lead{max-width:62ch;margin-bottom:clamp(36px,5vw,58px)}
+  .lead .kicker{display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+  .lead .kicker .dot{width:6px;height:6px;border-radius:50%;background:var(--muted)}
+  .lead h2{font-size:clamp(28px,4.6vw,50px);line-height:1.03;letter-spacing:-.035em;margin-bottom:14px}
+  .lead h2 em{color:var(--muted)}
+  .lead p{font-size:clamp(17px,1.4vw,19px);color:var(--body)}
 
-  .approach{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,88px)}
-  .approach .big{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(23px,3.4vw,34px);
-    line-height:1.28;letter-spacing:-.01em;color:var(--ink)}
-  .approach .big em{font-style:italic;color:var(--accent)}
-  .approach .body p{color:var(--ink2);margin-bottom:18px;max-width:60ch}
-  .approach .body p strong{color:var(--ink);font-weight:500}
-  .rulebox{margin-top:30px;border-left:2px solid var(--accent);padding:4px 0 4px 20px;
-    font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.75;color:var(--ink2)}
-  .rulebox b{display:block;color:var(--accent);font-weight:500;letter-spacing:.08em;
-    text-transform:uppercase;font-size:11px;margin-bottom:9px}
-  @media(max-width:760px){.approach{grid-template-columns:1fr;gap:28px}}
+  /* ---- building / project cards ---- */
+  .builds{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,24px)}
+  .build{background:var(--surface);border:1px solid var(--line2);border-radius:16px;
+    padding:clamp(26px,3vw,38px);transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s var(--ease)}
+  .build:hover{transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(0,0,0,.28);border-color:var(--line)}
+  .build .tagrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+  .build .kind{font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted)}
+  .build .no{font-family:'Geist Mono',monospace;font-size:11px;color:var(--line)}
+  .build h3{font-size:clamp(22px,2.5vw,29px);line-height:1.08;margin-bottom:12px;letter-spacing:-.028em}
+  .build h3 em{color:var(--muted);font-weight:500}
+  .build p{font-size:16px;line-height:1.58;color:var(--body);margin-bottom:16px}
+  .build ul{list-style:none;display:grid;gap:9px;margin-top:4px}
+  .build li{position:relative;padding-left:20px;font-size:14.5px;line-height:1.5;color:var(--body)}
+  .build li::before{content:'';position:absolute;left:2px;top:.62em;width:7px;height:1.5px;background:var(--muted)}
+  .build.wide{grid-column:1 / -1}
+  @media(max-width:720px){.builds{grid-template-columns:1fr}.build.wide{grid-column:auto}}
 
-  .cards{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);
-    border:1px solid var(--line)}
-  .card{background:var(--bg);padding:clamp(28px,3.4vw,44px);position:relative;
-    transition:background .35s var(--ease)}
-  .card:hover{background:var(--bg2)}
-  .card .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:26px}
-  .card .kind{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;
-    text-transform:uppercase;color:var(--accent)}
-  .card .idx{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--faint)}
-  .card h3{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(24px,3.2vw,33px);
-    line-height:1.06;letter-spacing:-.015em;margin-bottom:15px}
-  .card>p{color:var(--ink2);font-size:15.5px;margin-bottom:20px;max-width:48ch}
-  .card>p strong{color:var(--ink);font-weight:500}
-  .card ul{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:24px}
-  .card li{position:relative;padding-left:22px;font-size:14.5px;color:var(--ink2);line-height:1.5}
-  .card li::before{content:'';position:absolute;left:0;top:9px;width:9px;height:1px;background:var(--accent)}
-  .chips{display:flex;flex-wrap:wrap;gap:7px}
-  .chips span{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);
-    border:1px solid var(--line);padding:5px 10px;border-radius:2px}
-  @media(max-width:760px){.cards{grid-template-columns:1fr}}
-
-  .rec{display:grid;grid-template-columns:150px 1fr;gap:clamp(16px,3vw,44px);
-    border-top:1px solid var(--line);padding:clamp(26px,3vw,38px) 0;transition:.3s var(--ease)}
-  .rec:last-of-type{border-bottom:1px solid var(--line)}
-  .rec:hover{background:linear-gradient(90deg,var(--bg2),transparent 60%)}
-  .rec .yr{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--accent);
-    padding-top:7px;letter-spacing:.03em;white-space:nowrap}
-  .rec h3{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(21px,2.7vw,29px);
-    letter-spacing:-.01em;line-height:1.1}
-  .rec .co{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);
-    text-transform:uppercase;letter-spacing:.08em;margin:9px 0 18px}
-  .rec ul{list-style:none;display:flex;flex-direction:column;gap:10px;max-width:74ch}
-  .rec li{position:relative;padding-left:22px;color:var(--ink2);font-size:15px;line-height:1.5}
-  .rec li::before{content:'';position:absolute;left:0;top:10px;width:9px;height:1px;background:var(--faint)}
-  .rec.mini .det{color:var(--ink2);font-size:15px;max-width:74ch}
-  .rec.mini .det .co{margin-bottom:8px}
-  @media(max-width:640px){.rec{grid-template-columns:1fr;gap:6px}.rec .yr{padding-top:0}.rec .co{margin-top:6px}}
-
-  .stack{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px)}
-  .stack h3{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--dim);margin-bottom:22px;padding-bottom:14px;border-bottom:1px solid var(--line)}
-  .taglist{display:flex;flex-wrap:wrap;gap:8px}
-  .taglist span{font-size:14px;color:var(--ink2);border:1px solid var(--line);padding:8px 14px;
-    border-radius:2px;transition:.2s var(--ease);cursor:default}
-  .taglist span:hover{color:var(--ink);border-color:var(--accent);transform:translateY(-2px)}
-  .stack .past span{color:var(--dim)}
-  @media(max-width:640px){.stack{grid-template-columns:1fr;gap:36px}}
-
-  .origins{border-left:2px solid var(--accent);padding-left:26px;max-width:760px}
-  .origins h3{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(22px,2.8vw,30px);
-    letter-spacing:-.01em;margin-bottom:8px}
-  .origins .co{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);
-    text-transform:uppercase;letter-spacing:.08em;margin-bottom:18px}
-  .origins p{color:var(--ink2);margin-bottom:14px;max-width:64ch}
-  .origins p em{color:var(--accent);font-style:normal}
-
-  footer.contact{border-top:1px solid var(--line);padding:clamp(72px,11vw,140px) 0 clamp(36px,5vw,56px)}
-  footer .no{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--accent);letter-spacing:.05em;margin-bottom:26px}
-  footer h2{font-family:'Newsreader',serif;font-weight:400;font-size:clamp(38px,8.5vw,104px);
-    line-height:.96;letter-spacing:-.03em;margin-bottom:clamp(36px,5vw,56px);color:var(--ink)}
-  footer h2 em{font-style:italic;color:var(--accent)}
-  .links{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:clamp(48px,7vw,80px)}
-  .links a{font-family:'JetBrains Mono',monospace;font-size:13px;border:1px solid var(--line);
-    padding:14px 22px;border-radius:2px;transition:.22s var(--ease);display:flex;align-items:center;gap:10px}
-  .links a .ar{color:var(--accent);transition:transform .22s var(--ease)}
-  .links a:hover{border-color:var(--accent);color:var(--ink);background:var(--bg2)}
-  .links a:hover .ar{transform:translate(3px,-3px)}
-  .colo{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
-    font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--faint);
-    text-transform:uppercase;letter-spacing:.08em}
-
-  .rv{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
-  .rv.in{opacity:1;transform:none}
-
-  @media(prefers-reduced-motion:reduce){
-    *{animation-duration:.001ms!important;animation-iteration-count:1!important;
-      transition-duration:.001ms!important;scroll-behavior:auto!important}
-    .rv{opacity:1;transform:none}
-    .dot{animation:none}
+  /* ---- animated timeline ---- */
+  .timeline{position:relative;padding-left:42px}
+  .tl-line{position:absolute;left:6px;top:0;width:2px;height:0;background:var(--line2);border-radius:2px}
+  .tl-fill{position:absolute;left:6px;top:0;width:2px;height:0;background:var(--ink);border-radius:2px}
+  .rec{position:relative;display:grid;grid-template-columns:112px 1fr;gap:clamp(16px,3vw,40px);
+    padding:24px 0;border-top:1px solid var(--line2)}
+  .rec:first-of-type{border-top:1px solid var(--line)}
+  .rec .dot{position:absolute;left:-42px;top:30px;width:15px;height:15px;border-radius:50%;
+    background:var(--bg);border:2px solid var(--muted);z-index:2;
+    transition:border-color .35s var(--ease),background .35s var(--ease),transform .35s var(--ease)}
+  .rec .dot.on{border-color:var(--ink);background:var(--ink);transform:scale(1.12)}
+  .rec .yr{font-family:'Geist Mono',monospace;font-size:12px;color:var(--muted);
+    letter-spacing:.01em;padding-top:6px}
+  .rec h3{font-size:clamp(19px,2vw,23px);line-height:1.15;margin-bottom:3px;letter-spacing:-.02em}
+  .rec .co{font-size:14px;color:var(--muted);margin-bottom:12px}
+  .rec ul{list-style:none;display:grid;gap:8px}
+  .rec li{position:relative;padding-left:18px;font-size:15px;line-height:1.55;color:var(--body)}
+  .rec li::before{content:'';position:absolute;left:0;top:.62em;width:7px;height:1.5px;background:var(--muted)}
+  .rec.mini .det>span{font-size:15px;color:var(--body)}
+  @media(max-width:600px){
+    .timeline{padding-left:30px}
+    .rec{grid-template-columns:1fr;gap:5px}
+    .rec .yr{padding-top:0}
+    .rec .dot{left:-30px;top:26px}
   }
-  @media print{
-    :root{--bg:#fff;--bg2:#fff;--surface:#fff;--ink:#000;--ink2:#222;--dim:#555;--faint:#777;--accent:#000;--line:#ccc;--line2:#e3e3e3}
-    .mast,.progress{display:none!important}
-    .rv{opacity:1!important;transform:none!important}
-    section{padding:22px 0;break-inside:avoid}
+
+  /* ---- stack ---- */
+  .stack{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
+  .stack h3{font-family:'Geist Mono',monospace;font-weight:500;font-size:11px;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+  .taglist{display:flex;flex-wrap:wrap;gap:8px}
+  .taglist span{font-size:14px;color:var(--ink);background:var(--surface);
+    border:1px solid var(--line2);padding:6px 13px;border-radius:100px;line-height:1.3}
+  .stack .past .taglist span{color:var(--muted);background:transparent}
+  @media(max-width:640px){.stack{grid-template-columns:1fr;gap:34px}}
+
+  /* ---- origins ---- */
+  .origins{max-width:64ch}
+  .origins h3{font-size:clamp(21px,2.4vw,27px);line-height:1.15;margin-bottom:6px;letter-spacing:-.025em}
+  .origins .co{font-size:14px;color:var(--muted);margin-bottom:18px}
+  .origins p{font-size:17px;line-height:1.6;color:var(--body);margin-bottom:12px}
+  .origins .aside{color:var(--muted);font-size:18px;font-weight:500}
+
+  /* ---- contact ---- */
+  footer.contact{background:var(--footer-bg);color:var(--footer-ink);margin-top:clamp(40px,7vw,90px);
+    transition:background .4s var(--ease)}
+  footer.contact .wrap{padding-top:clamp(66px,11vw,124px);padding-bottom:clamp(50px,8vw,84px)}
+  footer.contact .kicker{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--footer-muted);margin-bottom:22px}
+  footer.contact h2{color:var(--footer-ink);font-size:clamp(30px,5.6vw,60px);line-height:1.04;
+    letter-spacing:-.035em;max-width:18ch;margin-bottom:18px}
+  footer.contact .say{font-size:clamp(17px,1.6vw,20px);color:var(--footer-body);max-width:52ch;margin-bottom:42px}
+  .links{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:54px}
+  .links a{display:inline-flex;align-items:center;gap:9px;font-size:16px;color:var(--footer-ink);
+    border:1px solid var(--footer-line);padding:12px 20px;border-radius:100px;
+    transition:background .25s,color .25s}
+  .links a .ar{display:inline-flex;align-items:center;color:var(--footer-muted);transition:color .25s}
+  .links a .ar svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .links a:hover{background:var(--footer-ink);color:var(--footer-bg)}
+  .links a:hover .ar{color:var(--footer-bg)}
+  .colo{display:flex;flex-wrap:wrap;gap:8px 28px;font-family:'Geist Mono',monospace;
+    font-size:12px;color:var(--footer-muted);padding-top:28px;border-top:1px solid var(--footer-line)}
+
+  /* ---- reveal ---- */
+  .rv{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .rv.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    .rv{opacity:1;transform:none}
+    .essay .u .ink-underline path{stroke-dashoffset:0!important}
   }
 </style>
 </head>
-<body id="top">
-
-<a class="skip" href="#approach">Skip to content</a>
+<body>
+<a href="#main" class="skip">Skip to content</a>
 <div class="progress" id="progress" aria-hidden="true"></div>
 
 <header class="mast">
   <div class="wrap">
-    <div class="sig">
-      <span class="mark" aria-hidden="true">v</span>
-      <span class="nm">Vhen&nbsp;Joseph</span>
+    <a class="nm" href="#main" aria-label="Vhen Joseph, home">Vhen Joseph</a>
+    <div class="right">
+      <nav id="nav" aria-label="Primary">
+        <a href="#believe">beliefs</a>
+        <a href="#building">building</a>
+        <a href="#path">the path</a>
+        <a href="#contact">say hi</a>
+      </nav>
+      <div class="theme" role="group" aria-label="Color theme">
+        <button class="theme-btn" data-mode="light" aria-label="Light theme" title="Light">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+        </button>
+        <button class="theme-btn" data-mode="system" aria-label="System theme" title="System">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="1.6"/><path d="M9 21h6M12 17v4"/></svg>
+        </button>
+        <button class="theme-btn" data-mode="dark" aria-label="Dark theme" title="Dark">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.2A8 8 0 1 1 9.8 4 6.4 6.4 0 0 0 20 14.2Z"/></svg>
+        </button>
+      </div>
     </div>
-    <nav id="nav" aria-label="Sections">
-      <a href="#approach">Approach</a>
-      <a href="#work">Work</a>
-      <a href="#experience">Experience</a>
-      <a href="#stack">Stack</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="avail"><span class="dot" aria-hidden="true"></span>Open to senior roles</div>
   </div>
 </header>
 
-<main>
+<main id="main">
 
-  <!-- HERO -->
+  <!-- HERO: the manifesto -->
   <div class="wrap">
     <div class="hero">
-      <div class="lead-row rv">
-        <span class="eyebrow">AI Product Engineering · Kuala Lumpur</span>
+      <div class="hi rv">
+        <span class="eyebrow">AI engineer | Kuala Lumpur | since 2011</span>
         <span class="ln" aria-hidden="true"></span>
-        <span class="eyebrow">Rev. 2026.07</span>
       </div>
-      <h1 class="display rv">Building the AI-native<br>stack — <em>and the agents</em><br><span class="muted">that run it.</span></h1>
-      <div class="hero-foot">
-        <p class="say rv">Fourteen years shipping production systems. Today I run a personal R&amp;D loop where <b>agents handle most of the routine engineering</b> and I stay in the steering seat — architect, reviewer, and the hand on the wheel.</p>
-        <div class="idcard rv">
-          <div><span>ROLE</span><span class="v">AI Product Engineer Lead</span></div>
-          <div><span>ORG</span><span class="v">YTL AI Labs</span></div>
-          <div><span>BASED</span><span class="v">Kuala Lumpur, MY</span></div>
-          <div><span>FOCUS</span><span class="v">Agentic systems</span></div>
+      <h1 class="display rv">Hi, I'm Vhen <span class="wave" aria-hidden="true">&#128075;</span></h1>
+
+      <div class="essay" id="believe">
+        <p class="rv">My name is Vhen Joseph. I'm an AI engineer in Kuala Lumpur, and I've been shipping production software for fourteen years, since well before any of this got called "AI."</p>
+
+        <p class="rv">Right now everyone in my field is asking the same question: will the machines replace the engineers?</p>
+
+        <p class="step rv">I think that's the wrong question.</p>
+
+        <p class="rv">Here's what's actually true. The agent can write the code now. I know that, because most of my routine engineering is already handled by agents I built and tuned. What it can't do is decide what's worth building, hold the line when the easy answer is the wrong one, or stand behind the thing when it breaks at 2am. That part is still mine. I think it always will be.</p>
+
+        <p class="rv">So the work I care about isn't automating engineers out of existence. It's the opposite: <span class="u">figuring out what a human should keep<svg class="ink-underline" viewBox="0 0 320 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8 C 64 2, 116 12, 168 6 S 268 2, 317 7"/></svg></span> as the machines get good, and getting very good at that part. Judgment. Taste. Architecture. Accountability. The craft doesn't disappear. It moves up a level.</p>
+
+        <p class="rv">Where I think this is heading: one person and their agents doing what a whole team used to. Not because people stop mattering, but because the leverage is real, and the ones who learn to steer it will build things that used to need a company. I want to be one of them, and I want to help the engineers around me get there too.</p>
+
+        <p class="rv">One belief sits under all of it: <strong>your tools should belong to you.</strong> The AI I lean on most runs entirely on my own machine. My notes, my work, my second brain: none of it phones home. I don't think that's paranoia. I think it's where a lot of us land once we notice what we've been handing over.</p>
+
+        <p class="close rv">So this isn't a resume. <em>It's what I believe, and the things I've built because I believe them.</em></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <!-- BUILDING -->
+    <section id="building" aria-labelledby="h-building">
+      <div class="lead rv">
+        <span class="kicker"><span class="dot"></span><span class="eyebrow">What I'm building</span></span>
+        <h2 id="h-building">A few things I made because <em>I actually believe the stuff above.</em></h2>
+        <p>Most of them I use every single day. They are scrappy right now, yes. But none of them are demos.</p>
+      </div>
+
+      <div class="builds">
+        <div class="build wide rv">
+          <div class="tagrow"><span class="kind">Personal | runs every day</span><span class="no">01</span></div>
+          <h3>Candice, <em>who I build with every day</em></h3>
+          <p>Candice is my own assistant, and she's not a toy. She's a production multi-agent system on an orchestration layer I built: real tool use, long-term memory, multi-step reasoning, and a check-with-me-first step before she does anything that matters. She picks her own local models and grades them against a regression suite, so she keeps getting better without me babysitting. The page you're reading was built with her.</p>
+          <ul>
+            <li>Multi-agent orchestration with human-in-the-loop confirmation</li>
+            <li>Long-term memory and retrieval across local and cloud models</li>
+            <li>Self-auditing eval harness that chooses the best local model for each job</li>
+          </ul>
+        </div>
+
+        <div class="build rv">
+          <div class="tagrow"><span class="kind">Privacy-first</span><span class="no">02</span></div>
+          <h3>A second brain that never phones home</h3>
+          <p>A fully local pipeline that turns my daily work into a curated knowledge vault that maintains itself. One hundred percent on-device, nothing to the cloud. It's the truest expression of the "your tools should be yours" belief.</p>
+          <ul>
+            <li>Scheduled ingest, summarize and promote, drafting durable notes on its own</li>
+            <li>A local model does the writing, behind a heat and memory guard</li>
+            <li>A scrubber strips keys and secrets before a word ever hits disk</li>
+          </ul>
+        </div>
+
+        <div class="build rv">
+          <div class="tagrow"><span class="kind">My daily workshop</span><span class="no">03</span></div>
+          <h3>A system that maintains itself</h3>
+          <p>The agent layer I work through. Purpose-built sub-agents (reviewers, an architect, a planner, a security reviewer, build-error fixers) wired to be self-healing and self-improving.</p>
+          <ul>
+            <li>Security review escalates to a stronger model only when something looks wrong</li>
+            <li>Long jobs run detached and ping me when their state changes</li>
+            <li>It re-reads its own history on a schedule to find ways to get better</li>
+          </ul>
+        </div>
+
+        <div class="build wide rv">
+          <div class="tagrow"><span class="kind">Turned into shared tooling</span><span class="no">04</span></div>
+          <h3>A toolkit for the people I work with</h3>
+          <p>I took my own practice and made it something the whole lab uses: a plugin of coding standards, testing, review, security scanning and deploy skills, so every engineer's agent inherits the same bar. This is the "help the people around me get there too" part, made concrete. Personal craft, turned into shared infrastructure at YTL AI Labs.</p>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- METRICS -->
-  <div class="wrap">
-    <div class="metrics rv">
-      <div class="m"><div class="n">14<span class="accent">yrs</span></div><div class="l">shipping production<br>systems</div></div>
-      <div class="m"><div class="n">1,411</div><div class="l">recorded CLI<br>engineering sessions</div></div>
-      <div class="m"><div class="n">100<span class="accent">%</span></div><div class="l">on-device inference —<br>nothing to the cloud</div></div>
-      <div class="m"><div class="n">~30</div><div class="l">custom agents<br>authored &amp; running</div></div>
-    </div>
-  </div>
-
-  <div class="wrap">
-
-    <!-- 01 APPROACH -->
-    <section id="approach" aria-labelledby="h-approach">
-      <div class="sechead rv">
-        <span class="no">01</span>
-        <h2 id="h-approach">The approach</h2>
-        <span class="tag">How I work</span>
+    <!-- PATH -->
+    <section id="path" aria-labelledby="h-path">
+      <div class="lead rv">
+        <span class="kicker"><span class="dot"></span><span class="eyebrow">The path here</span></span>
+        <h2 id="h-path">Fourteen years, <em>hands on the whole way.</em></h2>
+        <p>I've always been the lead who still writes code, never the manager watching from a distance.</p>
       </div>
-      <div class="approach">
-        <p class="big rv">Agentic engineering isn't a side tool for me — it's the <em>primary workflow</em>. Most routine engineering is delegated to loops I built and tuned; I work as the architect and the steering hand.</p>
-        <div class="body rv">
-          <p>I lead AI product engineering at <strong>YTL AI Labs</strong>, where I've worked on ILMUchat — Malaysia's public conversational-AI product. I now focus on experimental, highly sensitive work, and I set the engineering practices that let a small team ship fast without chaos.</p>
-          <p>Underneath that is a habit: <strong>research-first, TDD-guided, review-immediately.</strong> New code gets a review agent the moment it's written. Long jobs run detached and notify on state change. Reasoning runs on the strong model; high-volume review and extraction fan out to a cheaper one — <strong>cost-aware by default.</strong></p>
-          <div class="rulebox">
-            <b>Design rule</b>
-            Every mechanism must be project-agnostic. Build it once; express per-repo specifics as declarative config a repo adopts by adding a file.
+
+      <div class="timeline rv" id="timeline">
+        <div class="tl-line" aria-hidden="true"></div>
+        <div class="tl-fill" id="tl-fill" aria-hidden="true"></div>
+
+        <div class="rec">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="yr">2025 - now</div>
+          <div class="det">
+            <h3>AI Product Engineer Lead</h3>
+            <div class="co">YTL AI Labs | Bukit Bintang, KL</div>
+            <ul>
+              <li>Integrated YTL's in-house LLM (ILMU) into ILMUchat, Malaysia's public conversational-AI product, owning prompt design, context management and the cost and latency trade-offs</li>
+              <li>Now on a confidential internal project; contributed across ILMU's service ecosystem: model gateway, orchestration, voice and tool-calling</li>
+              <li>Run the Kubernetes infra on AWS EKS across dev, staging and prod, with full CI/CD</li>
+              <li>Turned my own agentic practice into the team's shared toolkit</li>
+            </ul>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- 02 WORK -->
-    <section id="work" aria-labelledby="h-work">
-      <div class="sechead rv">
-        <span class="no">02</span>
-        <h2 id="h-work">Selected work</h2>
-        <span class="tag">Built &amp; running daily</span>
-      </div>
-      <div class="cards">
-        <div class="card rv">
-          <div class="top"><span class="kind">Self-sustaining agent harness</span><span class="idx">01</span></div>
-          <h3>A system that maintains itself</h3>
-          <p>A personal agent-operating layer: purpose-built sub-agents — reviewers, build-error resolvers, architect, planner, security reviewer — plus custom commands and skills, engineered to be self-healing and self-learning.</p>
-          <ul>
-            <li>Dedup-cached security review that escalates to a stronger model only on flagged findings</li>
-            <li>Config-driven release engine — one engine, per-repo spec files</li>
-            <li>Rate-limit auto-resume: queue pending work, drain it headlessly when the window resets</li>
-            <li>A recurring self-audit that re-mines its own history for improvements</li>
-          </ul>
-          <div class="chips"><span>~30 agents</span><span>~20 commands</span><span>10 objectives shipped</span></div>
+        <div class="rec">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="yr">2023 - 2025</div>
+          <div class="det">
+            <h3>Head of Delivery</h3>
+            <div class="co">FrogAsia Sdn Bhd | Sentul, KL</div>
+            <ul>
+              <li>Led the GenAI modernization of a legacy EdTech platform: RAG over internal docs, self-hosted AI workflows, moving a messy LMS toward an AI-native product</li>
+              <li>Single point of accountability across Product, Data, Customer Success, Content, Business Ops and Tech</li>
+              <li>Mentored in-house and offshore senior engineers across Malaysia and Vietnam</li>
+            </ul>
+          </div>
         </div>
-        <div class="card rv">
-          <div class="top"><span class="kind">Privacy-first knowledge loop</span><span class="idx">02</span></div>
-          <h3>A second brain that never phones home</h3>
-          <p>A fully-local pipeline that turns daily work into a curated, self-maintaining knowledge vault. <strong>100% on-device inference — nothing sent to the cloud.</strong> The strongest self-directed systems artifact I've built.</p>
-          <ul>
-            <li>Scheduled ingest → summarize → promote stages, drafting durable notes automatically</li>
-            <li>Local LLM served on-device behind a thermal / load / RAM guard</li>
-            <li>An LLM-maintained wiki (Karpathy pattern) over a three-layer PARA vault</li>
-            <li>Security-by-design: a secret scrubber redacts keys and tokens before anything hits disk</li>
-          </ul>
-          <div class="chips"><span>BM25 + vector + rerank</span><span>~1,674 docs</span><span>local-only</span></div>
+
+        <div class="rec">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="yr">2021 - 2023</div>
+          <div class="det">
+            <h3>Development Manager</h3>
+            <div class="co">FrogAsia Sdn Bhd | Sentul, KL</div>
+            <ul>
+              <li>Drove the delivery roadmap while shipping Laravel and ReactJS features by hand, as a lead, not a manager at a distance</li>
+              <li>Brought AI orchestration and RAG into internal apps; co-owned CI/CD and Docker</li>
+            </ul>
+          </div>
         </div>
-        <div class="card rv">
-          <div class="top"><span class="kind">Personal · running daily</span><span class="idx">03</span></div>
-          <h3>Candice</h3>
-          <p>A production multi-agent AI assistant on a custom orchestration layer — the full agentic stack: tool use, long-term memory, multi-step reasoning, human-in-the-loop confirmation, and a self-auditing eval/regression harness for local-model selection.</p>
-          <div class="chips"><span>Multi-agent</span><span>RAG</span><span>Local + cloud LLMs</span><span>Self-hosted</span></div>
+
+        <div class="rec mini">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="yr">2019 - 2021</div>
+          <div class="det"><h3>Class Lead, Line Manager</h3><div class="co">FrogAsia | KL</div><span>Line-managed senior engineers while staying hands-on in Laravel, ReactJS and in-house MVC frameworks.</span></div>
         </div>
-        <div class="card rv">
-          <div class="top"><span class="kind">Org platform · adopted team-wide</span><span class="idx">04</span></div>
-          <h3>Agentic engineering toolkit</h3>
-          <p>A shared coding-agent skills/agents/rules plugin adopted across YTL AI Labs — bundling coding standards, TDD, review, security scanning, deploy and incident skills so every engineer's agent inherits the same bar. Personal practice, turned reusable org tooling.</p>
-          <div class="chips"><span>Skill / agent authoring</span><span>Hooks · MCP</span><span>Org-wide</span></div>
+
+        <div class="rec mini">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="yr">2016 - 2019</div>
+          <div class="det"><h3>Senior Application Engineer</h3><div class="co">FrogAsia | KL</div><span>Built Laravel, ReactJS and MinIO-backed applications from the ground up; code reviews and peer programming.</span></div>
+        </div>
+
+        <div class="rec mini">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="yr">2011 - 2016</div>
+          <div class="det"><h3>Technical Specialist / Project Lead</h3><div class="co">Alliance Software | Cebu, PH</div><span>Project lead on a J2EE financial web app for a Japanese client; full-stack on SugarCRM and Codeigniter.</span></div>
         </div>
       </div>
     </section>
 
-    <!-- 03 EXPERIENCE -->
-    <section id="experience" aria-labelledby="h-experience">
-      <div class="sechead rv">
-        <span class="no">03</span>
-        <h2 id="h-experience">Experience</h2>
-        <span class="tag">Fourteen years, abridged</span>
-      </div>
-
-      <div class="rec rv">
-        <div class="yr">2025 — NOW</div>
-        <div class="det">
-          <h3>AI Product Engineer Lead</h3>
-          <div class="co">YTL AI Labs · Bukit Bintang, KL</div>
-          <ul>
-            <li>Integrated YTL's in-house LLM (ILMU) into ILMUchat, a public consumer product serving real users at scale — owning prompt design, context management and cost/latency trade-offs</li>
-            <li>Now on a confidential internal project; contributed across ILMU's AI service ecosystem — model gateway, orchestration, voice and tool-calling services</li>
-            <li>Architected and ran Kubernetes infra on AWS EKS across dev, staging and production with full CI/CD</li>
-            <li>Turned my own agentic practice into the org's shared engineering toolkit — standards, testing, review, security and deploy skills every engineer's agent inherits</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="rec rv">
-        <div class="yr">2023 — 2025</div>
-        <div class="det">
-          <h3>Head of Delivery</h3>
-          <div class="co">FrogAsia Sdn Bhd · Sentul, KL</div>
-          <ul>
-            <li>Led GenAI modernization of a legacy EduTech platform — RAG over internal docs and self-hosted AI workflows, moving a messy LMS toward an AI-native product</li>
-            <li>Single point of accountability for delivery across Product, Data, Customer Success, Content, Business Ops and Tech</li>
-            <li>Managed and mentored in-house and offshore senior engineers across Malaysia and Vietnam</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="rec rv">
-        <div class="yr">2021 — 2023</div>
-        <div class="det">
-          <h3>Development Manager</h3>
-          <div class="co">FrogAsia Sdn Bhd · Sentul, KL</div>
-          <ul>
-            <li>Drove the delivery roadmap while shipping Laravel &amp; ReactJS features hands-on — lead, not manager-at-a-distance</li>
-            <li>Introduced AI orchestration and RAG into internal applications; co-owned CI/CD and Docker</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="rec mini rv">
-        <div class="yr">2019 — 2021</div>
-        <div class="det"><h3>Class Lead — Line Manager</h3><div class="co">FrogAsia · KL</div>Line-managed senior engineers while staying hands-on in Laravel, ReactJS and in-house MVC frameworks.</div>
-      </div>
-
-      <div class="rec mini rv">
-        <div class="yr">2016 — 2019</div>
-        <div class="det"><h3>Senior Application Engineer</h3><div class="co">FrogAsia · KL</div>Built Laravel, ReactJS and MinIO-backed applications from the ground up; code reviews and peer programming.</div>
-      </div>
-
-      <div class="rec mini rv">
-        <div class="yr">2011 — 2016</div>
-        <div class="det"><h3>Technical Specialist / Project Lead</h3><div class="co">Alliance Software · Cebu, PH</div>Project lead on a J2EE financial web app for a Japanese client; full-stack on SugarCRM and Codeigniter.</div>
-      </div>
-    </section>
-
-    <!-- 04 STACK -->
+    <!-- STACK -->
     <section id="stack" aria-labelledby="h-stack">
-      <div class="sechead rv">
-        <span class="no">04</span>
-        <h2 id="h-stack">Stack</h2>
-        <span class="tag">Proven in production</span>
+      <div class="lead rv">
+        <span class="kicker"><span class="dot"></span><span class="eyebrow">The tools</span></span>
+        <h2 id="h-stack">What I reach for.</h2>
       </div>
       <div class="stack">
         <div class="rv">
-          <h3>Current focus</h3>
+          <h3>What I work in now</h3>
           <div class="taglist" id="stack-recent"></div>
         </div>
         <div class="rv past">
-          <h3>Foundations</h3>
+          <h3>The foundations under it</h3>
           <div class="taglist" id="stack-past"></div>
         </div>
       </div>
     </section>
 
-    <!-- 05 ORIGINS -->
+    <!-- ORIGINS -->
     <section id="origins" aria-labelledby="h-origins">
-      <div class="sechead rv">
-        <span class="no">05</span>
-        <h2 id="h-origins">Origins</h2>
-        <span class="tag">Where the wiring started</span>
+      <div class="lead rv">
+        <span class="kicker"><span class="dot"></span><span class="eyebrow">Where the wiring started</span></span>
+        <h2 id="h-origins">Before any of this.</h2>
       </div>
       <div class="origins rv">
-        <h3>B.S. Computer Engineering — Software Engineering major</h3>
-        <div class="co">University of San Carlos · Cebu, PH · 2006–2011</div>
-        <p>Thesis (Development Head): a cryptographic library for general-purpose GPU computing on the Nvidia CUDA architecture — benchmarking GPU vs CPU performance for encryption workloads. Written in C#.</p>
-        <p><em>Fifteen years before "GPU compute" was a résumé line.</em></p>
+        <h3>B.S. Computer Engineering, Software Engineering major</h3>
+        <div class="co">University of San Carlos | Cebu, Philippines | 2006-2011</div>
+        <p>For my thesis I built a cryptographic library that ran on a GPU, benchmarking encryption on Nvidia's CUDA architecture against the CPU. That was 2011. "GPU compute" wasn't a resume line yet; it was just the problem that hooked me.</p>
+        <p class="aside">I've been chasing the same feeling ever since: make the hard machine do the useful thing.</p>
       </div>
     </section>
 
@@ -443,54 +459,129 @@
 <!-- CONTACT -->
 <footer class="contact" id="contact">
   <div class="wrap">
-    <div class="no rv">06 — Signal</div>
-    <h2 class="rv">Let's build<br>something <em>real.</em></h2>
+    <div class="kicker rv">Say hi</div>
+    <h2 class="rv">If any of this sounds like your kind of thing.</h2>
+    <p class="say rv">The craft, the local-first stuff, or just building things that are actually good. If that's you, I'd like to hear from you. My inbox is open.</p>
     <div class="links rv">
-      <a href="mailto:vhenjoseph@gmail.com"><span class="ar">↗</span> Email</a>
-      <a href="https://linkedin.com/in/vhenjoseph" target="_blank" rel="noopener"><span class="ar">↗</span> LinkedIn</a>
-      <a href="https://github.com/techykamatis" target="_blank" rel="noopener"><span class="ar">↗</span> GitHub</a>
+      <a href="mailto:vhenjoseph@gmail.com"><span class="ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span> Email</a>
+      <a href="https://linkedin.com/in/vhenjoseph" target="_blank" rel="noopener"><span class="ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span> LinkedIn</a>
+      <a href="https://github.com/techykamatis" target="_blank" rel="noopener"><span class="ar" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span> GitHub</a>
     </div>
     <div class="colo">
       <span>Kuala Lumpur, Malaysia</span>
-      <span>Open to senior AI architecture &amp; engineering roles</span>
-      <span>Built by Vhen Joseph · 2026</span>
+      <span>Open to senior AI architecture and engineering work</span>
+      <span>This page was built with Candice</span>
     </div>
   </div>
 </footer>
 
 <script>
+  // ---- theme control ----
+  (function(){
+    var root=document.documentElement;
+    var mq=matchMedia('(prefers-color-scheme:dark)');
+    var meta=document.querySelector('meta[name="theme-color"]');
+    function apply(mode){
+      var dark = mode==='dark' || (mode==='system' && mq.matches);
+      root.setAttribute('data-theme', dark?'dark':'light');
+      root.setAttribute('data-mode', mode);
+      if(meta) meta.setAttribute('content', dark?'#1a1714':'#F5F3EF');
+      document.querySelectorAll('.theme-btn').forEach(function(b){
+        b.setAttribute('aria-pressed', b.dataset.mode===mode ? 'true':'false');
+      });
+      try{ localStorage.setItem('theme',mode); }catch(e){}
+    }
+    document.querySelectorAll('.theme-btn').forEach(function(b){
+      b.addEventListener('click', function(){ apply(b.dataset.mode); });
+    });
+    mq.addEventListener('change', function(){
+      if((root.getAttribute('data-mode')||'system')==='system') apply('system');
+    });
+    apply(root.getAttribute('data-mode')||'system');
+  })();
+
   // ---- stack ----
-  const recent=['Agentic Systems','Multi-Agent Orchestration','LLM Integration','Prompt Engineering','Context Management','Model Selection & Eval','Cost / Latency Optimization','RAG','AI-Augmented SDLC','Kubernetes','AWS · EKS · EC2 · S3 · IAM','Docker','API Design','Observability','Technical Leadership'];
-  const past=['PHP','Laravel','ReactJS','MySQL','J2EE','KnockoutJS','SugarCRM','Codeigniter','C#','Nvidia CUDA'];
-  const fill=(arr,id)=>document.getElementById(id).innerHTML=arr.map(s=>`<span>${s}</span>`).join('');
+  var recent=['Agentic systems','Multi-agent orchestration','LLM integration','Prompt engineering','Context management','Model selection and eval','Cost / latency tuning','RAG','AI-augmented SDLC','Kubernetes','AWS | EKS | EC2 | S3','Docker','API design','Observability','Technical leadership'];
+  var past=['PHP','Laravel','ReactJS','MySQL','J2EE','KnockoutJS','SugarCRM','Codeigniter','C#','Nvidia CUDA'];
+  var fill=function(arr,id){document.getElementById(id).innerHTML=arr.map(function(s){return '<span>'+s+'</span>';}).join('');};
   fill(recent,'stack-recent');fill(past,'stack-past');
 
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
   // ---- reveal (staggered) ----
-  const io=new IntersectionObserver(es=>es.forEach(e=>{
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
     if(e.isIntersecting){
-      const sibs=[...e.target.parentElement.querySelectorAll(':scope > .rv')];
-      const i=Math.max(0,sibs.indexOf(e.target));
-      e.target.style.transitionDelay=(i*80)+'ms';
+      var sibs=[].slice.call(e.target.parentElement.querySelectorAll(':scope > .rv'));
+      var i=Math.max(0,sibs.indexOf(e.target));
+      e.target.style.transitionDelay=(i*70)+'ms';
       e.target.classList.add('in');io.unobserve(e.target);
     }
-  }),{threshold:.14});
-  document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+  });},{threshold:.14});
+  document.querySelectorAll('.rv').forEach(function(e){io.observe(e);});
+
+  // ---- ink underline draw ----
+  var u=document.querySelector('.ink-underline path');
+  if(u && !reduce){
+    var len=u.getTotalLength();
+    u.style.strokeDasharray=len;u.style.strokeDashoffset=len;
+    var drawIO=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){
+        u.style.transition='stroke-dashoffset 1.1s cubic-bezier(.22,.61,.24,1) .2s';
+        u.style.strokeDashoffset='0';drawIO.disconnect();
+      }
+    });},{threshold:.6});
+    drawIO.observe(u);
+  }
+
+  // ---- animated timeline: line draws + dots fill as you scroll ----
+  (function(){
+    var tl=document.getElementById('timeline');
+    if(!tl) return;
+    var line=tl.querySelector('.tl-line');
+    var fill=document.getElementById('tl-fill');
+    var dots=[].slice.call(tl.querySelectorAll('.dot'));
+    if(!dots.length) return;
+    var geom={top:0,height:0};
+    function layout(){
+      var tr=tl.getBoundingClientRect();
+      var fr=dots[0].getBoundingClientRect();
+      var lr=dots[dots.length-1].getBoundingClientRect();
+      var top=(fr.top - tr.top) + fr.height/2;
+      var bottom=(lr.top - tr.top) + lr.height/2;
+      geom={top:top,height:Math.max(0,bottom-top)};
+      line.style.top=top+'px'; line.style.height=geom.height+'px';
+      fill.style.top=top+'px';
+    }
+    function update(){
+      var fr=dots[0].getBoundingClientRect();
+      var lr=dots[dots.length-1].getBoundingClientRect();
+      var fc=fr.top+fr.height/2, lc=lr.top+lr.height/2;
+      var ref=window.innerHeight*0.62;
+      var p=(ref-fc)/((lc-fc)||1);
+      p=Math.max(0,Math.min(1,p));
+      fill.style.height=(geom.height*p)+'px';
+      dots.forEach(function(d){
+        var dr=d.getBoundingClientRect();
+        d.classList.toggle('on', (dr.top+dr.height/2) <= ref+1);
+      });
+    }
+    if(reduce){
+      layout(); fill.style.height=geom.height+'px';
+      dots.forEach(function(d){d.classList.add('on');});
+      return;
+    }
+    function tick(){ layout(); update(); }
+    addEventListener('scroll', update, {passive:true});
+    addEventListener('resize', tick);
+    // relayout once fonts/settle, then run
+    tick(); setTimeout(tick, 300); setTimeout(tick, 900);
+  })();
 
   // ---- progress bar ----
-  const bar=document.getElementById('progress');
-  const onScroll=()=>{
-    const h=document.documentElement;
-    bar.style.transform='scaleX('+(h.scrollTop/((h.scrollHeight-h.clientHeight)||1))+')';
-  };
+  var bar=document.getElementById('progress');
+  var onScroll=function(){var h=document.documentElement;
+    bar.style.transform='scaleX('+(h.scrollTop/((h.scrollHeight-h.clientHeight)||1))+')';};
   addEventListener('scroll',onScroll,{passive:true});onScroll();
-
-  // ---- scroll-spy ----
-  const navLinks=[...document.querySelectorAll('#nav a')];
-  const idFor=a=>a.getAttribute('href').slice(1);
-  const spy=new IntersectionObserver(es=>es.forEach(e=>{
-    if(e.isIntersecting) navLinks.forEach(a=>a.setAttribute('aria-current', idFor(a)===e.target.id?'true':'false'));
-  }),{rootMargin:'-45% 0px -50% 0px'});
-  ['approach','work','experience','stack','contact'].forEach(id=>{const el=document.getElementById(id);if(el)spy.observe(el);});
 </script>
 </body>
 </html>
