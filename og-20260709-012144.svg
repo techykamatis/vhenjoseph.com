@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#F5F3EF"/>
+  <rect x="1" y="1" width="1198" height="628" fill="none" stroke="#1A1A1A" stroke-opacity="0.10" stroke-width="2"/>
+  <!-- hero doodle, right side -->
+  <image xlink:href="assets/hero-doodle.png" href="assets/hero-doodle.png" x="726" y="80" width="474" height="468" preserveAspectRatio="xMidYMid meet"/>
+  <!-- eyebrow -->
+  <text x="80" y="112" font-family="Helvetica, Arial, sans-serif" font-size="21" letter-spacing="4" fill="#8B8378">AI PRODUCT ENGINEER &#183; KUALA LUMPUR</text>
+  <!-- headline -->
+  <text x="76" y="248" font-family="Helvetica, Arial, sans-serif" font-size="94" font-weight="700" fill="#1A1A1A" letter-spacing="-3">Hi, I&#8217;m Vhen.</text>
+  <!-- essay -->
+  <text x="80" y="342" font-family="Georgia, 'Times New Roman', serif" font-size="31" fill="#3a3630">The agent can write the code now &#8212;</text>
+  <text x="80" y="386" font-family="Georgia, 'Times New Roman', serif" font-size="31" fill="#3a3630">so the work I care about is deciding</text>
+  <text x="80" y="430" font-family="Georgia, 'Times New Roman', serif" font-size="31" fill="#3a3630">what a human should keep, and</text>
+  <text x="80" y="474" font-family="Georgia, 'Times New Roman', serif" font-size="31" fill="#3a3630">getting very good at it.</text>
+  <!-- footer -->
+  <rect x="80" y="520" width="44" height="3" fill="#1A1A1A"/>
+  <text x="80" y="560" font-family="Helvetica, Arial, sans-serif" font-size="23" fill="#8B8378">vhenjoseph.com</text>
+</svg>
