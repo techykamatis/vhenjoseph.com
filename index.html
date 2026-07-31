@@ -20,20 +20,21 @@
 <meta name="twitter:title" content="Vhen Joseph | AI Product Engineer, Kuala Lumpur" />
 <meta name="twitter:description" content="AI Product Engineer in Kuala Lumpur. What I believe about AI-native engineering, and the things I've built because I believe it." />
 <meta name="twitter:image" content="https://vhenjoseph.com/og-20260709-012144.png" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231A1A1A'/%3E%3Ctext x='16' y='23' font-family='Geist,sans-serif' font-size='20' font-weight='600' fill='%23F5F3EF' text-anchor='middle'%3Ev%3C/text%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231A1A1A'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='600' fill='%23F5F3EF' text-anchor='middle'%3Ev%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 <style>
   :root {
     --paper:#F5F3EF; --surface:#FFFFFF; --wash:#EFEBE4;
     --ink:#1A1A1A; --ink-body:#3A3630; --ink-muted:#8B8378;
     --line:rgba(26,26,26,.14); --line-2:rgba(26,26,26,.07);
     --contrast-bg:#1A1A1A; --contrast-ink:#F5F3EF; --contrast-body:#CFC7BA; --contrast-muted:#8B8378; --contrast-line:rgba(245,243,239,.16);
-    --candice-bg:#1E1E1E;
+    --candice-bg:#1b1917; --candice-accent:#d8ab68;
     --bg:var(--paper); --text-body:var(--ink-body); --text-muted:var(--ink-muted);
-    --font-sans:'Geist',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
-    --font-mono:'Geist Mono',ui-monospace,'SF Mono',Menlo,monospace;
+    --font-sans:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+    --font-serif:'Young Serif',Georgia,'Times New Roman',serif;
+    --font-mono:'Space Mono',ui-monospace,'SF Mono',Menlo,monospace;
     --text-display:clamp(40px,7.4vw,88px); --text-h2:clamp(28px,4.6vw,50px); --text-h3:clamp(22px,2.5vw,29px);
     --text-lead:clamp(21px,2.2vw,27px); --text-essay:clamp(18px,1.55vw,21px);
     --ls-display:-.04em; --ls-heading:-.03em; --ls-tight:-.02em; --ls-eyebrow:.16em; --ls-mono:.12em;
@@ -52,6 +53,7 @@
   ::selection { background:var(--ink); color:var(--paper); }
   a { color:var(--ink); text-decoration:none; }
   a:hover { color:var(--text-body); }
+  a:focus-visible, button:focus-visible, .btn:focus-visible { outline:2px solid currentColor; outline-offset:3px; border-radius:4px; }
   img { max-width:100%; display:block; }
   .wrap { max-width:var(--content-max); margin:0 auto; padding:0 var(--gutter); }
   .sec { padding:var(--section-y) 0; scroll-margin-top:78px; }
@@ -64,9 +66,9 @@
   .wordmark { font-size:15px; font-weight:600; color:var(--ink); letter-spacing:-.01em; }
   .nav { display:flex; gap:24px; font-size:14px; }
   .mast-link { position:relative; color:var(--text-muted); padding:6px 0; transition:color .2s var(--ease); }
-  .mast-link::after { content:""; position:absolute; left:0; bottom:0; width:0; height:1.5px; background:var(--ink); transition:width .25s var(--ease); }
+  .mast-link::after { content:""; position:absolute; left:0; bottom:0; width:100%; height:1.5px; background:var(--ink); transform:scaleX(0); transform-origin:left; transition:transform .25s var(--ease); }
   .mast-link:hover { color:var(--ink); }
-  .mast-link:hover::after { width:100%; }
+  .mast-link:hover::after { transform:scaleX(1); }
 
   /* eyebrow */
   .eyebrow { font-family:var(--font-mono); font-size:11px; letter-spacing:var(--ls-eyebrow); text-transform:uppercase; color:var(--text-muted); line-height:1; }
@@ -105,7 +107,7 @@
 
   /* hero */
   .hero-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(24px,5vw,64px); align-items:center; padding:clamp(48px,9vh,104px) 0 clamp(28px,5vw,52px); }
-  .hero h1 { font-family:var(--font-sans); font-size:var(--text-display); line-height:1; letter-spacing:var(--ls-display); color:var(--ink); font-weight:600; margin:0; }
+  .hero h1 { font-family:var(--font-serif); font-size:var(--text-display); line-height:1.02; letter-spacing:-.015em; color:var(--ink); font-weight:400; margin:0; }
   .hero h1 .wave { font-weight:400; }
   .hero-lead { margin-top:clamp(20px,3vw,30px); max-width:42ch; font-size:var(--text-lead); line-height:1.4; color:var(--text-body); letter-spacing:-.01em; }
   .hero-cta { display:flex; flex-wrap:wrap; gap:12px; margin-top:clamp(24px,3vw,34px); }
@@ -131,8 +133,8 @@
   /* candice band */
   .candice { background:var(--candice-bg); color:var(--contrast-ink); }
   .candice-grid { max-width:var(--content-max); margin:0 auto; padding:clamp(52px,8vw,96px) var(--gutter); display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(28px,5vw,60px); align-items:center; }
-  .candice .eyebrow-band { font-family:var(--font-mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--contrast-muted); margin-bottom:16px; }
-  .candice h2 { font-family:var(--font-sans); color:var(--contrast-ink); font-size:clamp(30px,4.4vw,50px); line-height:1.04; letter-spacing:-.035em; margin:0 0 20px; max-width:16ch; }
+  .candice .eyebrow-band { font-family:var(--font-mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--candice-accent); margin-bottom:16px; }
+  .candice h2 { font-family:var(--font-serif); font-weight:400; color:var(--contrast-ink); font-size:clamp(30px,4.4vw,50px); line-height:1.06; letter-spacing:-.01em; margin:0 0 20px; max-width:16ch; }
   .candice p { font-size:clamp(16px,1.5vw,19px); line-height:1.6; color:var(--contrast-body); max-width:56ch; margin:0 0 22px; }
   .candice ul { list-style:none; display:grid; gap:11px; padding:0; margin:0 0 30px; max-width:56ch; }
   .candice li { position:relative; padding-left:20px; font-size:15px; line-height:1.5; color:var(--contrast-body); }
@@ -142,7 +144,7 @@
 
   /* section head spacing */
   .sec-lead { max-width:62ch; margin-bottom:clamp(36px,5vw,58px); }
-  .sec-lead h2 { font-family:var(--font-sans); font-weight:600; font-size:var(--text-h2); line-height:1.03; letter-spacing:var(--ls-heading); color:var(--ink); margin:16px 0 0; }
+  .sec-lead h2 { font-family:var(--font-serif); font-weight:400; font-size:var(--text-h2); line-height:1.05; letter-spacing:-.01em; color:var(--ink); margin:16px 0 0; }
   .sec-lead h2 em { color:var(--text-muted); font-style:italic; }
   .sec-lead .support { font-size:clamp(17px,1.4vw,19px); color:var(--text-body); line-height:1.62; margin-top:14px; }
 
@@ -186,7 +188,7 @@
   .footer-top { display:flex; align-items:center; gap:clamp(18px,3vw,30px); margin-bottom:26px; flex-wrap:wrap; }
   .footer-top img { flex:none; width:clamp(84px,10vw,116px); height:clamp(84px,10vw,116px); border-radius:50%; object-fit:cover; object-position:center 32%; box-shadow:0 0 0 1.5px var(--contrast-line), 0 0 0 6px rgba(245,243,239,.05), var(--shadow-avatar); }
   .footer .kick { font-family:var(--font-mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--contrast-muted); margin-bottom:11px; }
-  .footer h2 { font-family:var(--font-sans); color:var(--contrast-ink); font-size:clamp(30px,5.6vw,60px); line-height:1.04; letter-spacing:-.035em; max-width:18ch; margin:0; }
+  .footer h2 { font-family:var(--font-serif); font-weight:400; color:var(--contrast-ink); font-size:clamp(30px,5.6vw,60px); line-height:1.06; letter-spacing:-.012em; max-width:18ch; margin:0; }
   .footer .blurb { font-size:clamp(17px,1.6vw,20px); color:var(--contrast-body); max-width:52ch; margin:0 0 42px; line-height:1.6; }
   .link-pills { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:54px; }
   .link-pill { display:inline-flex; align-items:center; gap:9px; font-family:var(--font-sans); font-size:16px; padding:12px 20px; border-radius:var(--radius-pill); border:1px solid var(--contrast-line); color:var(--contrast-ink); transition:background .2s var(--ease), color .2s var(--ease); }
@@ -300,7 +302,7 @@
       <div class="car-track">
         <div class="car-slide">
           <article class="card">
-            <div class="card-kicker"><span class="k">Privacy-first</span><span class="n">02</span></div>
+            <div class="card-kicker"><span class="k">Privacy-first</span><span class="n">01</span></div>
             <h3>A second brain that never leaves the machine</h3>
             <p>A fully local pipeline that turns my daily work into a curated knowledge vault that maintains itself. One hundred percent on-device.</p>
             <ul>
@@ -312,7 +314,7 @@
         </div>
         <div class="car-slide">
           <article class="card">
-            <div class="card-kicker"><span class="k">My daily workshop</span><span class="n">03</span></div>
+            <div class="card-kicker"><span class="k">My daily workshop</span><span class="n">02</span></div>
             <h3>A system that maintains itself</h3>
             <p>The agent layer I work through. Purpose-built sub-agents — reviewers, an architect, a planner — wired to be self-healing.</p>
             <ul>
@@ -324,7 +326,7 @@
         </div>
         <div class="car-slide">
           <article class="card">
-            <div class="card-kicker"><span class="k">Turned into shared tooling</span><span class="n">04</span></div>
+            <div class="card-kicker"><span class="k">Turned into shared tooling</span><span class="n">03</span></div>
             <h3>A toolkit for the people I work with</h3>
             <p>I took my own practice and made it something the whole lab uses: a plugin of coding standards, testing, review, security scanning and deploy skills, so every engineer's agent inherits the same bar. Personal craft, turned into shared infrastructure at YTL AI Labs.</p>
           </article>
@@ -455,10 +457,10 @@
       </div>
       <p class="blurb">The craft, the local-first stuff, or just building things that are actually good. If that's you, I'd like to hear from you. My inbox is open.</p>
       <div class="link-pills">
-        <a class="link-pill" href="mailto:vhenjoseph@gmail.com"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>Email</a>
-        <a class="link-pill" href="https://linkedin.com/in/vhenjoseph"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>LinkedIn</a>
-        <a class="link-pill" href="https://github.com/techykamatis"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>GitHub</a>
-        <a class="link-pill" href="wiki/"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>Wiki</a>
+        <a class="link-pill" href="mailto:vhenjoseph@gmail.com"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</a>
+        <a class="link-pill" href="https://linkedin.com/in/vhenjoseph"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0-.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.76-1.95C20.4 8.75 21 11 21 14v7h-4v-6.2c0-1.48-.03-3.38-2.06-3.38-2.06 0-2.38 1.6-2.38 3.27V21H9z"/></svg>LinkedIn</a>
+        <a class="link-pill" href="https://github.com/techykamatis"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49l-.01-1.9c-2.78.62-3.37-1.2-3.37-1.2-.46-1.18-1.11-1.5-1.11-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.9 1.56 2.35 1.11 2.92.85.09-.66.35-1.11.63-1.37-2.22-.26-4.55-1.14-4.55-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05a9.36 9.36 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.81-4.57 5.06.36.31.68.94.68 1.9l-.01 2.81c0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>GitHub</a>
+        <a class="link-pill" href="wiki/"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20"/></svg>Wiki</a>
       </div>
       <div class="colophon">
         <span>Kuala Lumpur, Malaysia</span>
