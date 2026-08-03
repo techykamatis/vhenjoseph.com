@@ -33,5 +33,5 @@ The daily workshop — what I actually build with.
 
 ## Related
 
-* [What I'm Building](/building.md) - Where these tools go.
-* [The Path Here](/path.md) - Where they came from.
+* [What I'm Building](building.md) - Where these tools go.
+* [The Path Here](path.md) - Where they came from.

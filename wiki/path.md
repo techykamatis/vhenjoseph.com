@@ -30,5 +30,5 @@ YTL AI Labs and Alliance Software.
 
 ## Related
 
-* [What I Reach For](/stack.md) - The tools that carry through all of it.
-* [About](/about.md) - The short version.
+* [What I Reach For](stack.md) - The tools that carry through all of it.
+* [About](about.md) - The short version.

@@ -18,5 +18,5 @@ just building things that are actually good — I'd like to hear from you.
 
 ## Related
 
-* [About](/about.md) - Who you'd be talking to.
-* [What I'm Building](/building.md) - The work.
+* [About](about.md) - Who you'd be talking to.
+* [What I'm Building](building.md) - The work.

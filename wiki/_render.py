@@ -9,6 +9,7 @@ import os
 import markdown
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+OUT = os.path.join(HERE, "html")
 BASE = "https://vhenjoseph.com/"
 OG_IMAGE = BASE + "og-20260709-012144.png"
 
@@ -122,9 +123,9 @@ def render(md_path):
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{page_title}</title>
 <meta name="description" content="{desc}" />
-<link rel="canonical" href="{BASE}wiki/{slug}.html" />
+<link rel="canonical" href="{BASE}wiki/html/{slug}.html" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="{BASE}wiki/{slug}.html" />
+<meta property="og:url" content="{BASE}wiki/html/{slug}.html" />
 <meta property="og:title" content="{page_title}" />
 <meta property="og:description" content="{desc}" />
 <meta property="og:image" content="{OG_IMAGE}" />
@@ -162,14 +163,15 @@ def render(md_path):
 
 
 def main():
+    os.makedirs(OUT, exist_ok=True)
     n = 0
     for md_path in sorted(glob.glob(os.path.join(HERE, "*.md"))):
         slug = os.path.splitext(os.path.basename(md_path))[0]
         if slug == "log":
             continue
-        open(os.path.join(HERE, slug + ".html"), "w", encoding="utf-8").write(render(md_path))
+        open(os.path.join(OUT, slug + ".html"), "w", encoding="utf-8").write(render(md_path))
         n += 1
-        print("rendered", slug + ".html")
+        print("rendered", "html/" + slug + ".html")
     print(f"done: {n} pages")
 
 

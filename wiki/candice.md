@@ -10,7 +10,7 @@ timestamp: 2026-07-19T00:00:00Z
 # Candice
 
 Candice is my personal AI — the clearest expression of everything on the
-[What I Believe](/beliefs.md) page.
+[What I Believe](beliefs.md) page.
 
 ## What she is
 
@@ -30,5 +30,5 @@ at [candiceai.vhenjoseph.com](https://candiceai.vhenjoseph.com/).
 
 ## Related
 
-* [What I'm Building](/building.md) - The rest of the workshop.
-* [What I Reach For](/stack.md) - The tools behind Candice.
+* [What I'm Building](building.md) - The rest of the workshop.
+* [What I Reach For](stack.md) - The tools behind Candice.

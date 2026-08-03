@@ -32,5 +32,5 @@ constraint I tolerate; it's a principle I build toward.
 ## I actually believe this
 
 This isn't positioning. I actually believe the stuff above — and I've built things
-because of it. See [What I'm Building](/building.md) and the flagship,
-[Candice](/candice.md).
+because of it. See [What I'm Building](building.md) and the flagship,
+[Candice](candice.md).

@@ -22,6 +22,6 @@ it.
 
 ## Start here
 
-* [What I Believe](/beliefs.md) - The thinking behind the work.
-* [What I'm Building](/building.md) - The things I've made because of it.
-* [The Path Here](/path.md) - How I got to this point.
+* [What I Believe](beliefs.md) - The thinking behind the work.
+* [What I'm Building](building.md) - The things I've made because of it.
+* [The Path Here](path.md) - How I got to this point.
