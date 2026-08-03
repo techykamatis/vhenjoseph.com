@@ -3,7 +3,7 @@ type: Reference
 title: What I Reach For
 description: The tools, focus areas, and engineering foundations behind Vhen's work.
 tags: [tools, stack, skills]
-timestamp: 2026-07-19T00:00:00Z
+timestamp: 2026-08-03T00:00:00Z
 ---
 
 # What I Reach For
@@ -12,9 +12,16 @@ The daily workshop — what I actually build with.
 
 ## The agent layer
 
-* Local-first LLMs running entirely on my own machine.
-* Claude as the agent layer I work through.
+* Local-first LLMs (via Ollama) running entirely on my own machine.
+* Claude as the agent layer I work through, on a Python/FastAPI backend with SQLite.
+* Retrieval that mixes lexical search with embeddings over an OKF knowledge bundle.
 * A check-with-me-first pattern wrapped around anything that matters.
+
+## On-device Apple
+
+* Swift and SwiftUI.
+* Apple Foundation Models and Apple Intelligence for on-device inference.
+* App Intents so the assistant lives inside the system, not a separate app.
 
 ## Focus areas
 

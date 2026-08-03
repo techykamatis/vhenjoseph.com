@@ -4,7 +4,7 @@ title: Candice
 description: Vhen's local-first personal AI — real tool use, memory, reasoning, and a check-with-me-first step.
 resource: https://candiceai.vhenjoseph.com/
 tags: [candice, personal-ai, local-first, agents]
-timestamp: 2026-07-19T00:00:00Z
+timestamp: 2026-08-03T00:00:00Z
 ---
 
 # Candice
@@ -22,6 +22,20 @@ She's the agent layer I work through, not a replacement for my judgment.
 
 The AI I lean on most runs entirely on my own machine, one hundred percent on-device.
 My notes, my work, my second brain: none of it phones home.
+
+## Safe by construction
+
+Being local-first isn't enough on its own, so she's built to stay honest. When a request
+does need a cloud model, the private details are masked on the way out and restored on the
+way back — the model reasons without ever seeing who it's about. Anything she reads from the
+outside world is screened for prompt injection first. And every day she audits her own
+behavior, turning her mistakes into rules she keeps.
+
+## Going native
+
+Candice is becoming an Apple app built on on-device Foundation Models and App Intents, so
+she works from inside the tools I already use rather than a separate chat window. The
+server stays the brain; the app is just how I reach her.
 
 ## She built this
 

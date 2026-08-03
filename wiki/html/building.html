@@ -79,15 +79,26 @@ footer a{color:var(--con-ink)}
   <h1>What I'm Building</h1>
   
 <p>A few things I made because I believe the thinking in <a href="beliefs.html">What I Believe</a>.
-They're scrappy right now, yes — but most of them I use every single day.</p>
+They're scrappy in places, yes — but most of them I use every single day.</p>
 <h2>Candice — a personal AI</h2>
 <p>A local-first personal AI with real tool use, long-term memory, multi-step reasoning,
 and a check-with-me-first step before she does anything that matters. She runs my
 life and built this site. Full page: <a href="candice.html">Candice</a>.</p>
+<p>She's now going native: an Apple app built on the on-device Foundation Models and App
+Intents, so she lives in the places I already work instead of behind a chat box. The
+server stays the brain; the app is the face.</p>
 <h2>A knowledge vault that maintains itself</h2>
 <p>A fully local pipeline that turns my daily work into a curated knowledge vault that
-maintains itself. My second brain, one hundred percent on-device — none of it phones
-home.</p>
+maintains itself — my second brain, one hundred percent on-device, none of it phoning
+home. It's structured as an Open Knowledge Format bundle so both people and agents can
+read it cleanly, with hybrid retrieval — lexical shortlisting fused with embeddings — so
+lookups stay cheap without going blind.</p>
+<h2>Agents that police themselves</h2>
+<p>The part I'm proudest of is the safety plumbing. Private details get masked before any
+request leaves the machine and restored on the way back, so a cloud model can reason
+without ever seeing who it's about. Incoming text — email, feeds, the web — is screened
+for prompt injection before it reaches the model. And a daily self-audit turns Candice's
+own mistakes into standing rules she carries forward.</p>
 <h2>A toolkit for the people I work with</h2>
 <p>Personal craft, turned into shared infrastructure at YTL AI Labs — the agent layer and
 tooling I use every day, packaged up so the people I work with can use it too.</p>
