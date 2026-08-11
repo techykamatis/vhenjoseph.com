@@ -41,6 +41,14 @@ JSONLD = '''<script type="application/ld+json">
 }
 </script>'''
 
+CLARITY = '''<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "y0rbsvyb9k");
+</script>'''
+
 CSS = '''
 :root{--paper:#F5F3EF;--surface:#fff;--wash:#EFEBE4;--ink:#1A1A1A;--body:#3A3630;--muted:#8B8378;--line:rgba(26,26,26,.14);--contrast:#1A1A1A;--con-ink:#F5F3EF}
 *{box-sizing:border-box}
@@ -138,6 +146,7 @@ def render(md_path):
 <meta name="twitter:image" content="{OG_IMAGE}" />
 <style>{CSS}</style>
 {JSONLD}
+{CLARITY}
 </head>
 <body>
 <header class="topbar"><div class="wrap">
