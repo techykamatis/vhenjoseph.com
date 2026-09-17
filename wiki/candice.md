@@ -1,10 +1,10 @@
 ---
 type: Project
 title: Candice
-description: Vhen's local-first personal AI — real tool use, memory, reasoning, and a check-with-me-first step.
+description: Vhen's local-first personal AI — real tool use, memory, reasoning, and a risk-tiered authority model instead of a blanket approval gate.
 resource: https://candiceai.vhenjoseph.com/
 tags: [candice, personal-ai, local-first, agents]
-timestamp: 2026-08-03T00:00:00Z
+timestamp: 2026-09-17T00:00:00Z
 ---
 
 # Candice
@@ -14,9 +14,12 @@ Candice is my personal AI — the clearest expression of everything on the
 
 ## What she is
 
-A personal AI I built with real tool use, long-term memory, multi-step reasoning, and —
-crucially — a check-with-me-first step before she does anything that actually matters.
-She's the agent layer I work through, not a replacement for my judgment.
+A personal AI I built with real tool use, long-term memory, and multi-step reasoning. She
+runs routine work end to end on her own — fixing bugs, restarting her own server, shipping
+code — without stopping to ask. What she can't do is act unattended: read a secret file,
+touch financial records, or run an irreversible command. Everything else sits on a scale
+between those two ends, sized to how reversible it is. She's the agent layer I work
+through, not a replacement for my judgment.
 
 ## Local-first
 
