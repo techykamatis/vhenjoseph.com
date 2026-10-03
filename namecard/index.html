@@ -1,18 +1,102 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vhen Joseph — Namecard</title>
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://vhenjoseph.com/namecard/" />
-  <style>
-    html, body { margin: 0; background: #111; }
-    body { display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; }
-    img { display: block; max-width: 100%; height: auto; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vhen Joseph</title>
+<meta name="description" content="Vhen Joseph, AI Product Engineer Lead, Kuala Lumpur.">
+<meta name="theme-color" content="#F5F3EF">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F3EF; --ink:#1C1C1E; --muted:#69665F; --white:#FFFFFF;
+  --coral:#EE5A52; --teal:#209E94; --mustard:#F2B630; --violet:#745CE0; --sky:#4291E8;
+  --line:3px;
+  color-scheme: light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink)}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100dvh;display:flex;justify-content:center;
+  padding:max(16px,env(safe-area-inset-top)) 16px max(24px,env(safe-area-inset-bottom));-webkit-font-smoothing:antialiased}
+.card{position:relative;width:100%;max-width:420px;text-align:center;padding:96px 4px 120px}
+.doodle{position:absolute;pointer-events:none}
+.d-planet{top:12px;left:4px;width:96px}
+.d-star-big{top:18px;right:8px;width:62px}
+.d-star-sm1{top:92px;right:64px;width:30px}
+.d-star-sm2{top:24px;left:120px;width:24px}
+.d-rocket{bottom:12px;left:12px;width:64px}
+.d-star-sm3{bottom:78px;left:92px;width:24px}
+.d-code{bottom:20px;right:10px}
+.hi{color:var(--muted);font-weight:500;font-size:18px}
+h1{font-size:clamp(40px,12vw,52px);font-weight:800;letter-spacing:-.02em;line-height:1.05;margin:4px 0 14px}
+.pill{display:inline-block;background:var(--coral);color:var(--white);font-weight:700;font-size:clamp(17px,5vw,21px);
+  padding:10px 22px;border:var(--line) solid var(--ink);border-radius:999px;box-shadow:4px 4px 0 var(--ink)}
+.loc{color:var(--muted);font-size:16px;margin:14px 0 26px}
+.qr-wrap{display:inline-block;background:var(--white);border:var(--line) solid var(--ink);border-radius:22px;padding:16px;
+  box-shadow:7px 7px 0 var(--teal),7px 7px 0 var(--line) var(--ink)}
+.qr-wrap svg{display:block;width:min(240px,62vw);height:auto}
+.site{display:block;font-weight:800;font-size:26px;color:var(--ink);text-decoration:none;margin-top:22px}
+.site:hover{text-decoration:underline;text-decoration-thickness:3px;text-decoration-color:var(--coral)}
+.scan{color:var(--muted);font-size:15px;margin-top:4px}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:24px 0 28px}
+.chip{font-weight:600;font-size:14px;color:var(--white);padding:6px 13px;border:2px solid var(--ink);border-radius:999px}
+.c-violet{background:var(--violet)}.c-sky{background:var(--sky)}.c-coral{background:var(--coral)}
+.c-teal{background:var(--teal)}.c-mustard{background:var(--mustard);color:var(--ink)}
+.label{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--muted);margin-bottom:12px}
+.work{list-style:none;text-align:left;display:grid;gap:10px;margin:0 auto 26px;max-width:360px}
+.work li{display:grid;grid-template-columns:14px 1fr;gap:10px;align-items:start;font-size:15px;line-height:1.35}
+.dot{width:12px;height:12px;border-radius:50%;border:2px solid var(--ink);margin-top:4px}
+.work b{font-weight:700}
+.work span{color:var(--muted)}
+.actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:15px;color:var(--ink);background:var(--white);
+  text-decoration:none;padding:10px 16px;border:2px solid var(--ink);border-radius:12px;box-shadow:3px 3px 0 var(--ink);
+  transition:transform .08s,box-shadow .08s}
+.btn:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--ink)}
+.btn.primary{background:var(--mustard)}
+@media (min-width:600px){body{align-items:center}}
+@media print{.actions{display:none}body{padding:0}}
+</style>
 </head>
 <body>
-  <img src="../assets/namecard.png" alt="Vhen Joseph — namecard" />
+<main class="card">
+  <svg class="doodle d-planet" viewBox="0 0 120 80" aria-hidden="true"><circle cx="60" cy="40" r="32" fill="var(--violet)" stroke="var(--ink)" stroke-width="3"/><path d="M6 46 Q60 18 114 40" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/></svg>
+  <svg class="doodle d-star-big" viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,6 62,38 96,38 68,58 79,92 50,72 21,92 32,58 4,38 38,38" fill="var(--mustard)" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round"/></svg>
+  <svg class="doodle d-star-sm1" viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,6 62,38 96,38 68,58 79,92 50,72 21,92 32,58 4,38 38,38" fill="var(--coral)" stroke="var(--ink)" stroke-width="6" stroke-linejoin="round"/></svg>
+  <svg class="doodle d-star-sm2" viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,6 62,38 96,38 68,58 79,92 50,72 21,92 32,58 4,38 38,38" fill="var(--teal)" stroke="var(--ink)" stroke-width="7" stroke-linejoin="round"/></svg>
+
+  <p class="hi">Hi, I'm</p>
+  <h1>Vhen Joseph</h1>
+  <span class="pill">AI Product Engineer Lead</span>
+  <p class="loc">Kuala Lumpur, Malaysia</p>
+
+  <a class="qr-wrap" href="https://vhenjoseph.com" aria-label="Open vhenjoseph.com"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 310" role="img" aria-label="QR code linking to vhenjoseph.com" class="segno"><g transform="scale(10)"><path fill="#fff" d="M0 0h31v31h-31z"/><path class="qrline" stroke="#1c1c1e" d="M1 1.5h7m4 0h1m1 0h3m2 0h3m1 0h7m-29 1h1m5 0h1m1 0h1m2 0h2m1 0h1m1 0h1m2 0h2m1 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m2 0h1m6 0h3m3 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m3 0h1m2 0h3m2 0h1m3 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m2 0h2m1 0h2m3 0h2m3 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m1 0h1m1 0h3m2 0h1m1 0h1m1 0h2m1 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-21 1h4m2 0h2m-12 1h4m1 0h4m2 0h2m3 0h1m1 0h2m3 0h1m-27 1h1m2 0h1m6 0h1m6 0h3m1 0h1m1 0h1m2 0h2m-27 1h3m1 0h4m2 0h2m1 0h1m2 0h1m1 0h2m1 0h1m1 0h2m1 0h1m-29 1h1m3 0h2m1 0h1m1 0h3m2 0h1m2 0h2m1 0h2m1 0h3m1 0h2m-28 1h1m2 0h1m1 0h2m2 0h2m2 0h2m4 0h1m2 0h1m4 0h1m-25 1h1m3 0h3m1 0h1m1 0h3m5 0h1m1 0h1m1 0h1m1 0h1m-29 1h1m2 0h11m1 0h1m2 0h1m5 0h1m3 0h1m-29 1h2m1 0h1m3 0h2m1 0h3m1 0h3m2 0h3m1 0h1m1 0h1m1 0h1m-27 1h1m1 0h1m1 0h2m1 0h2m1 0h1m1 0h2m1 0h2m1 0h3m6 0h1m-29 1h2m1 0h3m2 0h3m1 0h1m1 0h2m1 0h2m3 0h5m1 0h1m-27 1h1m2 0h3m1 0h1m1 0h6m1 0h1m1 0h1m2 0h1m1 0h2m1 0h1m-27 1h1m1 0h2m2 0h1m9 0h3m2 0h1m1 0h1m1 0h1m-28 1h2m1 0h1m2 0h3m1 0h1m1 0h1m1 0h4m2 0h6m1 0h1m-20 1h4m2 0h3m3 0h1m3 0h1m1 0h1m1 0h1m-29 1h7m1 0h2m1 0h1m4 0h1m1 0h3m1 0h1m1 0h1m3 0h1m-29 1h1m5 0h1m1 0h1m1 0h2m3 0h2m1 0h3m3 0h2m1 0h1m-28 1h1m1 0h3m1 0h1m1 0h1m8 0h1m1 0h6m2 0h2m-29 1h1m1 0h3m1 0h1m2 0h1m3 0h1m1 0h2m6 0h1m2 0h2m-28 1h1m1 0h3m1 0h1m4 0h2m1 0h1m1 0h6m3 0h1m1 0h2m-29 1h1m5 0h1m2 0h1m2 0h1m3 0h1m1 0h1m1 0h4m1 0h1m1 0h2m-29 1h7m3 0h3m3 0h2m2 0h3m1 0h1m2 0h1"/></g></svg></a>
+  <a class="site" href="https://vhenjoseph.com">vhenjoseph.com</a>
+  <p class="scan">Scan to see how I think and build</p>
+
+  <div class="chips">
+    <span class="chip c-violet">Agentic AI</span><span class="chip c-sky">Multi-agent</span><span class="chip c-coral">LLM integration</span>
+    <span class="chip c-teal">Kubernetes</span><span class="chip c-mustard">AWS EKS</span><span class="chip c-violet">RAG</span>
+  </div>
+
+  <p class="label">SELECTED WORK</p>
+  <ul class="work">
+    <li><i class="dot" style="background:var(--coral)"></i><div><b>ILMUchat</b> <span>Malaysia's public AI chat · YTL AI Labs</span></div></li>
+    <li><i class="dot" style="background:var(--violet)"></i><div><b>Fintech CRM apps</b> <span>Japanese financial group · ASJ</span></div></li>
+    <li><i class="dot" style="background:var(--teal)"></i><div><b>GenAI EdTech</b> <span>RAG modernisation · FrogAsia</span></div></li>
+  </ul>
+
+  <div class="actions">
+    <a class="btn primary" href="vhen-joseph.vcf" download>Save contact</a>
+    <a class="btn" href="https://linkedin.com/in/vhenjoseph">LinkedIn</a>
+    <a class="btn" href="mailto:vhenjoseph@gmail.com">Email</a>
+  </div>
+
+  <svg class="doodle d-star-sm3" viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,6 62,38 96,38 68,58 79,92 50,72 21,92 32,58 4,38 38,38" fill="var(--sky)" stroke="var(--ink)" stroke-width="7" stroke-linejoin="round"/></svg>
+  <svg class="doodle d-rocket" viewBox="0 0 80 100" aria-hidden="true"><polygon points="40,6 58,78 22,78" fill="var(--coral)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round"/><circle cx="40" cy="44" r="8" fill="#fff" stroke="var(--ink)" stroke-width="3"/><polygon points="25,66 6,94 30,78" fill="var(--mustard)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/><polygon points="55,66 74,94 50,78" fill="var(--mustard)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/></svg>
+  <svg class="doodle d-code" width="72" height="48" viewBox="0 0 72 48" aria-hidden="true"><rect x="2" y="2" width="68" height="44" rx="11" fill="var(--teal)" stroke="var(--ink)" stroke-width="3"/><text x="36" y="32" text-anchor="middle" font-family="Inter,sans-serif" font-weight="800" font-size="20" fill="#fff">&lt;/&gt;</text></svg>
+</main>
 </body>
 </html>
