@@ -16,11 +16,13 @@
 
 ## 2026-10-05 (Plasmie)
 
-* **Added**: [Plasmie](plasmie.md) — the private, fully on-device work memory that sits
-  alongside Candice. Linked from the wiki index, nav and `llms.txt`.
 * **Changed**: the home page's Candice band is now a two-card carousel. The next card
   peeks past the edge rather than being announced by a control, so the affordance is the
   layout itself; native scroll-snap does the swiping, and the dots are progressive
   enhancement that the section works without.
-* **Added**: Plasmie's mascot as inline SVG, drawn from the app's own shape data and face
-  spec (idle: dot eyes and a smile; hi: happy eyes and a grin) rather than redrawn by eye.
+* **Added**: Plasmie introduced on the home page only — its mascot is drawn by the app's
+  own renderer, from its shape data and face spec, and reacts the way the app does (one
+  click says hi, four annoy it, click-and-drag pets it). No wiki page yet: the card says
+  "Coming soon" and nothing here explains the product in detail.
+* **Changed**: Apple's terminology corrected across the bundle — the framework is the
+  "Foundation Models framework", the model is "the on-device foundation model".

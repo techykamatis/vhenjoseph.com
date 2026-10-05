@@ -36,7 +36,7 @@ behavior, turning her mistakes into rules she keeps.
 
 ## Going native
 
-Candice is becoming an Apple app built on on-device Foundation Models and App Intents, so
+Candice is becoming an Apple app built on the Foundation Models framework and App Intents, so
 she works from inside the tools I already use rather than a separate chat window. The
 server stays the brain; the app is just how I reach her.
 

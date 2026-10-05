@@ -7,7 +7,6 @@
 - [What I Believe](beliefs.md): His take on AI-native engineering — keep craft, judgment, accountability human.
 - [What I'm Building](building.md): Candice, a self-maintaining knowledge vault, shared tooling.
 - [Candice](candice.md): Local-first personal AI with tool use, memory, and a check-with-me-first step.
-- [Plasmie](plasmie.md): My private on-device work memory for macOS. Reads the day, files what turned out to matter.
 - [The Path Here](path.md): Career from J2EE to AI product engineering.
 - [What I Reach For](stack.md): Tools, focus areas, engineering foundations.
 - [Say Hi](contact.md): Contact links.

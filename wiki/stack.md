@@ -20,7 +20,7 @@ The daily workshop — what I actually build with.
 ## On-device Apple
 
 * Swift and SwiftUI.
-* Apple Foundation Models and Apple Intelligence for on-device inference.
+* The Foundation Models framework, for inference on Apple's on-device model.
 * App Intents so the assistant lives inside the system, not a separate app.
 
 ## Focus areas

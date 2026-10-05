@@ -17,7 +17,7 @@ A local-first personal AI with real tool use, long-term memory, multi-step reaso
 and a check-with-me-first step before she does anything that matters. She runs my
 life and built this site. Full page: [Candice](candice.md).
 
-She's now going native: an Apple app built on the on-device Foundation Models and App
+She's now going native: an Apple app built on the Foundation Models framework and App
 Intents, so she lives in the places I already work instead of behind a chat box. The
 server stays the brain; the app is the face.
 
