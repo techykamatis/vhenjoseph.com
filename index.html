@@ -183,9 +183,6 @@
                   --surface:var(--pl-surface); --body:var(--pl-body); --body-hi:var(--pl-body-hi);
                   --face:var(--pl-face); --blush:var(--pl-blush); --spark:var(--pl-spark);
                   --sweat:var(--pl-sweat); --off:var(--pl-off); --ink-3:var(--pl-ink-3); }
-  .pl-status { display:flex; align-items:center; gap:8px; margin-top:14px; justify-content:center;
-               font-family:var(--font-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--pl-ink-3); }
-  .pl-status b { font-weight:400; color:var(--pl-ink-2); }
 
   .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
             clip:rect(0 0 0 0); white-space:nowrap; border:0; }
@@ -342,7 +339,7 @@
   <section class="featured" aria-labelledby="featured-title">
     <div class="featured-head">
       <div>
-        <div class="featured-eyebrow" id="featured-title">Featured · runs every day</div>
+        <div class="featured-eyebrow" id="featured-title">Two I use every day</div>
       </div>
       <div class="featured-hint" aria-hidden="true">
         <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
@@ -354,7 +351,7 @@
       <div class="rail" id="featured-rail" tabindex="0" role="group" aria-label="Featured projects, scrollable">
         <article class="fcard fcard--candice" id="fcard-candice" aria-label="Candice">
           <div>
-            <div class="eyebrow-band">Personal AI · 01</div>
+            <div class="eyebrow-band">Runs every day</div>
             <h2>Candice, who I build with every day</h2>
             <p>Candice is my family's private AI, and she's not a toy — a production multi-agent system on an orchestration layer I built: real tool use, long-term memory, multi-step reasoning, and a check-with-me-first step before she does anything that matters. This page was built with her.</p>
             <ul>
@@ -371,19 +368,18 @@
 
         <article class="fcard fcard--plasmie" id="fcard-plasmie" aria-label="Plasmie">
           <div>
-            <div class="eyebrow-band">Work memory · 02</div>
-            <h2>Plasmie, which remembers what the work was</h2>
-            <p>A day's work scatters — a decision in a thread, the reasoning in a pull request, the thing you actually learned in a terminal you closed. Plasmie captures it hourly, condenses it on-device, and each night promotes only what has become durable into a wiki I can ask. Nothing leaves the laptop.</p>
+            <div class="eyebrow-band">Runs every hour</div>
+            <h2>Plasmie, which remembers what I don't</h2>
+            <p>Three weeks on, I can never remember how I solved something. The answer is in a thread or a pull request somewhere, and digging for it takes longer than doing the work again. So Plasmie reads my day and writes it down. Everything is condensed on my own machine, and the record never leaves the laptop.</p>
             <ul>
-              <li>Entirely on-device on Apple's Foundation Models — no upload, ever</li>
-              <li>Files what it's sure of, holds back what it isn't</li>
-              <li>Defers to you: checks thermals and load before it runs</li>
+              <li>Summarising, filing and answering on Apple's on-device model</li>
+              <li>Files what it's confident about, holds the rest back for me</li>
+              <li>Waits when the machine is busy</li>
             </ul>
-            <a class="btn btn-soft" href="wiki/html/plasmie.html"><span>How it works</span><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></a>
+            <a class="btn btn-soft" href="wiki/html/plasmie.html"><span>See how it works</span><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></a>
           </div>
           <div class="fcard-media">
             <div class="pl-stage" id="plasmie-stage"></div>
-            <div class="pl-status" aria-live="polite"><b id="plasmie-state">resting</b></div>
           </div>
         </article>
       </div>
@@ -884,15 +880,16 @@
     L.tween=function(now){var k=Math.min(1,(now-t0)/ms); L.pts=lerp(from,target,easeOutExpo(k)); L.dirty=true; if(k>=1)L.tween=null;};}
 
   /* ---- driver ---- */
-  var svg=el("svg",{"role":"img","aria-label":"Plasmie, the app's mascot, showing what it is doing"},host);
+  var svg=el("svg",{"role":"img","aria-label":"Plasmie, a soft blob that changes shape as it works"},host);
   var L=makeKloop(svg);
-  var label=document.getElementById('plasmie-state');
-  var TOUR=[["idle","resting"],["ingest","collecting"],["summarize","condensing"],
-            ["promote","filing"],["ask","answering"],["success","done"]];
+  /* It cycles the real statuses, but nothing names them: the brand's own rule is
+     that the silhouette carries the state, so a caption would be saying twice
+     what the shape already says once. */
+  var TOUR=["idle","ingest","summarize","promote","ask","success"];
   var i=0, running=false, raf=0, last=0, hovering=false;
 
-  function setState(st,text){ morph(L,st); if(label&&text) label.textContent=text; }
-  function step(){ i=(i+1)%TOUR.length; if(!hovering) setState(TOUR[i][0],TOUR[i][1]); }
+  function setState(st){ morph(L,st); }
+  function step(){ i=(i+1)%TOUR.length; if(!hovering) setState(TOUR[i]); }
 
   function loop(now){
     if(!running) return;
@@ -919,8 +916,8 @@
   /* Reaching the card makes it wave, the way the app greets you. */
   var card=document.getElementById('fcard-plasmie');
   if(card){
-    var greet=function(){ hovering=true; setState("hi","hello"); };
-    var rest =function(){ hovering=false; setState("idle","resting"); i=0; };
+    var greet=function(){ hovering=true; setState("hi"); };
+    var rest =function(){ hovering=false; setState("idle"); i=0; };
     card.addEventListener('mouseenter',greet); card.addEventListener('mouseleave',rest);
     card.addEventListener('focusin',greet);    card.addEventListener('focusout',rest);
   }

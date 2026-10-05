@@ -4,19 +4,19 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Plasmie — Vhen Joseph</title>
-<meta name="description" content="A private work memory for macOS — captures the day's scattered work, condenses it on-device, and promotes what's durable into a wiki you can actually ask." />
+<meta name="description" content="My private on-device work memory for macOS. It reads the day and files what turned out to matter." />
 <link rel="canonical" href="https://vhenjoseph.com/wiki/html/plasmie.html" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://vhenjoseph.com/wiki/html/plasmie.html" />
 <meta property="og:title" content="Plasmie — Vhen Joseph" />
-<meta property="og:description" content="A private work memory for macOS — captures the day's scattered work, condenses it on-device, and promotes what's durable into a wiki you can actually ask." />
+<meta property="og:description" content="My private on-device work memory for macOS. It reads the day and files what turned out to matter." />
 <meta property="og:image" content="https://vhenjoseph.com/og-20260709-012144.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Vhen Joseph — AI Product Engineer, Kuala Lumpur" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Plasmie — Vhen Joseph" />
-<meta name="twitter:description" content="A private work memory for macOS — captures the day's scattered work, condenses it on-device, and promotes what's durable into a wiki you can actually ask." />
+<meta name="twitter:description" content="My private on-device work memory for macOS. It reads the day and files what turned out to matter." />
 <meta name="twitter:image" content="https://vhenjoseph.com/og-20260709-012144.png" />
 <style>
 :root{--paper:#F5F3EF;--surface:#fff;--wash:#EFEBE4;--ink:#1A1A1A;--body:#3A3630;--muted:#8B8378;--line:rgba(26,26,26,.14);--contrast:#1A1A1A;--con-ink:#F5F3EF}
@@ -85,21 +85,18 @@ footer a{color:var(--con-ink)}
   <span class="pill">Project</span>
   <h1>Plasmie</h1>
   
-<p>Plasmie is my work memory. Where <a href="candice.html">Candice</a> is the agent I work <em>through</em>,
-Plasmie is the thing that remembers what the work <em>was</em>.</p>
-<h2>The problem it solves</h2>
-<p>A day's work scatters. A decision lands in a Slack thread, the reasoning sits in a pull
-request, the thing you actually learned is in a terminal session you closed. A week later
-you remember solving the problem and nothing about how. Search doesn't help, because you
-can't search for a thing you can't name.</p>
-<p>So Plasmie asks a narrower question than "what happened": what, out of today, is still
-worth knowing next month?</p>
-<h2>The loop</h2>
-<p>Every hour it captures what I touched — Slack, GitHub, local git commits, Confluence,
-coding sessions. On-device models condense each batch into a digest. Nightly, a promote
-pass decides what has become durable and files it as a flat, tagged note; anything it
-isn't confident about is held back for me to look at rather than guessed. Then I can ask
-it a question and get an answer grounded in my own record.</p>
+<p><a href="candice.html">Candice</a> is the agent I work through. Plasmie is the one that remembers
+what the work was.</p>
+<h2>Why I built it</h2>
+<p>Three weeks on, I can never remember how I solved something. The answer is in a thread
+or a pull request somewhere. Digging for it takes longer than doing the work again, so
+most of the time I just do the work again.</p>
+<p>That's the part I wanted back. Not a log of everything that happened. The handful of
+things from today that I'll still want in a month.</p>
+<h2>What it does</h2>
+<p>Every hour it collects what I touched: Slack, GitHub, local commits, Confluence, coding
+sessions. It condenses each batch on my own machine. Overnight it decides what has become
+durable and files it as a flat, tagged note.</p>
 <pre><code> Slack ─────┐
  GitHub ────┤   hourly    ┌──────────┐    raw, scrubbed
  git ───────┼───────────▶ │  ingest  │ ─▶ + digest, on-device
@@ -107,32 +104,31 @@ it a question and get an answer grounded in my own record.</p>
  sessions ──┘                  │
                       nightly  ▼
                  promote ─▶ confident notes filed
-                         └▶ borderline ones held for review
+                         └▶ the rest held back for me
 </code></pre>
-<p>The held-for-review step is the part I'd defend hardest. A memory that confidently files
-the wrong thing is worse than one that admits it isn't sure.</p>
-<h2>Entirely on-device</h2>
-<p>Every summary, every filing decision, every answer runs on Apple's on-device Foundation
-Models. Nothing about the work is uploaded, because the only network calls it makes are
-reading my own accounts. That isn't a privacy feature bolted on at the end; it's the
-reason the thing can exist at all. A work record is exactly the kind of material you
-can't hand to someone else's server.</p>
-<p>The constraint is real and shapes the design. The on-device context window is small, so
-anything long is chunked, extracted per chunk, and merged — map-reduce against a budget
-read live at runtime rather than assumed. Background jobs check thermal state, load and
-memory before running, and defer rather than compete with whatever I'm actually doing.</p>
+<p>Anything it isn't sure about, it holds back instead of guessing. I'd rather check a
+handful of drafts than find out later that it filed something confidently wrong.</p>
+<h2>On my machine</h2>
+<p>The summarising, the filing and the answers all run on Apple's on-device model.
+Nothing about the work is uploaded. The only network calls it makes are to read my own
+accounts.</p>
+<p>That isn't a feature I added at the end. It's the reason the thing can exist. This is
+work material on a company laptop. It was never mine to hand to anyone.</p>
+<p>The constraint shapes the rest of it. The on-device context window is small, so anything
+long gets chunked, extracted per chunk, then merged. Background jobs check the machine's
+load before they run and wait if I'm busy. I'd rather it be late than have it fight me
+for the laptop.</p>
 <h2>It has a face</h2>
-<p>Plasmie is a soft blob that reacts to what the pipeline is doing — ingesting, thinking,
-holding something for review, or just idle. It lives in the menu bar and I glance at it
-between tasks. A system that runs unattended all day should be able to tell you how it's
-doing without being asked, and a shape that changes does that faster than a status string.</p>
-<h2>Not a product</h2>
-<p>This one is just mine. It runs on one machine, holds work-only material, and isn't
-something I'm releasing — the whole point is a memory that never leaves the laptop it was
-made on.</p>
+<p>Plasmie is a soft blob that changes shape depending on what it's doing. Collecting is a
+different silhouette from filing. It lives in the menu bar and I glance at it between
+tasks.</p>
+<p>There's no status text anywhere in the app. The shape is the status.</p>
+<h2>Just mine</h2>
+<p>This one isn't a product. It runs on one machine, holds work-only material, and I'm not
+releasing it. A memory that never leaves the laptop it was made on is the whole point.</p>
 <h2>Related</h2>
 <ul>
-<li><a href="candice.html">Candice</a> - The agent I work through, built on the same local-first bet.</li>
+<li><a href="candice.html">Candice</a> - The agent I work through, same local-first bet.</li>
 <li><a href="building.html">What I'm Building</a> - The rest of the workshop.</li>
 <li><a href="stack.html">What I Reach For</a> - The tools behind both.</li>
 </ul>

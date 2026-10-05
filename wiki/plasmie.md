@@ -1,33 +1,30 @@
 ---
 type: Project
 title: Plasmie
-description: A private work memory for macOS — captures the day's scattered work, condenses it on-device, and promotes what's durable into a wiki you can actually ask.
+description: My private on-device work memory for macOS. It reads the day and files what turned out to matter.
 tags: [plasmie, knowledge-loop, local-first, on-device, macos]
 timestamp: 2026-10-05T00:00:00Z
 ---
 
 # Plasmie
 
-Plasmie is my work memory. Where [Candice](candice.md) is the agent I work *through*,
-Plasmie is the thing that remembers what the work *was*.
+[Candice](candice.md) is the agent I work through. Plasmie is the one that remembers
+what the work was.
 
-## The problem it solves
+## Why I built it
 
-A day's work scatters. A decision lands in a Slack thread, the reasoning sits in a pull
-request, the thing you actually learned is in a terminal session you closed. A week later
-you remember solving the problem and nothing about how. Search doesn't help, because you
-can't search for a thing you can't name.
+Three weeks on, I can never remember how I solved something. The answer is in a thread
+or a pull request somewhere. Digging for it takes longer than doing the work again, so
+most of the time I just do the work again.
 
-So Plasmie asks a narrower question than "what happened": what, out of today, is still
-worth knowing next month?
+That's the part I wanted back. Not a log of everything that happened. The handful of
+things from today that I'll still want in a month.
 
-## The loop
+## What it does
 
-Every hour it captures what I touched — Slack, GitHub, local git commits, Confluence,
-coding sessions. On-device models condense each batch into a digest. Nightly, a promote
-pass decides what has become durable and files it as a flat, tagged note; anything it
-isn't confident about is held back for me to look at rather than guessed. Then I can ask
-it a question and get an answer grounded in my own record.
+Every hour it collects what I touched: Slack, GitHub, local commits, Confluence, coding
+sessions. It condenses each batch on my own machine. Overnight it decides what has become
+durable and files it as a flat, tagged note.
 
 ```
  Slack ─────┐
@@ -37,40 +34,41 @@ it a question and get an answer grounded in my own record.
  sessions ──┘                  │
                       nightly  ▼
                  promote ─▶ confident notes filed
-                         └▶ borderline ones held for review
+                         └▶ the rest held back for me
 ```
 
-The held-for-review step is the part I'd defend hardest. A memory that confidently files
-the wrong thing is worse than one that admits it isn't sure.
+Anything it isn't sure about, it holds back instead of guessing. I'd rather check a
+handful of drafts than find out later that it filed something confidently wrong.
 
-## Entirely on-device
+## On my machine
 
-Every summary, every filing decision, every answer runs on Apple's on-device Foundation
-Models. Nothing about the work is uploaded, because the only network calls it makes are
-reading my own accounts. That isn't a privacy feature bolted on at the end; it's the
-reason the thing can exist at all. A work record is exactly the kind of material you
-can't hand to someone else's server.
+The summarising, the filing and the answers all run on Apple's on-device model.
+Nothing about the work is uploaded. The only network calls it makes are to read my own
+accounts.
 
-The constraint is real and shapes the design. The on-device context window is small, so
-anything long is chunked, extracted per chunk, and merged — map-reduce against a budget
-read live at runtime rather than assumed. Background jobs check thermal state, load and
-memory before running, and defer rather than compete with whatever I'm actually doing.
+That isn't a feature I added at the end. It's the reason the thing can exist. This is
+work material on a company laptop. It was never mine to hand to anyone.
+
+The constraint shapes the rest of it. The on-device context window is small, so anything
+long gets chunked, extracted per chunk, then merged. Background jobs check the machine's
+load before they run and wait if I'm busy. I'd rather it be late than have it fight me
+for the laptop.
 
 ## It has a face
 
-Plasmie is a soft blob that reacts to what the pipeline is doing — ingesting, thinking,
-holding something for review, or just idle. It lives in the menu bar and I glance at it
-between tasks. A system that runs unattended all day should be able to tell you how it's
-doing without being asked, and a shape that changes does that faster than a status string.
+Plasmie is a soft blob that changes shape depending on what it's doing. Collecting is a
+different silhouette from filing. It lives in the menu bar and I glance at it between
+tasks.
 
-## Not a product
+There's no status text anywhere in the app. The shape is the status.
 
-This one is just mine. It runs on one machine, holds work-only material, and isn't
-something I'm releasing — the whole point is a memory that never leaves the laptop it was
-made on.
+## Just mine
+
+This one isn't a product. It runs on one machine, holds work-only material, and I'm not
+releasing it. A memory that never leaves the laptop it was made on is the whole point.
 
 ## Related
 
-* [Candice](candice.md) - The agent I work through, built on the same local-first bet.
+* [Candice](candice.md) - The agent I work through, same local-first bet.
 * [What I'm Building](building.md) - The rest of the workshop.
 * [What I Reach For](stack.md) - The tools behind both.
