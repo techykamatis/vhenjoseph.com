@@ -31,6 +31,9 @@
     --line:rgba(26,26,26,.14); --line-2:rgba(26,26,26,.07);
     --contrast-bg:#1A1A1A; --contrast-ink:#F5F3EF; --contrast-body:#CFC7BA; --contrast-muted:#8B8378; --contrast-line:rgba(245,243,239,.16);
     --candice-bg:#1b1917; --candice-accent:#d8ab68;
+    /* Plasmie's own palette, taken from its brand sheet, not invented. */
+    --plasmie-bg:#1E1218; --plasmie-accent:#E8668A; --plasmie-body:#F7A8BE; --plasmie-face:#3A1430;
+    --featured-band:#141210;
     --bg:var(--paper); --text-body:var(--ink-body); --text-muted:var(--ink-muted);
     --font-sans:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
     --font-serif:'Young Serif',Georgia,'Times New Roman',serif;
@@ -130,17 +133,76 @@
   .ink { position:relative; white-space:nowrap; color:var(--ink); font-weight:600; }
   .ink svg { position:absolute; left:-2%; bottom:-.34em; width:104%; height:.5em; overflow:visible; }
 
-  /* candice band */
-  .candice { background:var(--candice-bg); color:var(--contrast-ink); }
-  .candice-grid { max-width:var(--content-max); margin:0 auto; padding:clamp(52px,8vw,96px) var(--gutter); display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(28px,5vw,60px); align-items:center; }
-  .candice .eyebrow-band { font-family:var(--font-mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--candice-accent); margin-bottom:16px; }
-  .candice h2 { font-family:var(--font-serif); font-weight:400; color:var(--contrast-ink); font-size:clamp(30px,4.4vw,50px); line-height:1.06; letter-spacing:-.01em; margin:0 0 20px; max-width:16ch; }
-  .candice p { font-size:clamp(16px,1.5vw,19px); line-height:1.6; color:var(--contrast-body); max-width:56ch; margin:0 0 22px; }
-  .candice ul { list-style:none; display:grid; gap:11px; padding:0; margin:0 0 30px; max-width:56ch; }
-  .candice li { position:relative; padding-left:20px; font-size:15px; line-height:1.5; color:var(--contrast-body); }
-  .candice li::before { content:""; position:absolute; left:2px; top:.62em; width:7px; height:1.5px; background:var(--contrast-muted); }
-  .candice-media { width:100%; max-width:440px; justify-self:center; }
-  .candice-media img { width:100%; height:auto; border-radius:16px; }
+  /* featured carousel — two project cards, the next one peeking.
+     A rail rather than a grid so the peek IS the affordance: you can see there
+     is another card before any control tells you so. Snap points land each card
+     against the same gutter the rest of the page uses, so a swipe settles where
+     the eye already expects a left edge. */
+  .featured { background:var(--featured-band); color:var(--contrast-ink); padding:clamp(52px,8vw,92px) 0; }
+  .featured-head { max-width:calc(var(--content-max) + 2*var(--gutter)); margin:0 auto; padding:0 var(--gutter) clamp(20px,3vw,30px); display:flex; align-items:baseline; justify-content:space-between; gap:18px; flex-wrap:wrap; }
+  .featured-eyebrow { font-family:var(--font-mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--contrast-muted); }
+  .featured-hint { font-size:13px; color:var(--contrast-muted); display:flex; align-items:center; gap:8px; }
+  .featured-hint svg { opacity:.75; }
+
+  .rail-wrap { max-width:calc(var(--content-max) + 2*var(--gutter)); margin:0 auto; }
+  .rail { display:flex; gap:clamp(14px,2vw,24px); overflow-x:auto; scroll-snap-type:x mandatory;
+          scroll-padding-inline:var(--gutter); padding:2px var(--gutter) 4px;
+          scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch; }
+  .rail::-webkit-scrollbar { display:none; }
+  /* The card is deliberately narrower than the rail: what is left over is the
+     next card's shoulder. clamp keeps that sliver honest on a phone and on a
+     wide display. */
+  .fcard { scroll-snap-align:start; flex:0 0 calc(100% - clamp(46px,7vw,112px));
+           background:var(--card-bg); border-radius:24px; padding:clamp(26px,3.6vw,50px);
+           display:grid; grid-template-columns:1.08fr .92fr; gap:clamp(22px,4vw,52px);
+           align-items:center; scroll-margin-left:var(--gutter); }
+  .fcard--candice { --card-bg:var(--candice-bg); --card-accent:var(--candice-accent); }
+  .fcard--plasmie { --card-bg:var(--plasmie-bg); --card-accent:var(--plasmie-accent); }
+  .fcard .eyebrow-band { font-family:var(--font-mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--card-accent); margin-bottom:16px; }
+  .fcard h2 { font-family:var(--font-serif); font-weight:400; color:var(--contrast-ink); font-size:clamp(28px,4.1vw,46px); line-height:1.07; letter-spacing:-.01em; margin:0 0 18px; max-width:16ch; }
+  .fcard p { font-size:clamp(16px,1.5vw,19px); line-height:1.6; color:var(--contrast-body); max-width:56ch; margin:0 0 20px; }
+  .fcard ul { list-style:none; display:grid; gap:11px; padding:0; margin:0 0 28px; max-width:56ch; }
+  .fcard li { position:relative; padding-left:20px; font-size:15px; line-height:1.5; color:var(--contrast-body); }
+  .fcard li::before { content:""; position:absolute; left:2px; top:.62em; width:7px; height:1.5px; background:var(--contrast-muted); }
+  .fcard-media { width:100%; max-width:420px; justify-self:center; }
+  .fcard-media img { width:100%; height:auto; border-radius:16px; }
+
+  /* Plasmie's mascot, drawn from the app's own shape data. Idle by default; it
+     waves when you reach the card. Motion that answers an action, not ambience. */
+  .pl-blob { width:100%; height:auto; display:block; }
+  .pl-blob .body { fill:var(--plasmie-body); transition:d .5s var(--ease); }
+  .pl-blob .eye  { fill:var(--plasmie-face); }
+  .pl-blob .glint { fill:#fff; opacity:.9; }
+  .pl-blob .mouth, .pl-blob .brow { fill:none; stroke:var(--plasmie-face); stroke-width:2.6;
+                                    stroke-linecap:round; stroke-linejoin:round; }
+  .pl-blob .face { transition:opacity .28s var(--ease); }
+  .pl-blob .face--hi { opacity:0; }
+  .fcard--plasmie:hover .pl-blob .face--idle,
+  .fcard--plasmie:focus-within .pl-blob .face--idle { opacity:0; }
+  .fcard--plasmie:hover .pl-blob .face--hi,
+  .fcard--plasmie:focus-within .pl-blob .face--hi { opacity:1; }
+  .fcard--plasmie:hover .pl-blob .body,
+  .fcard--plasmie:focus-within .pl-blob .body { d:path("M56.0,24.4 C57.2,24.6 58.4,24.9 59.5,25.1 C60.7,25.4 61.7,26.1 63.0,26.0 C64.3,25.9 64.6,27.0 67.4,24.6 C70.1,22.2 76.2,13.6 79.3,11.6 C82.4,9.7 84.2,11.8 86.1,12.8 C87.9,13.8 89.6,15.5 90.5,17.5 C91.4,19.5 92.5,21.7 91.6,24.7 C90.6,27.7 86.3,32.7 84.8,35.3 C83.4,38.0 83.2,39.3 83.1,40.8 C82.9,42.3 83.5,43.3 83.8,44.5 C84.1,45.8 84.6,46.9 84.9,48.2 C85.2,49.4 85.5,50.7 85.7,52.0 C85.9,53.3 86.0,54.6 86.0,56.0 C86.0,57.3 85.9,58.6 85.7,60.0 C85.5,61.3 85.2,62.6 84.9,64.0 C84.5,65.3 84.0,66.6 83.4,67.8 C82.9,69.1 82.2,70.4 81.5,71.5 C80.7,72.7 79.9,73.9 79.0,75.0 C78.1,76.1 77.1,77.1 76.0,78.1 C75.0,79.1 73.8,80.0 72.7,80.9 C71.5,81.7 70.2,82.5 68.9,83.2 C67.6,83.9 66.3,84.6 64.9,85.1 C63.5,85.7 62.0,86.2 60.5,86.6 C59.1,87.0 57.5,87.3 56.0,87.5 C54.5,87.8 52.9,87.9 51.3,88.0 C49.7,88.0 48.0,88.0 46.4,87.8 C44.8,87.7 43.1,87.5 41.5,87.1 C39.8,86.7 38.2,86.3 36.5,85.7 C34.9,85.1 33.3,84.4 31.8,83.6 C30.2,82.8 28.7,81.8 27.2,80.8 C25.8,79.7 24.4,78.5 23.1,77.2 C21.8,76.0 20.6,74.5 19.5,73.0 C18.5,71.6 17.5,69.9 16.8,68.3 C16.0,66.6 15.3,64.8 14.9,63.0 C14.4,61.2 14.1,59.4 14.0,57.5 C13.9,55.7 14.0,53.8 14.3,52.0 C14.5,50.2 15.0,48.4 15.6,46.7 C16.1,45.0 16.9,43.3 17.8,41.8 C18.6,40.2 19.6,38.7 20.7,37.4 C21.8,36.0 23.0,34.8 24.2,33.7 C25.5,32.5 26.8,31.5 28.1,30.6 C29.4,29.7 30.8,28.9 32.2,28.2 C33.6,27.5 35.0,26.9 36.4,26.4 C37.7,25.9 39.1,25.5 40.5,25.1 C41.9,24.8 43.2,24.6 44.5,24.4 C45.9,24.2 47.2,24.1 48.5,24.0 C49.8,24.0 51.1,24.0 52.3,24.1 C53.6,24.1 54.8,24.3 56.0,24.4 Z"); }
+  .fcard--plasmie:hover .pl-blob .eye,
+  .fcard--plasmie:focus-within .pl-blob .eye { transform:translateY(-1.5px); }
+
+  .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
+            clip:rect(0 0 0 0); white-space:nowrap; border:0; }
+  .dots { display:flex; gap:9px; justify-content:center; padding-top:clamp(20px,3vw,30px); }
+  .dots button { width:9px; height:9px; padding:0; border:0; border-radius:50%; cursor:pointer;
+                 background:var(--contrast-muted); opacity:.42; transition:opacity .2s var(--ease), background .2s var(--ease), width .25s var(--ease); }
+  .dots button[aria-selected="true"] { opacity:1; width:26px; border-radius:99px; background:var(--dot-on,var(--contrast-ink)); }
+  .dots button:focus-visible { outline:2px solid var(--contrast-ink); outline-offset:3px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rail { scroll-behavior:auto; }
+    .pl-blob .body, .pl-blob .face, .dots button { transition:none; }
+  }
+  @media (max-width: 820px) {
+    .fcard { grid-template-columns:1fr; gap:clamp(18px,4vw,28px); }
+    .fcard-media { max-width:260px; order:-1; justify-self:start; }
+    .fcard h2 { max-width:none; }
+  }
 
   /* section head spacing */
   .sec-lead { max-width:62ch; margin-bottom:clamp(36px,5vw,58px); }
@@ -275,22 +337,75 @@
   </div>
 
   <!-- CANDICE -->
-  <section class="candice">
-    <div class="candice-grid">
+  <!-- FEATURED CAROUSEL -->
+  <section class="featured" aria-labelledby="featured-title">
+    <div class="featured-head">
       <div>
-        <div class="eyebrow-band">Featured · runs every day</div>
-        <h2>Candice, who I build with every day</h2>
-        <p>Candice is my family's private AI, and she's not a toy — a production multi-agent system on an orchestration layer I built: real tool use, long-term memory, multi-step reasoning, and a check-with-me-first step before she does anything that matters. This page was built with her.</p>
-        <ul>
-          <li>Multi-agent orchestration with human-in-the-loop confirmation</li>
-          <li>Long-term memory across local and cloud models</li>
-          <li>Self-auditing eval harness that picks the best local model</li>
-        </ul>
-        <a class="btn btn-soft" href="https://candiceai.vhenjoseph.com/" target="_blank"><span class="live"></span><span>Meet Candice</span><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></a>
+        <div class="featured-eyebrow" id="featured-title">Featured · runs every day</div>
       </div>
-      <div class="candice-media">
-        <img src="assets/candice-doodle.png" alt="Doodle of Candice, a friendly assistant with a Hello speech bubble and tool icons" />
+      <div class="featured-hint" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        <span>Swipe for more</span>
       </div>
+    </div>
+
+    <div class="rail-wrap">
+      <div class="rail" id="featured-rail" tabindex="0" role="group" aria-label="Featured projects, scrollable">
+        <article class="fcard fcard--candice" id="fcard-candice" aria-label="Candice">
+          <div>
+            <div class="eyebrow-band">Personal AI · 01</div>
+            <h2>Candice, who I build with every day</h2>
+            <p>Candice is my family's private AI, and she's not a toy — a production multi-agent system on an orchestration layer I built: real tool use, long-term memory, multi-step reasoning, and a check-with-me-first step before she does anything that matters. This page was built with her.</p>
+            <ul>
+              <li>Multi-agent orchestration with human-in-the-loop confirmation</li>
+              <li>Long-term memory across local and cloud models</li>
+              <li>Self-auditing eval harness that picks the best local model</li>
+            </ul>
+            <a class="btn btn-soft" href="https://candiceai.vhenjoseph.com/" target="_blank"><span class="live"></span><span>Meet Candice</span><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></a>
+          </div>
+          <div class="fcard-media">
+            <img src="assets/candice-doodle.png" alt="Doodle of Candice, a friendly assistant with a Hello speech bubble and tool icons" />
+          </div>
+        </article>
+
+        <article class="fcard fcard--plasmie" id="fcard-plasmie" aria-label="Plasmie">
+          <div>
+            <div class="eyebrow-band">Work memory · 02</div>
+            <h2>Plasmie, which remembers what the work was</h2>
+            <p>A day's work scatters — a decision in a thread, the reasoning in a pull request, the thing you actually learned in a terminal you closed. Plasmie captures it hourly, condenses it on-device, and each night promotes only what has become durable into a wiki I can ask. Nothing leaves the laptop.</p>
+            <ul>
+              <li>Entirely on-device on Apple's Foundation Models — no upload, ever</li>
+              <li>Files what it's sure of, holds back what it isn't</li>
+              <li>Defers to you: checks thermals and load before it runs</li>
+            </ul>
+            <a class="btn btn-soft" href="wiki/html/plasmie.html"><span>How it works</span><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></a>
+          </div>
+          <div class="fcard-media">
+            <!-- Plasmie's own shape data and face spec, not an approximation:
+                 idle is dot eyes + a smile, hi is happy eyes + a grin. -->
+            <svg class="pl-blob" viewBox="0 0 100 100" role="img" aria-label="Plasmie, a soft blob mascot">
+              <path class="body" d="M50.0,24.0 C51.4,24.0 52.8,24.1 54.2,24.2 C55.6,24.4 57.0,24.6 58.3,24.9 C59.7,25.2 61.1,25.5 62.4,26.0 C63.8,26.4 65.1,26.9 66.4,27.5 C67.7,28.1 69.0,28.8 70.3,29.6 C71.5,30.3 72.8,31.2 73.9,32.1 C75.1,33.0 76.2,34.0 77.2,35.1 C78.3,36.2 79.3,37.3 80.2,38.6 C81.1,39.8 81.9,41.1 82.6,42.5 C83.3,43.8 84.0,45.3 84.5,46.8 C85.0,48.2 85.4,49.8 85.6,51.3 C85.9,52.9 86.0,54.4 86.0,56.0 C86.0,57.6 85.9,59.1 85.6,60.7 C85.4,62.2 85.0,63.8 84.5,65.2 C84.0,66.7 83.3,68.2 82.6,69.5 C81.9,70.9 81.1,72.2 80.2,73.4 C79.3,74.7 78.3,75.8 77.2,76.9 C76.2,78.0 75.1,79.0 73.9,79.9 C72.8,80.8 71.5,81.7 70.3,82.4 C69.0,83.2 67.7,83.9 66.4,84.5 C65.1,85.1 63.8,85.6 62.4,86.0 C61.1,86.5 59.7,86.8 58.3,87.1 C57.0,87.4 55.6,87.6 54.2,87.8 C52.8,87.9 51.4,88.0 50.0,88.0 C48.6,88.0 47.2,87.9 45.8,87.8 C44.4,87.6 43.0,87.4 41.7,87.1 C40.3,86.8 38.9,86.5 37.6,86.0 C36.2,85.6 34.9,85.1 33.6,84.5 C32.3,83.9 31.0,83.2 29.7,82.4 C28.5,81.7 27.2,80.8 26.1,79.9 C24.9,79.0 23.8,78.0 22.8,76.9 C21.7,75.8 20.7,74.7 19.8,73.4 C18.9,72.2 18.1,70.9 17.4,69.5 C16.7,68.2 16.0,66.7 15.5,65.2 C15.0,63.8 14.6,62.2 14.4,60.7 C14.1,59.1 14.0,57.6 14.0,56.0 C14.0,54.4 14.1,52.9 14.4,51.3 C14.6,49.8 15.0,48.2 15.5,46.8 C16.0,45.3 16.7,43.8 17.4,42.5 C18.1,41.1 18.9,39.8 19.8,38.6 C20.7,37.3 21.7,36.2 22.8,35.1 C23.8,34.0 24.9,33.0 26.1,32.1 C27.2,31.2 28.5,30.3 29.7,29.6 C31.0,28.8 32.3,28.1 33.6,27.5 C34.9,26.9 36.2,26.4 37.6,26.0 C38.9,25.5 40.3,25.2 41.7,24.9 C43.0,24.6 44.4,24.4 45.8,24.2 C47.2,24.1 48.6,24.0 50.0,24.0 Z"/>
+              <g class="face face--idle">
+                <ellipse class="eye" cx="41" cy="52" rx="3.1" ry="4.1"/>
+                <ellipse class="eye" cx="59" cy="52" rx="3.1" ry="4.1"/>
+                <circle class="glint" cx="42.2" cy="49.6" r="1.2"/>
+                <circle class="glint" cx="60.2" cy="49.6" r="1.2"/>
+                <path class="mouth" d="M44,62 Q50,67.5 56,62"/>
+              </g>
+              <g class="face face--hi" aria-hidden="true">
+                <path class="brow" d="M36.5,53.5 Q41,47.8 45.5,53.5"/>
+                <path class="brow" d="M54.5,53.5 Q59,47.8 63.5,53.5"/>
+                <path class="mouth" d="M42,60.5 Q50,69.5 58,60.5"/>
+              </g>
+            </svg>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="dots" role="tablist" aria-label="Choose a featured project">
+      <button role="tab" aria-selected="true"  aria-controls="fcard-candice" data-i="0" style="--dot-on:var(--candice-accent)"><span class="sr-only">Candice</span></button>
+      <button role="tab" aria-selected="false" aria-controls="fcard-plasmie" data-i="1" style="--dot-on:var(--plasmie-accent)"><span class="sr-only">Plasmie</span></button>
     </div>
   </section>
 
@@ -620,6 +735,57 @@
   }
   window.addEventListener('pagehide', flush);
   document.addEventListener('visibilitychange', function () { if (document.hidden) { goIdle(); flush(); } else { goActive(); } });
+})();
+</script>
+<script>
+/* Featured carousel.
+   The rail already works with no JS at all — native scroll-snap handles swipe,
+   trackpad and keyboard, and the peeking card is the affordance. This only adds
+   the dots, so if it never runs the section is still fully usable. */
+(function () {
+  var rail = document.getElementById('featured-rail');
+  if (!rail) return;
+  var cards = Array.prototype.slice.call(rail.querySelectorAll('.fcard'));
+  var dots  = Array.prototype.slice.call(document.querySelectorAll('.dots button'));
+  if (!cards.length || dots.length !== cards.length) return;
+
+  function select(i) {
+    dots.forEach(function (d, n) { d.setAttribute('aria-selected', n === i ? 'true' : 'false'); });
+  }
+
+  /* Which card is showing is decided by whichever is most visible, not by a
+     counter we increment — a counter drifts the moment someone flicks past two
+     cards or lands between them. */
+  if ('IntersectionObserver' in window) {
+    var ratios = cards.map(function () { return 0; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { ratios[cards.indexOf(e.target)] = e.intersectionRatio; });
+      select(ratios.indexOf(Math.max.apply(null, ratios)));
+    }, { root: rail, threshold: [0, .25, .5, .75, 1] });
+    cards.forEach(function (c) { io.observe(c); });
+  }
+
+  dots.forEach(function (d, i) {
+    d.addEventListener('click', function () {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      /* scrollIntoView would also scroll the PAGE to the section; this moves
+         only the rail. */
+      rail.scrollTo({ left: cards[i].offsetLeft - cards[0].offsetLeft,
+                      behavior: reduce ? 'auto' : 'smooth' });
+      select(i);
+    });
+  });
+
+  /* Left/right arrows when the rail itself has focus. */
+  rail.addEventListener('keydown', function (e) {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    var cur = dots.findIndex ? dots.findIndex(function (d) { return d.getAttribute('aria-selected') === 'true'; })
+                             : 0;
+    var next = Math.max(0, Math.min(cards.length - 1, cur + (e.key === 'ArrowRight' ? 1 : -1)));
+    if (next === cur) return;
+    e.preventDefault();
+    dots[next].click();
+  });
 })();
 </script>
 </body>

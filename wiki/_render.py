@@ -19,6 +19,7 @@ NAV = [
     ("beliefs.html", "Beliefs"),
     ("building.html", "Building"),
     ("candice.html", "Candice"),
+    ("plasmie.html", "Plasmie"),
     ("path.html", "Path"),
     ("stack.html", "Stack"),
     ("contact.html", "Contact"),
