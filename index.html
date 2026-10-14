@@ -39,6 +39,12 @@
     --pl-ground:#FDF1F4; --pl-surface:#FFF9FA; --pl-ink:#3A1430; --pl-ink-2:#6A3A5A; --pl-ink-3:#8E6080;
     --pl-body:#F49AB2; --pl-body-hi:#FBC9D6; --pl-face:#3A1430; --pl-blush:#E8668A;
     --pl-spark:#FFC94A; --pl-sweat:#6EC5F0; --pl-off:#C9B9C0;
+    /* Agent Pokemon's palette — a Pokemon Crystal / Violet City read: pale
+       crystal-blue paper, deep navy ink, with a badge-gold spark. Light card
+       like the other two, distinct hue so the three don't blur together. */
+    --ap-ground:#E9F1FB; --ap-surface:#FFFFFF; --ap-ink:#17284A; --ap-ink-2:#3D507A; --ap-ink-3:#7686A6;
+    --ap-accent:#2F6DB5; --ap-sky:#BFD9F2; --ap-grass:#7FC08A; --ap-grass-2:#5AA06B;
+    --ap-path:#E6D6A8; --ap-roof:#C65B6B; --ap-wall:#F4ECD8; --ap-gold:#F2B417; --ap-screen:#0E1B33;
     --featured-band:#141210; --featured-max:min(1560px, 100%);
     --bg:var(--paper); --text-body:var(--ink-body); --text-muted:var(--ink-muted);
     --font-sans:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
@@ -165,6 +171,12 @@
   .fcard--candice .btn-soft:hover { background:var(--candice-accent); border-color:var(--candice-accent); color:#fff; }
   .fcard--plasmie .btn-soft { background:var(--pl-ink); color:var(--pl-ground); border-color:var(--pl-ink); }
   .fcard--plasmie .btn-soft:hover { background:var(--pl-blush); border-color:var(--pl-blush); color:#fff; }
+  .fcard--agentpkmn { --card-bg:var(--ap-ground); --card-accent:var(--ap-accent);
+                      --card-ink:var(--ap-ink); --card-body:var(--ap-ink-2); --card-muted:var(--ap-ink-3); }
+  .fcard--agentpkmn .btn-soft { background:var(--ap-ink); color:var(--ap-ground); border-color:var(--ap-ink); }
+  .fcard--agentpkmn .btn-soft:hover { background:var(--ap-accent); border-color:var(--ap-accent); color:#fff; }
+  /* a quiet non-affiliation line, mirroring the repo's own disclaimer */
+  .fcard .fcard-note { font-size:12px; line-height:1.45; color:var(--card-muted); max-width:52ch; margin:-10px 0 0; }
   /* Nothing to click yet, so it must not behave like something that is. */
   .btn.is-soon { cursor:default; opacity:.72; }
   .fcard--plasmie .btn-soft.is-soon:hover { background:var(--pl-ink); border-color:var(--pl-ink); color:var(--pl-ground); transform:none; box-shadow:none; }
@@ -186,6 +198,19 @@
                   --surface:var(--pl-surface); --body:var(--pl-body); --body-hi:var(--pl-body-hi);
                   --face:var(--pl-face); --blush:var(--pl-blush); --spark:var(--pl-spark);
                   --sweat:var(--pl-sweat); --off:var(--pl-off); --ink-3:var(--pl-ink-3); }
+
+  /* Agent Pokemon's art is an ORIGINAL top-down RPG vignette drawn as pixels:
+     a handheld-style screen showing grass, a path, a little house and two round
+     agents, one of which has walked up with a "!". Deliberately generic shapes —
+     no Nintendo characters — so it reads as "your agents as a tile-world" without
+     borrowing any protected sprite. */
+  .ap-stage { width:100%; max-width:440px; margin-inline:auto; }
+  .ap-stage svg { width:100%; height:auto; display:block; shape-rendering:crispEdges; }
+  @keyframes ap-bob { 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-2px);} }
+  @keyframes ap-blink { 0%,92%,100%{ opacity:1;} 96%{ opacity:0;} }
+  .ap-stage .ap-bang { transform-box:fill-box; transform-origin:center; animation:ap-bob 1.1s steps(2) infinite; }
+  .ap-stage .ap-walker { transform-box:fill-box; transform-origin:center; animation:ap-bob 1.6s steps(2) infinite; }
+  @media (prefers-reduced-motion: reduce) { .ap-stage .ap-bang, .ap-stage .ap-walker { animation:none; } }
 
   .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
             clip:rect(0 0 0 0); white-space:nowrap; border:0; }
@@ -331,7 +356,7 @@
   <section class="featured" id="building" aria-labelledby="featured-title">
     <div class="featured-head">
       <div>
-        <div class="featured-eyebrow" id="featured-title">Two I use every day</div>
+        <div class="featured-eyebrow" id="featured-title">Three I use every day</div>
       </div>
       <div class="featured-hint" aria-hidden="true">
         <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
@@ -366,12 +391,84 @@
             <div class="pl-stage" id="plasmie-stage"></div>
           </div>
         </article>
+
+        <article class="fcard fcard--agentpkmn" id="fcard-agentpkmn" aria-label="Agent Pokémon">
+          <div>
+            <h2>Agent Pokémon, your coding agents as a live game</h2>
+            <p>When you're running a dozen Claude Code sessions at once, the hard part is knowing which one needs you. Agent Pokémon turns each session into a character in a top-down RPG town, so you can see at a glance who's working, who's done, and who's walked up to you with a question. Every repo becomes its own creature that levels up and evolves off what your sessions actually did — commits, merges, green test runs.</p>
+            <a class="btn btn-soft" href="https://github.com/techykamatis/agent-pokemon" target="_blank" rel="noopener"><span>View source</span><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></a>
+            <p class="fcard-note">A non-commercial fan project inspired by the Pokémon games. Not affiliated with or endorsed by Nintendo, Game Freak, Creatures or The Pokémon Company.</p>
+          </div>
+          <div class="fcard-media">
+            <div class="ap-stage">
+              <svg viewBox="0 0 200 170" role="img" aria-label="A pixel-art top-down town: grass, a path and a little house, with two small agents — one has walked up with an exclamation mark.">
+                <!-- device -->
+                <rect x="4" y="4" width="192" height="162" rx="12" fill="var(--ap-screen,#0E1B33)"/>
+                <rect x="8" y="8" width="184" height="154" rx="9" fill="#1b2f52"/>
+                <circle cx="18" cy="18" r="3" fill="var(--ap-gold,#F2B417)"/>
+                <!-- screen -->
+                <rect x="12" y="26" width="176" height="128" fill="var(--ap-grass,#7FC08A)"/>
+                <!-- grass texture -->
+                <g fill="var(--ap-grass-2,#5AA06B)">
+                  <rect x="22" y="36" width="6" height="3"/><rect x="40" y="52" width="6" height="3"/>
+                  <rect x="30" y="118" width="6" height="3"/><rect x="164" y="128" width="6" height="3"/>
+                  <rect x="178" y="72" width="6" height="3"/><rect x="18" y="96" width="6" height="3"/>
+                  <rect x="150" y="60" width="6" height="3"/>
+                </g>
+                <!-- path -->
+                <rect x="12" y="96" width="176" height="26" fill="var(--ap-path,#E6D6A8)"/>
+                <rect x="12" y="96" width="176" height="3" fill="#d4c492"/>
+                <g fill="#f2e6c2"><rect x="30" y="106" width="8" height="6"/><rect x="128" y="106" width="8" height="6"/><rect x="158" y="106" width="8" height="6"/></g>
+                <!-- house, top-right -->
+                <g>
+                  <rect x="126" y="48" width="46" height="34" fill="var(--ap-wall,#F4ECD8)"/>
+                  <rect x="120" y="42" width="58" height="4" fill="var(--ap-roof,#C65B6B)"/>
+                  <rect x="124" y="38" width="50" height="4" fill="var(--ap-roof,#C65B6B)"/>
+                  <rect x="128" y="34" width="42" height="4" fill="var(--ap-roof,#C65B6B)"/>
+                  <rect x="132" y="56" width="8" height="8" fill="var(--ap-sky,#BFD9F2)"/>
+                  <rect x="160" y="56" width="8" height="8" fill="var(--ap-sky,#BFD9F2)"/>
+                  <rect x="144" y="70" width="12" height="12" fill="var(--ap-ink-2,#3D507A)"/>
+                </g>
+                <!-- worker agent (on grass) -->
+                <g>
+                  <rect x="50" y="60" width="6" height="8" fill="var(--ap-accent,#2F6DB5)"/>
+                  <rect x="64" y="60" width="6" height="8" fill="var(--ap-accent,#2F6DB5)"/>
+                  <rect x="48" y="66" width="24" height="20" fill="var(--ap-accent,#2F6DB5)"/>
+                  <rect x="52" y="74" width="16" height="10" fill="var(--ap-sky,#BFD9F2)"/>
+                  <rect x="54" y="70" width="3" height="3" fill="var(--ap-screen,#0E1B33)"/>
+                  <rect x="63" y="70" width="3" height="3" fill="var(--ap-screen,#0E1B33)"/>
+                  <rect x="50" y="86" width="6" height="4" fill="var(--ap-ink-2,#3D507A)"/>
+                  <rect x="64" y="86" width="6" height="4" fill="var(--ap-ink-2,#3D507A)"/>
+                </g>
+                <!-- walker agent (on path, needs you) -->
+                <g class="ap-walker">
+                  <rect x="90" y="98" width="6" height="8" fill="var(--ap-gold,#F2B417)"/>
+                  <rect x="104" y="98" width="6" height="8" fill="var(--ap-gold,#F2B417)"/>
+                  <rect x="88" y="104" width="24" height="20" fill="var(--ap-gold,#F2B417)"/>
+                  <rect x="92" y="112" width="16" height="10" fill="var(--ap-wall,#F4ECD8)"/>
+                  <rect x="94" y="108" width="3" height="3" fill="var(--ap-screen,#0E1B33)"/>
+                  <rect x="103" y="108" width="3" height="3" fill="var(--ap-screen,#0E1B33)"/>
+                  <rect x="90" y="124" width="6" height="4" fill="#b98a0c"/>
+                  <rect x="104" y="124" width="6" height="4" fill="#b98a0c"/>
+                </g>
+                <!-- speech bubble with ! -->
+                <g class="ap-bang">
+                  <rect x="100" y="78" width="26" height="20" rx="4" fill="#ffffff"/>
+                  <rect x="106" y="96" width="8" height="6" fill="#ffffff"/>
+                  <rect x="111" y="82" width="4" height="9" fill="var(--ap-roof,#C65B6B)"/>
+                  <rect x="111" y="93" width="4" height="3" fill="var(--ap-roof,#C65B6B)"/>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
 
     <div class="dots" role="tablist" aria-label="Choose a featured project">
       <button role="tab" aria-selected="true"  aria-controls="fcard-candice" data-i="0" style="--dot-on:var(--candice-accent)"><span class="sr-only">Candice</span></button>
       <button role="tab" aria-selected="false" aria-controls="fcard-plasmie" data-i="1" style="--dot-on:var(--pl-blush)"><span class="sr-only">Plasmie</span></button>
+      <button role="tab" aria-selected="false" aria-controls="fcard-agentpkmn" data-i="2" style="--dot-on:var(--ap-accent)"><span class="sr-only">Agent Pokémon</span></button>
     </div>
   </section>
 
