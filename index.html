@@ -141,7 +141,7 @@
      against the same gutter the rest of the page uses, so a swipe settles where
      the eye already expects a left edge. */
   .featured { background:var(--featured-band); color:var(--contrast-ink); padding:clamp(52px,8vw,92px) 0; }
-  .featured-head { max-width:var(--featured-max); margin:0 auto; padding:0 var(--gutter) clamp(20px,3vw,30px); display:flex; align-items:baseline; justify-content:space-between; gap:18px; flex-wrap:wrap; }
+  .featured-head { max-width:var(--featured-max); margin:0 auto; padding:0 var(--gutter) clamp(20px,3vw,30px); display:flex; align-items:baseline; justify-content:flex-end; gap:18px; flex-wrap:wrap; }
   .featured-eyebrow { font-family:var(--font-mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--contrast-muted); }
   .featured-hint { font-size:13px; color:var(--contrast-muted); display:flex; align-items:center; gap:8px; }
   .featured-hint svg { opacity:.75; }
@@ -374,11 +374,8 @@
 
   <!-- CANDICE -->
   <!-- FEATURED CAROUSEL -->
-  <section class="featured" id="building" aria-labelledby="featured-title">
+  <section class="featured" id="building" aria-label="Three I use every day">
     <div class="featured-head">
-      <div>
-        <div class="featured-eyebrow" id="featured-title">Three I use every day</div>
-      </div>
       <div class="featured-hint" aria-hidden="true">
         <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
         <span>Swipe for more</span>
