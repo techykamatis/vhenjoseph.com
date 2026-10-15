@@ -210,6 +210,15 @@
   .fcard li::before { content:""; position:absolute; left:2px; top:.62em; width:7px; height:1.5px; background:var(--card-muted); }
   .fcard-media { width:100%; max-width:540px; justify-self:center; }
   .fcard-media img { width:100%; height:auto; display:block; }
+  /* A pretend tablet bezel — not a real device render, just enough frame
+     (edge, camera dot, screen inset) to read as "this is a screen" rather
+     than a loose image floating on the card. */
+  .ipad-frame { background:linear-gradient(165deg, #46474a, #1c1c1e); border-radius:clamp(18px,4vw,34px);
+                padding:clamp(9px,2.3vw,16px); box-shadow:0 30px 60px -28px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.08); }
+  .ipad-cam { width:100%; display:flex; justify-content:center; padding-bottom:clamp(6px,1.4vw,10px); }
+  .ipad-cam::before { content:""; width:5px; height:5px; border-radius:50%; background:#0a0a0b; box-shadow:inset 0 0 0 1px rgba(255,255,255,.1); }
+  .ipad-screen { border-radius:clamp(10px,2.6vw,20px); overflow:hidden; background:#000; line-height:0; }
+  .ipad-screen img { width:100%; height:auto; display:block; }
 
   /* Plasmie's mascot is drawn by the app's own renderer (see the script at the
      foot of this file): same shape data, same face spec, same animation. The
@@ -418,7 +427,12 @@
             <p class="fcard-note">A non-commercial fan project inspired by the Pokémon games. Not affiliated with or endorsed by Nintendo, Game Freak, Creatures or The Pokémon Company.</p>
           </div>
           <div class="fcard-media">
-            <img src="https://vhenjoseph.com/assets/pokemon-agents-demo.gif" width="640" alt="Pokémon Agents demo: Claude Code sessions as creatures around a top-down town, levelling up and evolving as the work lands, with one walking up to ask a question." loading="lazy">
+            <div class="ipad-frame">
+              <div class="ipad-cam"></div>
+              <div class="ipad-screen">
+                <img src="https://vhenjoseph.com/assets/pokemon-agents-demo.gif" width="640" alt="Pokémon Agents demo: Claude Code sessions as creatures around a top-down town, levelling up and evolving as the work lands, with one walking up to ask a question." loading="lazy">
+              </div>
+            </div>
           </div>
         </article>
       </div>
