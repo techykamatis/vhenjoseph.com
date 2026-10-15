@@ -162,6 +162,27 @@
            background:var(--card-bg); border-radius:24px; padding:clamp(26px,3.6vw,50px);
            display:grid; grid-template-columns:1.08fr .92fr; gap:clamp(22px,4vw,52px);
            align-items:center; scroll-margin-left:var(--gutter); }
+  /* Past featured-max's own cap (1560px) the rail stops growing with the
+     window, so the shoulder sliver that hints "swipe for more" on a normal
+     screen instead sits stranded next to a slab of dead gutter — a card
+     visibly cut off mid-word for no reason a wide-screen visitor can read.
+     The dots and "Swipe for more" label already carry that hint, so past
+     this width the shoulder isn't needed: each card fills the rail clean. */
+  @media (min-width: 1561px) {
+    .fcard { flex-basis: 100%; }
+    /* flex items keep flowing past the rail's own content edge regardless of
+       its padding — padding isn't a wall. With the 24px gap smaller than the
+       rail's 64px side padding, the next card's left edge still landed
+       inside that padding band: a flat sliver of its background color with
+       no text, since the text itself was past the clip. Matching the gap to
+       --gutter (the same value the padding already clamps to at this width)
+       pushes that edge out past the clip instead. */
+    .rail { gap: var(--gutter); }
+    /* Belt and suspenders: the dots already drive navigation via
+       rail.scrollTo (a programmatic call, unaffected by hidden), so nothing
+       here depends on the rail staying scrollable by hand at this width. */
+    .rail-wrap { overflow: hidden; }
+  }
   .fcard--candice { --card-bg:var(--candice-bg); --card-accent:var(--candice-accent);
                     --card-ink:var(--candice-ink); --card-body:var(--candice-body); --card-muted:var(--candice-muted); }
   .fcard--plasmie { --card-bg:var(--pl-ground); --card-accent:var(--pl-blush);
