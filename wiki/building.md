@@ -42,6 +42,17 @@ own mistakes into standing rules she carries forward.
 Personal craft, turned into shared infrastructure at YTL AI Labs — the agent layer and
 tooling I use every day, packaged up so the people I work with can use it too.
 
+## Pokémon Agents — coding agents as a live game
+
+Pokémon Agents adds fun while you develop by turning your Claude Code sessions into
+random Pokémon. Instead of monitoring a list of terminal windows, you can see at a
+glance which agents are working, which are done, and which ones have questions for
+you. Each repository/session/project is represented as a Pokémon that levels up and
+evolves based on your actual development activity, such as commits, merges, and
+successful test runs. Watch out for badges and legendaries! A non-commercial fan
+project — not affiliated with or endorsed by Nintendo, Game Freak, Creatures or The
+Pokémon Company. Source: https://github.com/techykamatis/pokemon-agents
+
 ## Related
 
 * [What I Reach For](stack.md) - The tools underneath all of this.
