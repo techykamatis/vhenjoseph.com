@@ -151,7 +151,13 @@
      third of a wide window empty. The paragraph keeps its own 56ch cap, so
      lines stay readable while the card itself fills the space. */
   .rail-wrap { max-width:var(--featured-max); margin:0 auto; }
-  .rail { display:flex; gap:clamp(14px,2vw,24px); overflow-x:auto; scroll-snap-type:x mandatory;
+  /* Cards are viewed one at a time via scroll-snap, not side by side as equal-height
+     columns — so flex's default align-items:stretch was forcing every card to match
+     the tallest one (Pokémon Agents, with its device frame and longer copy). A shorter
+     card's own grid rows then absorbed that slack via align-content:stretch, shoving
+     its image away from both its heading and the top of the card. align-items:start
+     lets each card hug its own content instead. */
+  .rail { display:flex; align-items:flex-start; gap:clamp(14px,2vw,24px); overflow-x:auto; scroll-snap-type:x mandatory;
           scroll-padding-inline:var(--gutter); padding:2px var(--gutter) 4px;
           scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch; }
   .rail::-webkit-scrollbar { display:none; }
@@ -256,7 +262,7 @@
   }
   @media (max-width: 820px) {
     .fcard { grid-template-columns:1fr; gap:clamp(18px,4vw,28px); }
-    .fcard-media { max-width:260px; order:-1; justify-self:start; }
+    .fcard-media { order:-1; }
     .fcard h2 { max-width:none; }
   }
 
@@ -402,7 +408,7 @@
           <div class="fcard-media">
             <picture>
               <source srcset="assets/candice-hello.webp" type="image/webp" />
-              <img src="assets/candice-hello.jpg" width="1076" height="936" loading="lazy" decoding="async"
+              <img src="assets/candice-hello.jpg" width="1016" height="777" loading="lazy" decoding="async"
                    alt="Watercolour of Candice as an orange octopus saying Hello, her arms reaching out to a chip, a wrench, a cloud, a dish and a magnifier" />
             </picture>
           </div>
