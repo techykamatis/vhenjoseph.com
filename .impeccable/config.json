@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "layout-transition",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-15T00:00:00.000Z",
+        "reason": "Two intentional, user-confirmed exceptions: (1) .dots button width animation drives the pill-shaped active indicator on a 9px dot — transform:scaleX would distort the border-radius; (2) .tl-fill height animation is the timeline scroll-progress rail, a 2px-wide element where growing height is the literal effect wanted. Both are tiny elements with negligible layout cost."
+      }
+    ]
+  }
+}
