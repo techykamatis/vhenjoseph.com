@@ -31,7 +31,7 @@ JSONLD = '''<script type="application/ld+json">
   "name": "Vhen Joseph",
   "jobTitle": "AI Product Engineer Lead",
   "url": "https://vhenjoseph.com/",
-  "email": "vhenjoseph@gmail.com",
+  "email": "hello@vhenjoseph.com",
   "address": {"@type": "PostalAddress", "addressLocality": "Kuala Lumpur", "addressCountry": "MY"},
   "sameAs": [
     "https://linkedin.com/in/vhenjoseph",
@@ -161,7 +161,7 @@ def render(md_path):
 </main>
 <footer><div class="wrap">
   <strong>Vhen Joseph</strong> — AI Product Engineer Lead, Kuala Lumpur<br>
-  <a href="mailto:vhenjoseph@gmail.com">vhenjoseph@gmail.com</a> ·
+  <a href="mailto:hello@vhenjoseph.com">hello@vhenjoseph.com</a> ·
   <a href="https://linkedin.com/in/vhenjoseph">LinkedIn</a> ·
   <a href="https://github.com/techykamatis">GitHub</a> ·
   <a href="{BASE}">Main site</a><br>

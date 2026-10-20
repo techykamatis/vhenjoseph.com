@@ -12,7 +12,7 @@
 - [Say Hi](contact.md): Contact links.
 
 ## Contact
-- Email: vhenjoseph@gmail.com
+- Email: hello@vhenjoseph.com
 - LinkedIn: https://linkedin.com/in/vhenjoseph
 - GitHub: https://github.com/techykamatis
 - Candice: https://candiceai.vhenjoseph.com/
