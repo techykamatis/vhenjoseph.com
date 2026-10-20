@@ -418,7 +418,7 @@
           <div>
             <h2>Plasmie, private on-device work memory</h2>
             <p>Plasmie is my private work memory: a local pipeline that captures the day's work, condenses it on Apple's on-device foundation model, and files what turns out to matter. It holds back anything it isn't confident about instead of guessing, and waits when the machine is busy. Nothing ever leaves the laptop.</p>
-            <span class="btn btn-soft is-soon" aria-disabled="true"><span>Coming soon</span></span>
+            <a class="btn btn-soft" href="https://plasmie.com" target="_blank" rel="noopener"><span>Visit site</span><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></a>
           </div>
           <div class="fcard-media">
             <div class="pl-stage" id="plasmie-stage"></div>
@@ -749,7 +749,7 @@
 </script>
 <script>
 /* Plasmie, drawn by the app's own code.
-   curve/lerp/bbox/el/makeKloop/drawFace/drawProps/life/shape/morph are ported
+   curve/lerp/bbox/el/makePlasmie/drawFace/drawProps/life/shape/morph are ported
    verbatim from the app's brand sheet, and the shape data and face spec are its
    own files — so this is the real character and the real animation rather than
    a drawing of it. The only thing added here is the driver: which status to
@@ -783,7 +783,7 @@
   function el(tag,attrs,parent){var e=document.createElementNS(NS,tag);
     for(var k in attrs)e.setAttribute(k,attrs[k]); if(parent)parent.appendChild(e); return e;}
 
-  function makeKloop(svg){
+  function makePlasmie(svg){
     svg.setAttribute("viewBox","-6 -14 112 120");
     var g=el("g",{},svg), id="clip"+Math.random().toString(36).slice(2,8);
     var defs=el("defs",{},svg), cp=el("clipPath",{id:id},defs), clip=el("path",{},cp);
@@ -836,7 +836,7 @@
         el("path",{d:"M"+(cx-5)+","+(y+5)+" H"+(cx+5)+" M"+(cx-5)+","+(y+9)+" H"+(cx+2),stroke:"var(--face)","stroke-width":1.6,"stroke-linecap":"round"},L.prop); break;}
       case "spark": {var s2=1+0.25*Math.sin(T*7.5),x=cx+b.w*0.36,y=b.y-6;
         el("path",{d:"M"+x+","+(y-7*s2)+" L"+(x+2*s2)+","+(y-2*s2)+" L"+(x+7*s2)+","+y+" L"+(x+2*s2)+","+(y+2*s2)+" L"+x+","+(y+7*s2)+" L"+(x-2*s2)+","+(y+2*s2)+" L"+(x-7*s2)+","+y+" L"+(x-2*s2)+","+(y-2*s2)+"Z",fill:"var(--spark)",stroke:"var(--face)","stroke-width":1.2},L.prop); break;}
-      /* The reaction props, ported from the app's Kloop.swift. Unlike the
+      /* The reaction props, ported from the app's Plasmie.swift. Unlike the
          status props above these are not placed off the bounding box: each
          belongs to one fixed pose, so they keep the app's own coordinates --
          the bubble beside the raised hand, the mark on the brow, the hearts
@@ -915,7 +915,7 @@
      petting lingers 0.9s after you let go. Between reactions it just gets on
      with the pipeline. */
   var svg=el("svg",{"role":"img","aria-label":"Plasmie, a soft blob that changes shape as it works. Drag it to pet it."},host);
-  var L=makeKloop(svg);
+  var L=makePlasmie(svg);
   var TOUR=["idle","ingest","summarize","promote","ask","success"];
   var T={hi:1600, annoyed:2200, extend:1200, petLinger:900};
   var i=0, running=false, raf=0, lastStep=0, holdUntil=0, greeted=false;
