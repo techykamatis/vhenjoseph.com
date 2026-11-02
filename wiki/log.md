@@ -26,3 +26,8 @@
   "Coming soon" and nothing here explains the product in detail.
 * **Changed**: Apple's terminology corrected across the bundle — the framework is the
   "Foundation Models framework", the model is "the on-device foundation model".
+
+## 2026-11-02
+
+* **Removed**: the What I Reach For page and the home page's Tools section; links to it dropped from About, The Path Here, Candice, What I'm Building, the index and llms.txt.
+* **Updated**: [Candice](candice.md) and [What I'm Building](building.md) rewritten for Candice as the family's helper, a Mac app with personal data handled on-device.

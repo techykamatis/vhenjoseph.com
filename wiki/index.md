@@ -18,7 +18,6 @@ Knowledge Format (OKF v0.1) so both people and AI agents can read it cleanly.
 * [What I'm Building](building.md) - The projects, and why they exist.
 * [Candice](candice.md) - Your family's helper: a Mac app with privacy built in.
 * [The Path Here](path.md) - Fourteen years, role by role.
-* [What I Reach For](stack.md) - The tools and craft underneath the work.
 * [Say Hi](contact.md) - How to get in touch.
 
 ## At a glance

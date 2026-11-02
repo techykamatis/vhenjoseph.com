@@ -44,4 +44,3 @@ Meet Candice at [candiceai.vhenjoseph.com](https://candiceai.vhenjoseph.com/).
 ## Related
 
 * [What I'm Building](building.md) - The rest of the workshop.
-* [What I Reach For](stack.md) - The tools behind Candice.

@@ -20,7 +20,6 @@ NAV = [
     ("building.html", "Building"),
     ("candice.html", "Candice"),
     ("path.html", "Path"),
-    ("stack.html", "Stack"),
     ("contact.html", "Contact"),
 ]
 

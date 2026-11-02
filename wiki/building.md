@@ -52,5 +52,4 @@ Pokémon Company. Source: https://github.com/techykamatis/pokemon-agents
 
 ## Related
 
-* [What I Reach For](stack.md) - The tools underneath all of this.
 * [The Path Here](path.md) - The experience it's built on.

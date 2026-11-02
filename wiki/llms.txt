@@ -8,7 +8,6 @@
 - [What I'm Building](building.md): Candice, a self-maintaining knowledge vault, shared tooling, and Pokémon Agents, a game-ified Claude Code session monitor.
 - [Candice](candice.md): Your family's helper. A Mac app the household texts in iMessage; Apple's on-device model hides personal details on the Mac before anything goes to Claude.
 - [The Path Here](path.md): Career from J2EE to AI product engineering.
-- [What I Reach For](stack.md): Tools, focus areas, engineering foundations.
 - [Say Hi](contact.md): Contact links.
 
 ## Contact
