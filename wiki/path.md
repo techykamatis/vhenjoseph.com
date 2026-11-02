@@ -9,7 +9,7 @@ timestamp: 2026-07-19T00:00:00Z
 # The Path Here
 
 Fourteen years shipping production software. Throughout, I've been the lead who still
-writes code — never the manager watching from a distance.
+writes code; it helps me make better technical decisions.
 
 ## Now — AI Product Engineer Lead, YTL AI Labs
 

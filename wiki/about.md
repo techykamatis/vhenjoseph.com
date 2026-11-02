@@ -9,8 +9,8 @@ timestamp: 2026-07-19T00:00:00Z
 # About
 
 I'm Vhen — an AI Product Engineer Lead based in Kuala Lumpur. Fourteen years shipping
-production software, and I've always been the lead who still writes code, never the
-manager watching from a distance.
+production software, and I've always been the lead who still writes code; it helps me
+make better technical decisions.
 
 Right now everyone in my field is asking the same question: will the machines replace
 the engineers? I think that's the wrong question. The agent can write the code now —
