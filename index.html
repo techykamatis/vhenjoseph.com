@@ -23,7 +23,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231A1A1A'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='600' fill='%23F5F3EF' text-anchor='middle'%3Ev%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Baloo+2:wght@800&family=Young+Serif&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Baloo+2:wght@800&family=Young+Serif&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet" />
 <style>
   :root {
     --paper:#F5F3EF; --surface:#FFFFFF; --wash:#EFEBE4;
@@ -208,6 +208,9 @@
   .fcard--plasmie .btn-soft:hover { background:var(--pl-blush); border-color:var(--pl-blush); color:#fff; }
   .fcard--agentpkmn { --card-bg:var(--ap-ground); --card-accent:var(--ap-accent);
                       --card-ink:var(--ap-ink); --card-body:var(--ap-ink-2); --card-muted:var(--ap-ink-3); }
+  /* Type from pokemonagents.dev: Press Start 2P headings, Hanken Grotesk text. */
+  .fcard.fcard--agentpkmn h2 { font-family:'Press Start 2P', ui-monospace, monospace; font-weight:400; font-size:clamp(18px,2.4vw,28px); line-height:1.5; letter-spacing:0; }
+  .fcard--agentpkmn p, .fcard--agentpkmn .btn-soft { font-family:'Hanken Grotesk', system-ui, -apple-system, sans-serif; }
   .fcard--agentpkmn .btn-soft { background:var(--ap-ink); color:var(--ap-ground); border-color:var(--ap-ink); }
   .fcard--agentpkmn .btn-soft:hover { background:var(--ap-accent); border-color:var(--ap-accent); color:#fff; }
   /* a quiet non-affiliation line, mirroring the repo's own disclaimer */
