@@ -230,9 +230,9 @@
   .fcard-media img { width:100%; height:auto; display:block; }
   /* Candice's octopus: says hello once, then idles (the same clips as candiceai.vhenjoseph.com).
      Image and videos share one fixed grid cell so Safari sizes them identically. */
-  .cand-anim { display:grid; grid-template-columns:minmax(0,1fr); }
-  .cand-anim img, .cand-anim video { grid-area:1 / 1; width:100%; height:auto; display:block; justify-self:stretch; }
-  .cand-anim video { aspect-ratio:880/630; background:var(--candice-bg); opacity:0; }
+  .cand-anim { position:relative; width:100%; aspect-ratio:880/630; }
+  .fcard-media .cand-anim img, .cand-anim video { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; display:block; margin:0; }
+  .cand-anim video { background:var(--candice-bg); opacity:0; }
   .cand-anim video.on { opacity:1; }
   .cand-anim video.fade { transition:opacity .18s linear; }
   .cand-anim video.intro { transition:opacity .3s ease; }
