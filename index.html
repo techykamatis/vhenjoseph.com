@@ -23,17 +23,18 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231A1A1A'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='600' fill='%23F5F3EF' text-anchor='middle'%3Ev%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Young+Serif&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 <style>
   :root {
     --paper:#F5F3EF; --surface:#FFFFFF; --wash:#EFEBE4;
     --ink:#1A1A1A; --ink-body:#3A3630; --ink-muted:#8B8378;
     --line:rgba(26,26,26,.14); --line-2:rgba(26,26,26,.07);
     --contrast-bg:#1A1A1A; --contrast-ink:#F5F3EF; --contrast-body:#CFC7BA; --contrast-muted:#8B8378; --contrast-line:rgba(245,243,239,.16);
-    /* Candice's palette is sampled from her hero painting so the card and the
-       artwork are one surface: #FBF7EC is the paper the octopus is painted on. */
-    --candice-bg:#FBF7EC; --candice-accent:#4E7183;
-    --candice-ink:#1B1712; --candice-body:#4A423A; --candice-muted:#8A7F70;
+    /* Candice's palette and type come from candiceai.vhenjoseph.com: warm paper,
+       the octopus's outline ink, its orange, set in Comfortaa. */
+    --candice-bg:#FBF7EC; --candice-accent:#ED6E19;
+    --candice-ink:#231A12; --candice-body:#4D4234; --candice-muted:#766A58;
+    --candice-font:'Comfortaa', system-ui, -apple-system, sans-serif;
     /* Plasmie's own palette, lifted from its brand sheet — this is the app's
        LIGHT theme verbatim, so the card looks like the product does. */
     --pl-ground:#FDF1F4; --pl-surface:#FFF9FA; --pl-ink:#3A1430; --pl-ink-2:#6A3A5A; --pl-ink-3:#8E6080;
@@ -194,6 +195,8 @@
   .fcard--plasmie { --card-bg:var(--pl-ground); --card-accent:var(--pl-blush);
                     --card-ink:var(--pl-ink); --card-body:var(--pl-ink-2); --card-muted:var(--pl-ink-3); }
   /* The pill is built for a light page, so on these light cards it needs to flip. */
+  .fcard--candice, .fcard--candice h2, .fcard--candice p, .fcard--candice .btn-soft { font-family:var(--candice-font); }
+  .fcard.fcard--candice h2 { font-family:var(--candice-font); font-weight:700; letter-spacing:-.01em; }
   .fcard--candice .btn-soft { background:var(--candice-ink); color:var(--candice-bg); border-color:var(--candice-ink); }
   .fcard--candice .btn-soft:hover { background:var(--candice-accent); border-color:var(--candice-accent); color:#fff; }
   .fcard--plasmie .btn-soft { background:var(--pl-ink); color:var(--pl-ground); border-color:var(--pl-ink); }
@@ -400,16 +403,13 @@
       <div class="rail" id="featured-rail" tabindex="0" role="group" aria-label="Featured projects, scrollable">
         <article class="fcard fcard--candice" id="fcard-candice" aria-label="Candice">
           <div>
-            <h2>Candice, personal family's assistant</h2>
-            <p>Candice is our private family AI: a practical multi-agent system running locally that uses tools, remembers information long-term, and reasons through complex tasks. This page was built with Candice.</p>
+            <h2>Candice, your family's helper</h2>
+            <p>Text Candice in iMessage. Candice remembers things for the family and answers questions. Apple's on-device model hides your names and numbers on the Mac before a question goes online.</p>
             <a class="btn btn-soft" href="https://candiceai.vhenjoseph.com/" target="_blank"><span class="live"></span><span>Meet Candice</span><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></a>
           </div>
           <div class="fcard-media">
-            <picture>
-              <source srcset="assets/candice-hello.webp" type="image/webp" />
-              <img src="assets/candice-hello.jpg" width="1016" height="777" loading="lazy" decoding="async"
-                   alt="Watercolour of Candice as an orange octopus saying Hello, her arms reaching out to a chip, a wrench, a cloud, a dish and a magnifier" />
-            </picture>
+            <img src="assets/candice-hello-wave.jpg" width="880" height="630" loading="lazy" decoding="async"
+                 alt="Candice, an orange octopus, waving hello" />
           </div>
         </article>
 
