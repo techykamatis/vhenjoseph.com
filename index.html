@@ -23,7 +23,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231A1A1A'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='600' fill='%23F5F3EF' text-anchor='middle'%3Ev%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Young+Serif&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Baloo+2:wght@800&family=Young+Serif&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 <style>
   :root {
     --paper:#F5F3EF; --surface:#FFFFFF; --wash:#EFEBE4;
@@ -40,6 +40,9 @@
     --pl-ground:#FDF1F4; --pl-surface:#FFF9FA; --pl-ink:#3A1430; --pl-ink-2:#6A3A5A; --pl-ink-3:#8E6080;
     --pl-body:#F49AB2; --pl-body-hi:#FBC9D6; --pl-face:#3A1430; --pl-blush:#E8668A;
     --pl-spark:#FFC94A; --pl-sweat:#6EC5F0; --pl-off:#C9B9C0;
+    /* and its type, as on plasmie.com: rounded Baloo 2 for the heading, Hanken Grotesk for text */
+    --pl-display:'Baloo 2','Arial Rounded MT Bold',ui-rounded,system-ui,sans-serif;
+    --pl-text:'Hanken Grotesk',ui-sans-serif,system-ui,sans-serif;
     /* Agent Pokemon's palette — a Pokemon Crystal / Violet City read: pale
        crystal-blue paper, deep navy ink, with a badge-gold spark. Light card
        like the other two, distinct hue so the three don't blur together. */
@@ -115,7 +118,7 @@
   .hero-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(24px,5vw,64px); align-items:center; padding:clamp(48px,9vh,104px) 0 clamp(28px,5vw,52px); }
   .hero h1 { font-family:var(--font-serif); font-size:var(--text-display); line-height:1.02; letter-spacing:-.015em; color:var(--ink); font-weight:400; margin:0; }
   .hero h1 .wave { font-weight:400; }
-  .hero-lead { margin-top:clamp(20px,3vw,30px); max-width:42ch; font-size:var(--text-lead); line-height:1.4; color:var(--text-body); letter-spacing:-.01em; }
+  .hero-lead { margin-top:clamp(20px,3vw,30px); max-width:none; font-size:var(--text-lead); line-height:1.4; color:var(--text-body); letter-spacing:-.01em; }
   .hero-cta { display:flex; flex-wrap:wrap; gap:12px; margin-top:clamp(24px,3vw,34px); }
   .hero-media { display:flex; justify-content:center; align-items:center; }
   .hero-media img { width:100%; max-width:480px; height:auto; }
@@ -127,7 +130,7 @@
   .shipped .orgs { display:flex; flex-wrap:wrap; gap:clamp(16px,3vw,36px); font-size:15px; font-weight:500; color:var(--text-body); }
 
   /* essay */
-  .essay { max-width:60ch; }
+  .essay { max-width:none; }
   .essay p { font-size:var(--text-essay); line-height:1.62; color:var(--text-body); margin-bottom:1.1em; }
   .essay .lead { color:var(--ink); font-size:var(--text-lead); line-height:1.32; font-weight:600; letter-spacing:-.025em; margin:.3em 0 .75em; }
   .essay strong { color:var(--ink); font-weight:600; }
@@ -197,6 +200,8 @@
   /* The pill is built for a light page, so on these light cards it needs to flip. */
   .fcard--candice, .fcard--candice h2, .fcard--candice p, .fcard--candice .btn-soft { font-family:var(--candice-font); }
   .fcard.fcard--candice h2 { font-family:var(--candice-font); font-weight:700; letter-spacing:-.01em; }
+  .fcard--plasmie, .fcard--plasmie p, .fcard--plasmie .btn-soft { font-family:var(--pl-text); }
+  .fcard.fcard--plasmie h2 { font-family:var(--pl-display); font-weight:800; line-height:1.02; letter-spacing:-.01em; }
   .fcard--candice .btn-soft { background:var(--candice-ink); color:var(--candice-bg); border-color:var(--candice-ink); }
   .fcard--candice .btn-soft:hover { background:var(--candice-accent); border-color:var(--candice-accent); color:#fff; }
   .fcard--plasmie .btn-soft { background:var(--pl-ink); color:var(--pl-ground); border-color:var(--pl-ink); }
@@ -206,15 +211,15 @@
   .fcard--agentpkmn .btn-soft { background:var(--ap-ink); color:var(--ap-ground); border-color:var(--ap-ink); }
   .fcard--agentpkmn .btn-soft:hover { background:var(--ap-accent); border-color:var(--ap-accent); color:#fff; }
   /* a quiet non-affiliation line, mirroring the repo's own disclaimer */
-  .fcard .fcard-note { font-size:12px; line-height:1.45; color:var(--card-muted); max-width:52ch; margin:16px 0 0; }
+  .fcard .fcard-note { font-size:12px; line-height:1.45; color:var(--card-muted); max-width:none; margin:16px 0 0; }
   /* Nothing to click yet, so it must not behave like something that is. */
   .btn.is-soon { cursor:default; opacity:.72; }
   .fcard--plasmie .btn-soft.is-soon:hover { background:var(--pl-ink); border-color:var(--pl-ink); color:var(--pl-ground); transform:none; box-shadow:none; }
   .fcard h2 { font-family:var(--font-serif); font-weight:400; color:var(--card-ink); font-size:clamp(28px,4.1vw,46px); line-height:1.07; letter-spacing:-.01em; margin:0 0 18px; max-width:16ch; }
-  .fcard p { font-size:clamp(16px,1.5vw,19px); line-height:1.6; color:var(--card-body); max-width:56ch; margin:0 0 20px; }
+  .fcard p { font-size:clamp(16px,1.5vw,19px); line-height:1.6; color:var(--card-body); max-width:none; margin:0 0 20px; }
   /* With no list between them, the paragraph sat too close to the button. */
   .fcard p:last-of-type { margin-bottom:28px; }
-  .fcard ul { list-style:none; display:grid; gap:11px; padding:0; margin:0 0 28px; max-width:56ch; }
+  .fcard ul { list-style:none; display:grid; gap:11px; padding:0; margin:0 0 28px; max-width:none; }
   .fcard li { position:relative; padding-left:20px; font-size:15px; line-height:1.5; color:var(--card-body); }
   .fcard li::before { content:""; position:absolute; left:2px; top:.62em; width:7px; height:1.5px; background:var(--card-muted); }
   .fcard-media { width:100%; justify-self:center; }
@@ -279,7 +284,7 @@
   }
 
   /* section head spacing */
-  .sec-lead { max-width:62ch; margin-bottom:clamp(36px,5vw,58px); }
+  .sec-lead { max-width:none; margin-bottom:clamp(36px,5vw,58px); }
   .sec-lead h2 { font-family:var(--font-serif); font-weight:400; font-size:var(--text-h2); line-height:1.05; letter-spacing:-.01em; color:var(--ink); margin:16px 0 0; }
   .sec-lead h2 em { color:var(--text-muted); font-style:italic; }
   .sec-lead .support { font-size:clamp(17px,1.4vw,19px); color:var(--text-body); line-height:1.62; margin-top:14px; }
@@ -314,7 +319,7 @@
   .footer-top img { flex:none; width:clamp(84px,10vw,116px); height:clamp(84px,10vw,116px); border-radius:50%; object-fit:cover; object-position:center 32%; box-shadow:0 0 0 1.5px var(--contrast-line), 0 0 0 6px rgba(245,243,239,.05), var(--shadow-avatar); }
   .footer .kick { font-family:var(--font-mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--contrast-muted); margin-bottom:11px; }
   .footer h2 { font-family:var(--font-serif); font-weight:400; color:var(--contrast-ink); font-size:clamp(30px,5.6vw,60px); line-height:1.06; letter-spacing:-.012em; max-width:18ch; margin:0; }
-  .footer .blurb { font-size:clamp(17px,1.6vw,20px); color:var(--contrast-body); max-width:52ch; margin:0 0 42px; line-height:1.6; }
+  .footer .blurb { font-size:clamp(17px,1.6vw,20px); color:var(--contrast-body); max-width:none; margin:0 0 42px; line-height:1.6; }
   .link-pills { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:54px; }
   .link-pill { display:inline-flex; align-items:center; gap:9px; font-family:var(--font-sans); font-size:16px; padding:12px 20px; border-radius:var(--radius-pill); border:1px solid var(--contrast-line); color:var(--contrast-ink); transition:background .2s var(--ease), color .2s var(--ease); }
   .link-pill svg { color:var(--contrast-muted); transition:color .2s var(--ease); }
@@ -428,7 +433,7 @@
 
         <article class="fcard fcard--plasmie" id="fcard-plasmie" aria-label="Plasmie">
           <div>
-            <h2>Plasmie, private on-device work memory</h2>
+            <h2>Plasmie, private <span style="white-space:nowrap">on-device</span> work memory</h2>
             <p>Plasmie is a free Mac app that keeps notes on your work day. Every hour it reads the apps you connect, then summarises and files decisions made and topics talked about using Apple's on-device model. When it isn't sure where something belongs, it asks you.</p>
             <a class="btn btn-soft" href="https://plasmie.com" target="_blank" rel="noopener"><span>Visit site</span><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></a>
           </div>
