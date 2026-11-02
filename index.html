@@ -219,6 +219,15 @@
   .fcard li::before { content:""; position:absolute; left:2px; top:.62em; width:7px; height:1.5px; background:var(--card-muted); }
   .fcard-media { width:100%; justify-self:center; }
   .fcard-media img { width:100%; height:auto; display:block; }
+  /* Candice's octopus: says hello once, then idles (the same clips as candiceai.vhenjoseph.com).
+     Image and videos share one fixed grid cell so Safari sizes them identically. */
+  .cand-anim { display:grid; grid-template-columns:minmax(0,1fr); }
+  .cand-anim img, .cand-anim video { grid-area:1 / 1; width:100%; height:auto; display:block; justify-self:stretch; }
+  .cand-anim video { aspect-ratio:880/630; background:var(--candice-bg); opacity:0; }
+  .cand-anim video.on { opacity:1; }
+  .cand-anim video.fade { transition:opacity .18s linear; }
+  .cand-anim video.intro { transition:opacity .3s ease; }
+  @media (prefers-reduced-motion: reduce) { .cand-anim video { display:none; } }
   /* A pretend tablet bezel — not a real device render, just enough frame
      (edge, camera dot, screen inset) to read as "this is a screen" rather
      than a loose image floating on the card. */
@@ -408,8 +417,12 @@
             <a class="btn btn-soft" href="https://candiceai.vhenjoseph.com/" target="_blank"><span class="live"></span><span>Meet Candice</span><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></a>
           </div>
           <div class="fcard-media">
-            <img src="assets/candice-hello-wave.jpg" width="880" height="630" loading="lazy" decoding="async"
-                 alt="Candice, an orange octopus, waving hello" />
+            <div class="cand-anim">
+              <img src="assets/candice-hello-wave.jpg" width="880" height="630" loading="lazy" decoding="async"
+                   alt="Candice, an orange octopus, waving hello" />
+              <video class="cand-clip" muted playsinline preload="none" aria-hidden="true" width="880" height="630"></video>
+              <video class="cand-clip" muted playsinline preload="none" aria-hidden="true" width="880" height="630"></video>
+            </div>
           </div>
         </article>
 
@@ -1000,6 +1013,52 @@
   host.addEventListener('pointerdown', function(){ if(fine) host.style.cursor='grabbing'; });
   host.addEventListener('pointerup',   function(){ if(fine) host.style.cursor='grab'; });
 })();
+</script>
+<script>
+  (()=>{
+    const fig=document.querySelector('.cand-anim'); if(!fig) return;
+    const vids=[...fig.querySelectorAll('.cand-clip')];
+    const calm=matchMedia('(prefers-reduced-motion: reduce)');
+    const ext=vids[0].canPlayType('video/webm; codecs="vp9"')?'webm':'mp4';
+    const idles=['watching','listening','working','replied','success','asleep'];
+    let cur=0, last='hello', started=false, inView=false, resting=false, timer=0;
+    const live=()=>inView&&!document.hidden&&!calm.matches;
+    const pick=()=>{const c=idles.filter(n=>n!==last); return c[Math.random()*c.length|0]};
+    const load=(v,n)=>{v.dataset.clip=n; v.preload='auto'; v.src=`assets/candice-hero-${n}.${ext}`};
+    const rest=()=>{resting=true; clearTimeout(timer); timer=live()?setTimeout(next,1000+Math.random()*2000):0};
+    function swap(fade){
+      const was=vids[cur], n=vids[1-cur]; cur=1-cur; last=n.dataset.clip;
+      n.style.zIndex=1; was.style.zIndex=0;
+      n.classList.toggle('fade',fade); n.classList.add('on');
+      const done=()=>{was.classList.remove('on','fade','intro'); load(was,pick())};
+      fade?setTimeout(done,200):done();
+    }
+    function next(){
+      timer=0; if(!live()) return;
+      const n=vids[1-cur];
+      if(n.error){load(n,pick()); rest(); return}
+      resting=false;
+      if(n.readyState>=2){swap(true); setTimeout(()=>{if(live()&&n===vids[cur]) n.play().catch(()=>{})},200)}
+      else{n.addEventListener('playing',()=>swap(false),{once:true}); n.play().catch(()=>{})}
+    }
+    function sync(){
+      if(!inView&&!started) return;
+      if(!started) start();
+      const v=vids[cur];
+      if(!live()){clearTimeout(timer); timer=0; v.pause(); return}
+      if(resting){if(!timer) rest()} else if(v.paused&&!v.ended) v.play().catch(()=>{});
+    }
+    function start(){
+      if(started||calm.matches) return;
+      started=true;
+      vids.forEach(v=>v.addEventListener('ended',()=>{if(v===vids[cur]) rest()}));
+      vids[0].addEventListener('playing',()=>vids[0].classList.add('on','intro'),{once:true});
+      load(vids[0],'hello'); load(vids[1],pick());
+    }
+    new IntersectionObserver(es=>{inView=es[es.length-1].isIntersecting; sync()},{threshold:.4}).observe(fig);
+    document.addEventListener('visibilitychange',sync);
+    calm.addEventListener('change',sync);
+  })();
 </script>
 </body>
 </html>
